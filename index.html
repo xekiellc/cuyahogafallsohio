@@ -1,1 +1,1086 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cuyahoga Falls, Ohio — The Unofficial Guide</title>
+  <meta name="description" content="Your complete guide to Cuyahoga Falls, Ohio. Trash schedules, local businesses, restaurants, schools, safety data, events, and everything newcomers and lifers need to know." />
 
+  <!-- OG / Social -->
+  <meta property="og:title" content="Cuyahoga Falls, Ohio — The Unofficial Guide" />
+  <meta property="og:description" content="Everything you need to know about living in Cuyahoga Falls, Ohio. Curated by locals, for locals." />
+  <meta property="og:image" content="https://cuyahogafallsohio.com/hero.jpg" />
+  <meta property="og:url" content="https://cuyahogafallsohio.com" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Cuyahoga Falls, Ohio — The Unofficial Guide" />
+  <meta name="twitter:description" content="Everything you need to know about living in Cuyahoga Falls, Ohio. Curated by locals, for locals." />
+  <meta name="twitter:image" content="https://cuyahogafallsohio.com/hero.jpg" />
+
+  <!-- GA4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-65RVLY6GWN"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-65RVLY6GWN');
+  </script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Sans+3:wght@400;500;600&family=Source+Serif+4:ital,wght@0,400;1,400&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ── TOKENS ─────────────────────────────────────────── */
+    :root {
+      --black:        #0A0A0A;
+      --black-mid:    #141414;
+      --black-soft:   #1E1E1E;
+      --black-card:   #242424;
+      --gold:         #C8952A;
+      --gold-light:   #F0C96A;
+      --gold-pale:    #FBE9B4;
+      --gold-dark:    #8A6318;
+      --white:        #FFFFFF;
+      --gray-1:       #2A2A2A;
+      --gray-2:       #3A3A3A;
+      --gray-3:       #888888;
+      --gray-4:       #BBBBBB;
+      --text:         #F0F0F0;
+      --text-light:   #BBBBBB;
+
+      --font-display: 'Playfair Display', Georgia, serif;
+      --font-body:    'Source Sans 3', system-ui, sans-serif;
+      --font-serif:   'Source Serif 4', Georgia, serif;
+
+      --radius:    8px;
+      --radius-lg: 16px;
+      --shadow:    0 2px 12px rgba(0,0,0,0.5);
+      --shadow-lg: 0 8px 32px rgba(0,0,0,0.7);
+      --gold-glow: 0 0 20px rgba(200,149,42,0.25);
+    }
+
+    /* ── RESET ──────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-body);
+      background: var(--black);
+      color: var(--text);
+      line-height: 1.6;
+      font-size: 16px;
+    }
+    img { max-width: 100%; display: block; }
+    a { color: var(--gold); text-decoration: none; }
+    a:hover { color: var(--gold-light); }
+
+    /* ── NAV ────────────────────────────────────────────── */
+    nav {
+      background: var(--black);
+      border-bottom: 1px solid var(--gold-dark);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.8);
+    }
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      display: flex;
+      align-items: center;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .nav-inner::-webkit-scrollbar { display: none; }
+    .nav-logo {
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: 1.1rem;
+      color: var(--gold);
+      white-space: nowrap;
+      padding: 0.85rem 1.25rem 0.85rem 0;
+      border-right: 1px solid var(--gray-2);
+      margin-right: 0.5rem;
+      flex-shrink: 0;
+      letter-spacing: 0.02em;
+    }
+    nav a {
+      color: var(--gray-4);
+      font-size: 0.74rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 0.85rem 0.7rem;
+      white-space: nowrap;
+      flex-shrink: 0;
+      transition: color 0.15s;
+    }
+    nav a:hover { color: var(--gold); }
+
+    /* ── HERO ───────────────────────────────────────────── */
+    .hero {
+      background: var(--black);
+      color: var(--white);
+      text-align: center;
+      padding: 4.5rem 1.5rem 4rem;
+      position: relative;
+      overflow: hidden;
+      border-bottom: 1px solid var(--gold-dark);
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 0%, rgba(200,149,42,0.12) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    }
+    .hero-logo {
+      width: 210px;
+      height: 210px;
+      object-fit: cover;
+      border-radius: 50%;
+      margin: 0 auto 1.75rem;
+      border: 3px solid var(--gold);
+      box-shadow: 0 0 50px rgba(200,149,42,0.35), 0 0 100px rgba(200,149,42,0.1);
+    }
+    .hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2.4rem, 6vw, 4rem);
+      font-weight: 900;
+      line-height: 1.08;
+      margin-bottom: 0.75rem;
+      color: var(--white);
+      letter-spacing: -0.01em;
+    }
+    .hero h1 span { color: var(--gold); }
+    .hero-sub {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: clamp(1rem, 2.5vw, 1.2rem);
+      color: var(--gray-4);
+      max-width: 560px;
+      margin: 0 auto 2rem;
+    }
+    .hero-badges {
+      display: flex;
+      justify-content: center;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+    }
+    .hero-badge {
+      background: rgba(200,149,42,0.12);
+      border: 1px solid rgba(200,149,42,0.4);
+      color: var(--gold-light);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 0.35rem 0.9rem;
+      border-radius: 100px;
+    }
+
+    /* ── LAYOUT ─────────────────────────────────────────── */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+    .section {
+      padding: 3.5rem 0;
+      border-bottom: 1px solid var(--gray-1);
+    }
+    .section-alt { background: var(--black-mid); }
+    .section-header { margin-bottom: 2rem; }
+    .section-eyebrow {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.4rem;
+    }
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.6rem, 4vw, 2.4rem);
+      font-weight: 700;
+      line-height: 1.15;
+      color: var(--white);
+    }
+    .section-desc {
+      margin-top: 0.5rem;
+      color: var(--text-light);
+      max-width: 640px;
+      font-size: 0.97rem;
+    }
+
+    /* ── GRIDS ──────────────────────────────────────────── */
+    .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.1rem; }
+    .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.1rem; }
+    .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 1rem; }
+
+    /* ── BASE CARD ──────────────────────────────────────── */
+    .card {
+      background: var(--black-card);
+      border: 1px solid var(--gray-2);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+      box-shadow: var(--shadow);
+      transition: box-shadow 0.2s, border-color 0.2s, transform 0.2s;
+    }
+    .card:hover { box-shadow: var(--shadow-lg), var(--gold-glow); border-color: var(--gold-dark); transform: translateY(-2px); }
+    .card-icon { font-size: 2rem; margin-bottom: 0.75rem; display: block; }
+    .card h3 { font-family: var(--font-display); font-size: 1.15rem; font-weight: 700; color: var(--white); margin-bottom: 0.4rem; }
+    .card p { font-size: 0.9rem; color: var(--text-light); line-height: 1.55; }
+    .card-link { display: inline-block; margin-top: 0.75rem; font-size: 0.82rem; font-weight: 600; color: var(--gold); letter-spacing: 0.02em; }
+    .card-link:hover { color: var(--gold-light); }
+
+    /* ── FALLS APPROVED BADGE ───────────────────────────── */
+    .falls-approved {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      background: linear-gradient(135deg, var(--gold-dark) 0%, var(--gold) 100%);
+      color: var(--black);
+      font-size: 0.62rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.22rem 0.6rem;
+      border-radius: 100px;
+      margin-bottom: 0.5rem;
+    }
+
+    /* ── BUSINESS CARDS ─────────────────────────────────── */
+    .biz-card {
+      background: var(--black-card);
+      border: 1px solid var(--gray-2);
+      border-radius: var(--radius);
+      padding: 1.25rem;
+      box-shadow: var(--shadow);
+      transition: box-shadow 0.2s, border-color 0.2s, transform 0.2s;
+    }
+    .biz-card:hover { box-shadow: var(--shadow-lg), var(--gold-glow); border-color: var(--gold-dark); transform: translateY(-2px); }
+    .biz-card h4 { font-family: var(--font-display); font-size: 1.05rem; font-weight: 700; color: var(--white); margin-bottom: 0.2rem; }
+    .biz-tag { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--gold); opacity: 0.75; }
+    .biz-desc { font-size: 0.88rem; color: var(--text-light); margin-top: 0.4rem; line-height: 1.5; }
+
+    /* ── INFO BLOCKS ────────────────────────────────────── */
+    .info-block {
+      background: var(--black-card);
+      border-left: 3px solid var(--gold);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 1.25rem 1.5rem;
+      box-shadow: var(--shadow);
+      border-top: 1px solid var(--gray-2);
+      border-right: 1px solid var(--gray-2);
+      border-bottom: 1px solid var(--gray-2);
+    }
+    .info-block.dim { border-left-color: var(--gray-3); }
+    .info-block.green { border-left-color: #4A8C54; }
+    .info-block.red { border-left-color: #C0392B; }
+    .info-block h4 { font-family: var(--font-display); font-size: 1rem; font-weight: 700; color: var(--white); margin-bottom: 0.4rem; }
+    .info-block p, .info-block li { font-size: 0.9rem; color: var(--text-light); line-height: 1.6; }
+    .info-block ul { padding-left: 1.1rem; }
+    .info-block li { margin-bottom: 0.25rem; }
+
+    /* ── TRASH TABLE ────────────────────────────────────── */
+    .trash-table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+    .trash-table th { background: var(--black-soft); color: var(--gold); padding: 0.65rem 1rem; text-align: left; font-weight: 700; font-size: 0.75rem; letter-spacing: 0.06em; text-transform: uppercase; border-bottom: 2px solid var(--gold-dark); }
+    .trash-table td { padding: 0.65rem 1rem; border-bottom: 1px solid var(--gray-1); color: var(--text-light); }
+    .trash-table tr:hover td { background: var(--gray-1); color: var(--text); }
+
+    /* ── SCHOOL CARDS ───────────────────────────────────── */
+    .school-card { background: var(--black-card); border: 1px solid var(--gray-2); border-radius: var(--radius); padding: 1.25rem; box-shadow: var(--shadow); }
+    .school-level { font-size: 0.66rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); opacity: 0.8; margin-bottom: 0.3rem; }
+    .school-card h4 { font-family: var(--font-display); font-size: 1rem; font-weight: 700; color: var(--white); margin-bottom: 0.25rem; }
+    .school-card p { font-size: 0.85rem; color: var(--text-light); }
+
+    /* ── EMBED WRAPPERS ─────────────────────────────────── */
+    .embed-wrap { background: var(--black-card); border: 1px solid var(--gray-2); border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow); }
+    .embed-wrap iframe { width: 100%; border: none; display: block; }
+    .embed-label { background: var(--black-soft); border-top: 1px solid var(--gray-2); padding: 0.55rem 1rem; font-size: 0.73rem; color: var(--gray-3); }
+
+    /* ── WIDGET PLACEHOLDER ─────────────────────────────── */
+    .widget-wrap { background: var(--black-card); border: 1px solid var(--gray-2); border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow); min-height: 200px; display: flex; align-items: center; justify-content: center; }
+    .widget-placeholder { text-align: center; color: var(--gray-3); padding: 2rem; }
+    .widget-placeholder .ph-icon { font-size: 2.5rem; margin-bottom: 0.5rem; }
+    .widget-placeholder p { font-size: 0.85rem; }
+
+    /* ── SNOW EMERGENCY ─────────────────────────────────── */
+    .snow-levels { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; }
+    .snow-level { border-radius: var(--radius); padding: 1.25rem; color: var(--white); border: 1px solid rgba(255,255,255,0.1); }
+    .snow-level.l1 { background: #1A4A2A; border-color: #27AE60; }
+    .snow-level.l2 { background: #4A2A0A; border-color: #E67E22; }
+    .snow-level.l3 { background: #4A0A0A; border-color: #C0392B; }
+    .snow-level .lvl-num { font-family: var(--font-display); font-size: 2.2rem; font-weight: 900; line-height: 1; margin-bottom: 0.3rem; color: var(--gold-light); }
+    .snow-level h4 { font-size: 0.9rem; font-weight: 700; margin-bottom: 0.4rem; }
+    .snow-level p { font-size: 0.82rem; opacity: 0.85; line-height: 1.5; }
+
+    /* ── FAQ ────────────────────────────────────────────── */
+    .faq-item { background: var(--black-card); border: 1px solid var(--gray-2); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); transition: border-color 0.2s; }
+    .faq-item.open { border-color: var(--gold-dark); }
+    .faq-q { width: 100%; background: none; border: none; padding: 1.1rem 1.25rem; text-align: left; font-family: var(--font-display); font-size: 1rem; font-weight: 700; color: var(--white); cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
+    .faq-q:hover { background: var(--gray-1); }
+    .faq-icon { font-size: 1.3rem; flex-shrink: 0; color: var(--gold); transition: transform 0.2s; }
+    .faq-a { padding: 0.9rem 1.25rem 1.1rem; font-size: 0.92rem; color: var(--text-light); line-height: 1.65; display: none; border-top: 1px solid var(--gray-1); }
+    .faq-item.open .faq-a { display: block; }
+    .faq-item.open .faq-icon { transform: rotate(45deg); }
+
+    /* ── EVENTS ─────────────────────────────────────────── */
+    .event-card { background: var(--black-card); border: 1px solid var(--gray-2); border-radius: var(--radius); padding: 1.1rem 1.25rem; display: flex; gap: 1rem; align-items: flex-start; box-shadow: var(--shadow); transition: border-color 0.2s, box-shadow 0.2s; }
+    .event-card:hover { border-color: var(--gold-dark); box-shadow: var(--shadow-lg), var(--gold-glow); }
+    .event-date { background: var(--black-soft); border: 1px solid var(--gold-dark); border-radius: var(--radius); padding: 0.5rem 0.75rem; text-align: center; min-width: 58px; flex-shrink: 0; }
+    .event-date .month { font-size: 0.62rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold); }
+    .event-date .day { font-family: var(--font-display); font-size: 1.4rem; font-weight: 900; line-height: 1.1; color: var(--white); }
+    .event-info h4 { font-family: var(--font-display); font-size: 1rem; font-weight: 700; color: var(--white); margin-bottom: 0.2rem; }
+    .event-info p { font-size: 0.85rem; color: var(--text-light); }
+    .event-tag { display: inline-block; font-size: 0.63rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; background: rgba(200,149,42,0.15); color: var(--gold); border: 1px solid rgba(200,149,42,0.3); padding: 0.15rem 0.5rem; border-radius: 100px; margin-top: 0.35rem; }
+
+    /* ── REAL ESTATE STATS ──────────────────────────────── */
+    .re-stat { background: var(--black-card); border: 1px solid var(--gray-2); border-radius: var(--radius-lg); padding: 1.5rem; text-align: center; box-shadow: var(--shadow); }
+    .re-stat .stat-val { font-family: var(--font-display); font-size: 2rem; font-weight: 900; color: var(--gold); line-height: 1; margin-bottom: 0.35rem; }
+    .re-stat .stat-label { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--gray-3); }
+
+    /* ── PAID AD ─────────────────────────────────────────── */
+    .paid-ad { background: var(--black-soft); border: 1px solid var(--gold-dark); border-radius: var(--radius-lg); padding: 2rem; color: var(--white); position: relative; overflow: hidden; box-shadow: var(--gold-glow); }
+    .paid-ad::before { content: ''; position: absolute; top: -60px; right: -60px; width: 240px; height: 240px; background: radial-gradient(circle, rgba(200,149,42,0.12) 0%, transparent 70%); pointer-events: none; }
+    .paid-ad .ad-label { font-size: 0.63rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.5rem; opacity: 0.85; }
+    .paid-ad h3 { font-family: var(--font-display); font-size: 1.6rem; font-weight: 900; margin-bottom: 0.5rem; color: var(--white); }
+    .paid-ad p { font-size: 0.92rem; color: var(--gray-4); line-height: 1.65; margin-bottom: 0.4rem; }
+    .paid-ad .ad-cta { display: inline-block; margin-top: 0.9rem; background: var(--gold); color: var(--black); font-weight: 800; font-size: 0.88rem; padding: 0.6rem 1.4rem; border-radius: 100px; transition: background 0.2s; letter-spacing: 0.02em; }
+    .paid-ad .ad-cta:hover { background: var(--gold-light); color: var(--black); }
+
+    /* ── CHECKLIST ───────────────────────────────────────── */
+    .checklist { list-style: none; display: flex; flex-direction: column; gap: 0.55rem; }
+    .checklist li { display: flex; align-items: flex-start; gap: 0.75rem; font-size: 0.92rem; color: var(--text-light); background: var(--black-card); border: 1px solid var(--gray-2); border-radius: var(--radius); padding: 0.75rem 1rem; box-shadow: var(--shadow); }
+    .checklist li::before { content: '◻'; font-size: 1rem; color: var(--gold); flex-shrink: 0; margin-top: 0.08rem; }
+    .checklist li strong { color: var(--white); }
+
+    /* ── HOSPITAL CARDS ──────────────────────────────────── */
+    .hospital-card { background: var(--black-card); border: 1px solid var(--gray-2); border-top: 2px solid var(--gold-dark); border-radius: var(--radius); padding: 1.25rem; box-shadow: var(--shadow); }
+    .hospital-card h4 { font-family: var(--font-display); font-size: 1rem; font-weight: 700; color: var(--white); margin-bottom: 0.3rem; }
+    .hospital-card p { font-size: 0.85rem; color: var(--text-light); line-height: 1.55; }
+    .hospital-card .phone { display: inline-block; margin-top: 0.5rem; font-weight: 600; font-size: 0.88rem; color: var(--gold); }
+
+    /* ── SPORT CARDS ─────────────────────────────────────── */
+    .sport-card { background: var(--black-card); border: 1px solid var(--gray-2); border-radius: var(--radius); padding: 1.1rem 1.25rem; box-shadow: var(--shadow); display: flex; align-items: center; gap: 1rem; transition: border-color 0.2s; }
+    .sport-card:hover { border-color: var(--gold-dark); }
+    .sport-icon { font-size: 2rem; flex-shrink: 0; }
+    .sport-card h4 { font-family: var(--font-display); font-size: 0.98rem; font-weight: 700; color: var(--white); margin-bottom: 0.15rem; }
+    .sport-card p { font-size: 0.82rem; color: var(--text-light); }
+
+    /* ── GOLD DIVIDER ────────────────────────────────────── */
+    .gold-divider { height: 1px; background: linear-gradient(90deg, transparent, var(--gold-dark), transparent); margin: 1.5rem 0; }
+
+    /* ── SUB-EYEBROW ─────────────────────────────────────── */
+    .sub-eyebrow { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); opacity: 0.75; margin-bottom: 0.75rem; }
+
+    /* ── BUTTONS ─────────────────────────────────────────── */
+    .btn { display: inline-block; background: var(--gold); color: var(--black); font-weight: 800; font-size: 0.88rem; padding: 0.65rem 1.5rem; border-radius: 100px; transition: background 0.2s; letter-spacing: 0.02em; }
+    .btn:hover { background: var(--gold-light); color: var(--black); }
+
+    /* ── ADVERTISE BANNER ────────────────────────────────── */
+    .advertise-banner { background: var(--black-soft); border: 1px dashed var(--gold-dark); border-radius: var(--radius-lg); padding: 2.5rem; text-align: center; }
+    .advertise-banner h3 { font-family: var(--font-display); font-size: 1.4rem; color: var(--white); margin-bottom: 0.5rem; }
+    .advertise-banner p { font-size: 0.92rem; color: var(--text-light); margin-bottom: 1.25rem; }
+
+    /* ── FOOTER ──────────────────────────────────────────── */
+    footer { background: var(--black); border-top: 1px solid var(--gold-dark); color: var(--gray-3); text-align: center; padding: 2.5rem 1.5rem; font-size: 0.85rem; line-height: 1.7; }
+    footer strong { color: var(--gold); }
+    .footer-disclaimer { max-width: 600px; margin: 0.75rem auto 0; font-size: 0.76rem; opacity: 0.65; }
+
+    /* ── RESPONSIVE ──────────────────────────────────────── */
+    @media (max-width: 600px) {
+      .hero { padding: 3rem 1rem 2.5rem; }
+      .hero-logo { width: 160px; height: 160px; }
+      .section { padding: 2.5rem 0; }
+      nav a { font-size: 0.7rem; padding: 0.75rem 0.55rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══ NAV ══════════════════════════════════════════════ -->
+<nav>
+  <div class="nav-inner">
+    <div class="nav-logo">The Falls</div>
+    <a href="#weather">Weather</a>
+    <a href="#traffic">Traffic</a>
+    <a href="#safety">Safety</a>
+    <a href="#newcomer">New Resident</a>
+    <a href="#trash">Trash</a>
+    <a href="#schools">Schools</a>
+    <a href="#hospitals">Hospitals</a>
+    <a href="#restaurants">Eat &amp; Drink</a>
+    <a href="#services">Services</a>
+    <a href="#gyms">Gyms</a>
+    <a href="#explore">Explore</a>
+    <a href="#events">Events</a>
+    <a href="#sports">Sports</a>
+    <a href="#realestate">Real Estate</a>
+    <a href="#daytrips">Day Trips</a>
+    <a href="#faq">Ask a Local</a>
+  </div>
+</nav>
+
+<!-- ══ HERO ═════════════════════════════════════════════ -->
+<section class="hero">
+  <img src="hero.jpg" alt="Cuyahoga Falls" class="hero-logo" />
+  <h1>Welcome to <span>Cuyahoga Falls</span></h1>
+  <p class="hero-sub">The unofficial guide to living, eating, and thriving in the Falls — no politics, no spin, just the good stuff.</p>
+  <div class="hero-badges">
+    <span class="hero-badge">🏙️ Newcomer Resource</span>
+    <span class="hero-badge">🍺 Local Favorites</span>
+    <span class="hero-badge">📍 Northeast Ohio</span>
+    <span class="hero-badge">⭐ Falls Approved</span>
+  </div>
+</section>
+
+<!-- ══ WEATHER ══════════════════════════════════════════ -->
+<section class="section section-alt" id="weather">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-eyebrow">Live Conditions</div>
+      <h2 class="section-title">Weather in the Falls</h2>
+      <p class="section-desc">Northeast Ohio weather is its own beast. Check before you leave the house.</p>
+    </div>
+    <div class="widget-wrap" style="min-height:260px;">
+      <div class="widget-placeholder">
+        <div class="ph-icon">🌤</div>
+        <p>Paste your Tomorrow.io or Weather Underground embed code here.</p>
+      </div>
+    </div>
+    <div style="margin-top:1.25rem;" class="grid-2">
+      <div class="info-block">
+        <h4>❄️ Lake Effect Snow</h4>
+        <p>CF sits in the snowbelt. Lake effect events can dump inches fast with little warning — especially November through February. Keep an eye on Summit County alerts.</p>
+      </div>
+      <div class="info-block">
+        <h4>🌪️ Tornado Season</h4>
+        <p>Spring through early summer brings tornado watches to northeast Ohio. Know your shelter plan. The city sounds sirens for watches and warnings.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ TRAFFIC & ROADS ══════════════════════════════════ -->
+<section class="section" id="traffic">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-eyebrow">Live Traffic &amp; Roads</div>
+      <h2 class="section-title">Roads &amp; Construction</h2>
+      <p class="section-desc">Real-time conditions on the highways connecting CF to Akron, Cleveland, and Youngstown.</p>
+    </div>
+    <div class="grid-2" style="margin-bottom:1.25rem;">
+      <div class="info-block">
+        <h4>🛣️ Your Key Corridors</h4>
+        <ul>
+          <li><strong style="color:var(--white);">Route 8</strong> — CF's main spine, perpetually under construction</li>
+          <li><strong style="color:var(--white);">I-77</strong> — Akron to Cleveland (30 min)</li>
+          <li><strong style="color:var(--white);">I-76</strong> — Akron to Youngstown (45 min)</li>
+          <li><strong style="color:var(--white);">I-271</strong> — Outer belt toward Cleveland</li>
+          <li><strong style="color:var(--white);">I-480</strong> — Connecting corridor</li>
+          <li><strong style="color:var(--white);">SR-91 / SR-59</strong> — Local CF arterials</li>
+        </ul>
+      </div>
+      <div class="info-block">
+        <h4>🚧 Construction &amp; Alerts</h4>
+        <p>OHGO is Ohio's official real-time traffic platform — construction zones, lane closures, accidents, and winter road conditions all in one place.</p>
+        <a class="card-link" href="https://ohgo.com" target="_blank" rel="noopener" style="margin-top:0.75rem; display:inline-block;">Open OHGO Live Map →</a>
+      </div>
+    </div>
+    <div class="embed-wrap" style="margin-bottom:1.25rem;">
+      <iframe src="https://ohgo.com/map" height="420" title="OHGO Live Traffic Map" loading="lazy"></iframe>
+      <div class="embed-label">📡 OHGO — Ohio Dept. of Transportation live traffic data</div>
+    </div>
+    <div class="section-eyebrow" style="margin-bottom:0.75rem;">⛽ Local Gas Prices</div>
+    <div class="widget-wrap" style="min-height:130px;">
+      <div class="widget-placeholder">
+        <p>Paste your GasBuddy embed code here for live CF area gas prices.</p>
+        <a href="https://www.gasbuddy.com/go/cuyahoga-falls-oh" target="_blank" rel="noopener" class="card-link" style="margin-top:0.5rem; display:inline-block;">View on GasBuddy →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ SAFETY ═══════════════════════════════════════════ -->
+<section class="section section-alt" id="safety">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-eyebrow">Public Safety Data</div>
+      <h2 class="section-title">Neighborhood Safety</h2>
+      <p class="section-desc">All data sourced from public records. Know your neighborhood before you move in.</p>
+    </div>
+    <div class="grid-2" style="margin-bottom:1.25rem;">
+      <div>
+        <div class="sub-eyebrow">📊 Crime &amp; Incident Map</div>
+        <div class="embed-wrap">
+          <iframe src="https://www.crimemapping.com/map/oh/cuyahogafalls" height="380" title="CF Crime Map" loading="lazy"></iframe>
+          <div class="embed-label">📡 CrimeMapping.com — CF Police Department public data</div>
+        </div>
+      </div>
+      <div>
+        <div class="sub-eyebrow">🗺️ Sex Offender Registry</div>
+        <div class="embed-wrap">
+          <iframe src="https://esorn.ag.state.oh.us/ESORN2/faces/Map.jspx" height="380" title="Ohio eSORN Map" loading="lazy"></iframe>
+          <div class="embed-label">📡 Ohio eSORN — Ohio Attorney General public registry</div>
+        </div>
+      </div>
+    </div>
+    <div class="grid-2" style="margin-bottom:1.75rem;">
+      <div class="info-block green">
+        <h4>🌊 FEMA Flood Zones</h4>
+        <p>CF has flood-prone areas near the Cuyahoga River. Check FEMA's flood map before purchasing a home — flood insurance requirements vary significantly by zone.</p>
+        <a class="card-link" href="https://msc.fema.gov/portal/home" target="_blank" rel="noopener" style="margin-top:0.6rem; display:inline-block;">FEMA Flood Map →</a>
+      </div>
+      <div class="info-block">
+        <h4>🚒 Fire Station Zones</h4>
+        <p>Cuyahoga Falls Fire Department operates multiple stations across the city. Response times vary by zone — ask your insurance agent about station proximity when buying a home.</p>
+        <a class="card-link" href="https://www.cityofcf.com/fire" target="_blank" rel="noopener" style="margin-top:0.6rem; display:inline-block;">CF Fire Department →</a>
+      </div>
+    </div>
+    <div class="sub-eyebrow">❄️ Summit County Snow Emergency Levels</div>
+    <p style="font-size:0.9rem; color:var(--text-light); margin-bottom:1rem;">Ohio uses a 3-level snow emergency system. New to Ohio? Understand this before your first winter.</p>
+    <div class="snow-levels">
+      <div class="snow-level l1"><div class="lvl-num">1</div><h4>Caution</h4><p>Roads are hazardous. Drive carefully. Unnecessary travel is discouraged.</p></div>
+      <div class="snow-level l2"><div class="lvl-num">2</div><h4>Emergency</h4><p>Roads are hazardous. Only necessary travel. Motorists urged to stay home.</p></div>
+      <div class="snow-level l3"><div class="lvl-num">3</div><h4>State of Emergency</h4><p>All travel banned except emergencies. Violators subject to arrest.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ NEW RESIDENT CHECKLIST ═══════════════════════════ -->
+<section class="section" id="newcomer">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-eyebrow">Just Moved In?</div>
+      <h2 class="section-title">New Resident Checklist</h2>
+      <p class="section-desc">The stuff nobody tells you when you move to CF. Work through this in your first 30 days.</p>
+    </div>
+    <ul class="checklist">
+      <li>Set up your <strong>CF Municipal Electric</strong> account — CF runs its own electric utility, not FirstEnergy. Call or visit City Hall to transfer service.</li>
+      <li>Find out your <strong>trash pickup day</strong> — it varies by neighborhood. See the schedule below.</li>
+      <li>Update your <strong>Ohio driver's license</strong> at the nearest BMV within 30 days of establishing residency.</li>
+      <li>Register your <strong>vehicle</strong> with the Summit County BMV. You'll need proof of Ohio insurance and your title.</li>
+      <li>Register to vote at your new address — Ohio requires registration at your current address.</li>
+      <li>Find a <strong>primary care physician</strong> — Summa Health and Cleveland Clinic both have offices throughout the CF/Akron area.</li>
+      <li>Locate your nearest <strong>urgent care</strong> before you need it.</li>
+      <li>Find a <strong>veterinarian</strong> if you have pets — see our pet services section.</li>
+      <li>Set up your <strong>water and sewer</strong> service with the City of Cuyahoga Falls.</li>
+      <li>Learn your <strong>snow emergency level</strong> rules — Level 3 means stay home or risk arrest.</li>
+      <li>Know where your nearest <strong>fire station</strong> is.</li>
+      <li>Bookmark this page. You'll use it.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ══ TRASH SCHEDULE ════════════════════════════════════ -->
+<section class="section section-alt" id="trash">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-eyebrow">City Services</div>
+      <h2 class="section-title">Trash &amp; Recycling Schedule</h2>
+      <p class="section-desc">Pickup day depends on where you live in CF. Find your zone below.</p>
+    </div>
+    <div style="overflow-x:auto; border-radius:var(--radius); box-shadow:var(--shadow); margin-bottom:1.5rem; border:1px solid var(--gray-2);">
+      <table class="trash-table">
+        <thead>
+          <tr>
+            <th>Zone / Area</th>
+            <th>Trash Day</th>
+            <th>Recycling Day</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Zone A — North CF</td><td>Monday</td><td>Every other Monday</td><td>Check your first week</td></tr>
+          <tr><td>Zone B — Central CF</td><td>Tuesday</td><td>Every other Tuesday</td><td></td></tr>
+          <tr><td>Zone C — East Side</td><td>Wednesday</td><td>Every other Wednesday</td><td></td></tr>
+          <tr><td>Zone D — West Side</td><td>Thursday</td><td>Every other Thursday</td><td></td></tr>
+          <tr><td>Zone E — South CF</td><td>Friday</td><td>Every other Friday</td><td></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="font-size:0.78rem; color:var(--gray-3); margin-bottom:1.5rem;">⚠️ Zone assignments are approximate. Confirm your exact day with the City of Cuyahoga Falls Sanitation Department.</p>
+    <div class="grid-2">
+      <div class="info-block">
+        <h4>🚛 Bulk / Large Item Pickup</h4>
+        <p>CF holds seasonal bulk pickup events where crews collect nearly anything — furniture, appliances, yard waste, and more. Dates are typically announced in spring and fall.</p>
+      </div>
+      <div class="info-block">
+        <h4>⚡ Power Outages</h4>
+        <p>Cuyahoga Falls operates its <strong style="color:var(--white);">own municipal electric utility</strong> — not FirstEnergy. For outages:</p>
+        <p style="margin-top:0.5rem; color:var(--gold); font-weight:600;">(330) 971-8080</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ SCHOOLS ═══════════════════════════════════════════ -->
+<section class="section" id="schools">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-eyebrow">Education</div>
+      <h2 class="section-title">Private Schools Near the Falls</h2>
+      <p class="section-desc">A guide to the area's private and parochial school options for families.</p>
+    </div>
+    <div class="sub-eyebrow" style="margin-bottom:0.75rem;">High Schools</div>
+    <div class="grid-2" style="margin-bottom:1.5rem;">
+      <div class="school-card">
+        <div class="school-level">High School — Stow, OH</div>
+        <h4>Walsh Jesuit High School</h4>
+        <p>Co-ed Jesuit college preparatory school. Strong academics, athletics, and service tradition. One of the premier private high schools in northeast Ohio.</p>
+        <a class="card-link" href="https://www.walshjesuit.org" target="_blank" rel="noopener" style="display:inline-block; margin-top:0.5rem;">walshjesuit.org →</a>
+      </div>
+      <div class="school-card">
+        <div class="school-level">High School — Cuyahoga Falls, OH</div>
+        <h4>Cuyahoga Valley Christian Academy (CVCA)</h4>
+        <p>Christian college-prep school with strong academics and athletics. Located right in CF. Excellent reputation for both scholarship and character development.</p>
+        <a class="card-link" href="https://www.cvcaroyals.org" target="_blank" rel="noopener" style="display:inline-block; margin-top:0.5rem;">cvcaroyals.org →</a>
+      </div>
+      <div class="school-card">
+        <div class="school-level">High School — Akron, OH</div>
+        <h4>St. Vincent-St. Mary High School</h4>
+        <p>Historic Catholic high school in Akron. Nationally recognized — famously LeBron James's alma mater. Strong academics, arts, and athletics programs.</p>
+        <a class="card-link" href="https://www.stvm.com" target="_blank" rel="noopener" style="display:inline-block; margin-top:0.5rem;">stvm.com →</a>
+      </div>
+      <div class="school-card">
+        <div class="school-level">High School — Akron, OH</div>
+        <h4>Archbishop Hoban High School</h4>
+        <p>Catholic co-ed high school with strong academics and competitive athletics, particularly football. Located in Akron, minutes from CF.</p>
+        <a class="card-link" href="https://www.hoban.org" target="_blank" rel="noopener" style="display:inline-block; margin-top:0.5rem;">hoban.org →</a>
+      </div>
+    </div>
+    <div class="sub-eyebrow" style="margin-bottom:0.75rem;">Elementary &amp; Middle Schools</div>
+    <div class="grid-3">
+      <div class="school-card">
+        <div class="school-level">K–8 — Cuyahoga Falls</div>
+        <h4>Holy Family School</h4>
+        <p>Catholic elementary and middle school in CF. Strong faith-based education with a tight-knit community feel.</p>
+      </div>
+      <div class="school-card">
+        <div class="school-level">K–8 — Akron</div>
+        <h4>Immaculate Heart of Mary (IHM)</h4>
+        <p>Catholic school serving families in the Akron area. Solid academic foundation with faith-centered values.</p>
+      </div>
+      <div class="school-card">
+        <div class="school-level">K–8 — Akron</div>
+        <h4>Redeemer Lutheran School</h4>
+        <p>Lutheran school offering faith-integrated education in a nurturing environment close to CF.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ HOSPITALS ════════════════════════════════════════ -->
+<section class="section section-alt" id="hospitals">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-eyebrow">Healthcare</div>
+      <h2 class="section-title">Hospitals &amp; Urgent Care</h2>
+      <p class="section-desc">Know where to go before you need it.</p>
+    </div>
+    <div class="grid-2" style="margin-bottom:1.25rem;">
+      <div class="hospital-card">
+        <h4>Summa Health System — Akron City Hospital</h4>
+        <p>The primary full-service hospital for most CF residents. Level I Trauma Center. Emergency, cardiac, cancer care, and more.</p>
+        <a class="phone" href="tel:3303753000">(330) 375-3000</a><br/>
+        <a class="card-link" href="https://www.summahealth.org" target="_blank" rel="noopener" style="display:inline-block; margin-top:0.3rem;">summahealth.org →</a>
+      </div>
+      <div class="hospital-card">
+        <h4>Akron Children's Hospital</h4>
+        <p>One of the nation's top children's hospitals. Ranked among the best in multiple specialties. The go-to for pediatric care in northeast Ohio.</p>
+        <a class="phone" href="tel:3305431000">(330) 543-1000</a><br/>
+        <a class="card-link" href="https://www.akronchildrens.org" target="_blank" rel="noopener" style="display:inline-block; margin-top:0.3rem;">akronchildrens.org →</a>
+      </div>
+      <div class="hospital-card">
+        <h4>Cleveland Clinic Akron General</h4>
+        <p>Full-service hospital with the resources of the Cleveland Clinic system. Strong cardiac and surgical programs. Minutes from CF.</p>
+        <a class="phone" href="tel:3303446000">(330) 344-6000</a><br/>
+        <a class="card-link" href="https://my.clevelandclinic.org/locations/akron-general" target="_blank" rel="noopener" style="display:inline-block; margin-top:0.3rem;">clevelandclinic.org →</a>
+      </div>
+      <div class="hospital-card">
+        <h4>Crystal Clinic Orthopaedic Center</h4>
+        <p>Northeast Ohio's leading orthopedic specialty hospital. Sports medicine, joint replacement, spine care — without the wait of a general ER.</p>
+        <a class="phone" href="tel:3306680560">(330) 668-0560</a><br/>
+        <a class="card-link" href="https://www.crystalclinic.com" target="_blank" rel="noopener" style="display:inline-block; margin-top:0.3rem;">crystalclinic.com →</a>
+      </div>
+    </div>
+    <div class="info-block green">
+      <h4>🏥 Urgent Care Options</h4>
+      <p>For non-emergency needs, urgent care is faster and cheaper than the ER. Summa Health, Cleveland Clinic Express Care, and Concentra locations serve the CF/Akron corridor. Full urgent care directory coming soon.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ RESTAURANTS ══════════════════════════════════════ -->
+<section class="section" id="restaurants">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-eyebrow">Eat &amp; Drink</div>
+      <h2 class="section-title">Restaurants &amp; Bars</h2>
+      <p class="section-desc">Curated local favorites. No chains, no nonsense.</p>
+    </div>
+    <div class="sub-eyebrow" style="margin-bottom:0.75rem;">Steakhouse &amp; American</div>
+    <div class="grid-3" style="margin-bottom:1.5rem;">
+      <div class="biz-card"><span class="falls-approved">⭐ Falls Approved</span><h4>Arnie's West Branch Steak House</h4><div class="biz-tag">Steakhouse</div><p class="biz-desc">A CF institution. Old-school steakhouse done right — the kind of place you bring your parents and nobody leaves disappointed.</p></div>
+      <div class="biz-card"><span class="falls-approved">⭐ Falls Approved</span><h4>Hartville Kitchen</h4><div class="biz-tag">American — Hartville, OH</div><p class="biz-desc">Just outside CF, worth the short drive. Classic American comfort food at a scale and quality that keeps people coming back for decades.</p></div>
+      <div class="biz-card"><span class="falls-approved">⭐ Falls Approved</span><h4>Big Eue's BBQ</h4><div class="biz-tag">BBQ</div><p class="biz-desc">Serious BBQ in the Falls. The kind of place where the smoke does the talking.</p></div>
+    </div>
+    <div class="gold-divider"></div>
+    <div class="sub-eyebrow" style="margin-bottom:0.75rem;">Italian</div>
+    <div class="grid-3" style="margin-bottom:1.5rem;">
+      <div class="biz-card"><span class="falls-approved">⭐ Falls Approved</span><h4>Dontino's</h4><div class="biz-tag">Italian Restaurant</div><p class="biz-desc">Solid Italian in the Falls. The kind of red-sauce spot that earns regulars.</p></div>
+    </div>
+    <div class="gold-divider"></div>
+    <div class="sub-eyebrow" style="margin-bottom:0.75rem;">Pizza</div>
+    <div class="grid-3" style="margin-bottom:1.5rem;">
+      <div class="biz-card"><span class="falls-approved">⭐ Falls Approved</span><h4>Rocco's Pizza</h4><div class="biz-tag">Pizza</div><p class="biz-desc">Local pizza done the right way. A Falls staple.</p></div>
+      <div class="biz-card"><span class="falls-approved">⭐ Falls Approved</span><h4>Lucci's Pizza</h4><div class="biz-tag">Pizza</div><p class="biz-desc">Another CF classic. The Rocco's vs. Lucci's debate has been going on for years — try both and decide for yourself.</p></div>
+      <div class="biz-card"><span class="falls-approved">⭐ Falls Approved</span><h4>Athena's Pizza</h4><div class="biz-tag">Pizza</div><p class="biz-desc">A third contender in the CF pizza wars. This town takes pizza seriously.</p></div>
+    </div>
+    <div class="gold-divider"></div>
+    <div class="sub-eyebrow" style="margin-bottom:0.75rem;">International</div>
+    <div class="grid-3" style="margin-bottom:1.5rem;">
+      <div class="biz-card"><span class="falls-approved">⭐ Falls Approved</span><h4>Chen's Garden</h4><div class="biz-tag">Chinese</div><p class="biz-desc">Reliable, consistent Chinese food that CF residents have trusted for years.</p></div>
+      <div class="biz-card"><span class="falls-approved">⭐ Falls Approved</span><h4>Seoul Garden</h4><div class="biz-tag">Korean</div><p class="biz-desc">Authentic Korean cuisine — one of the better options in the Akron/CF area for those who know what they're looking for.</p></div>
+      <div class="biz-card"><span class="falls-approved">⭐ Falls Approved</span><h4>El Meson</h4><div class="biz-tag">Mexican</div><p class="biz-desc">Solid Mexican that goes beyond the basics. A go-to for the Falls.</p></div>
+      <div class="biz-card"><span class="falls-approved">⭐ Falls Approved</span><h4>Das Schnitzel Haus</h4><div class="biz-tag">German</div><p class="biz-desc">Authentic German food — schnitzel, spaetzle, the works. A unique find in northeast Ohio.</p></div>
+    </div>
+    <div class="gold-divider"></div>
+    <div class="sub-eyebrow" style="margin-bottom:0.75rem;">Bakeries &amp; Sweets</div>
+    <div class="grid-3" style="margin-bottom:1.5rem;">
+      <div class="biz-card"><span class="falls-approved">⭐ Falls Approved</span><h4>Palotta's Pastries</h4><div class="biz-tag">Bakery / Pastries</div><p class="biz-desc">The kind of bakery that makes you feel guilty about every chain you've ever visited. Real pastries, real quality.</p></div>
+      <div class="biz-card"><span class="falls-approved">⭐ Falls Approved</span><h4>Pav's Ice Cream</h4><div class="biz-tag">Ice Cream — Multiple Locations</div><p class="biz-desc">A northeast Ohio institution. Multiple locations, long lines in summer for good reason.</p></div>
+      <div class="biz-card"><span class="falls-approved">⭐ Falls Approved</span><h4>Country Maid Ice Cream</h4><div class="biz-tag">Ice Cream</div><p class="biz-desc">Old-school ice cream done right. A warm-weather ritual for CF families.</p></div>
+    </div>
+    <div class="gold-divider"></div>
+    <div class="sub-eyebrow" style="margin-bottom:0.75rem;">Worth the Drive</div>
+    <div class="grid-3">
+      <div class="biz-card"><span class="falls-approved">⭐ Falls Approved</span><h4>Amish Door</h4><div class="biz-tag">Amish / American — Wilmot, OH</div><p class="biz-desc">About an hour south — worth every minute. Massive portions of honest Amish cooking. Go hungry. Bring your stretchy pants.</p></div>
+      <div class="biz-card"><span class="falls-approved">⭐ Falls Approved</span><h4>Wild Goose</h4><div class="biz-tag">Bar / Restaurant — Willoughby, OH</div><p class="biz-desc">Worth the drive north. Great bar atmosphere, solid food, good people.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ HOME SERVICES ════════════════════════════════════ -->
+<section class="section section-alt" id="services">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-eyebrow">Home &amp; Auto Services</div>
+      <h2 class="section-title">Services You Can Trust</h2>
+      <p class="section-desc">Vetted local service providers — the ones CF residents actually call.</p>
+    </div>
+    <div class="sub-eyebrow" style="margin-bottom:0.75rem;">Auto</div>
+    <div class="grid-3" style="margin-bottom:1.5rem;">
+      <div class="biz-card"><span class="falls-approved">⭐ Falls Approved</span><h4>G&amp;R Auto Care</h4><div class="biz-tag">Auto Repair</div><p class="biz-desc">Honest local auto care. The kind of shop you recommend to family.</p></div>
+      <div class="biz-card"><span class="falls-approved">⭐ Falls Approved</span><h4>Leipold Tire</h4><div class="biz-tag">Tires / Auto Service</div><p class="biz-desc">A CF tire institution. Fair prices, real service, no runaround.</p></div>
+      <div class="biz-card"><span class="falls-approved">⭐ Falls Approved</span><h4>Tim's Transmission</h4><div class="biz-tag">Transmission Specialist</div><p class="biz-desc">When your transmission needs work, you want a specialist — not a generalist. Tim's is the call.</p></div>
+      <div class="biz-card"><span class="falls-approved">⭐ Falls Approved</span><h4>Big Mike's Auto / Towing / Body Shop</h4><div class="biz-tag">Auto / Towing / Body Shop</div><p class="biz-desc">Full-service auto — repairs, towing, and body work all in one place. Good to have in your phone before you need it.</p></div>
+    </div>
+    <div class="gold-divider"></div>
+    <div class="sub-eyebrow" style="margin-bottom:0.75rem;">Home Services</div>
+    <div class="grid-3" style="margin-bottom:1.5rem;">
+      <div class="biz-card"><span class="falls-approved">⭐ Falls Approved</span><h4>Barberton Tree</h4><div class="biz-tag">Tree Service / Landscaping</div><p class="biz-desc">Professional tree service for CF and surrounding areas. Removal, trimming, the works.</p></div>
+      <div class="biz-card"><span class="falls-approved">⭐ Falls Approved</span><h4>Pioneer Basement</h4><div class="biz-tag">Basement Waterproofing / Foundation</div><p class="biz-desc">Northeast Ohio basements are notorious. Pioneer is the name locals trust when water becomes a problem.</p></div>
+    </div>
+    <div class="gold-divider"></div>
+    <div class="sub-eyebrow" style="margin-bottom:0.75rem;">Specialty</div>
+    <div class="grid-3" style="margin-bottom:1.5rem;">
+      <div class="biz-card"><span class="falls-approved">⭐ Falls Approved</span><h4>Iron Ink Tattoo Shop</h4><div class="biz-tag">Tattoo / Body Art</div><p class="biz-desc">Quality ink in the Falls. Do your research on any tattoo shop, but this one earns the nod.</p></div>
+      <div class="biz-card"><span class="falls-approved">⭐ Falls Approved</span><h4>DeVitis &amp; Sons</h4><div class="biz-tag">Italian Market / Grocery — Akron</div><p class="biz-desc">The Italian market in Akron every food lover needs to know. Imported goods, fresh pasta, deli — the real deal.</p></div>
+    </div>
+    <div class="gold-divider"></div>
+    <div class="sub-eyebrow" style="margin-bottom:0.75rem;">Insurance</div>
+    <div class="paid-ad">
+      <div class="ad-label">📢 Featured Advertiser</div>
+      <h3>ZM Insurance Group</h3>
+      <p>Your local independent insurance broker — serving Cuyahoga Falls and all of northeast Ohio. Independent means ZM works for <em>you</em>, not the insurance company.</p>
+      <p><strong style="color:var(--gold-light);">Products offered:</strong> Life Insurance · Health Insurance · Auto Insurance · Home &amp; Renters Insurance · Business Insurance · Medicare Supplements</p>
+      <p>Whether you're a newcomer setting up your household or a lifer overdue for a policy review — ZM Insurance Group is the call.</p>
+      <a class="ad-cta" href="mailto:zminsurancegroup@gmail.com">zminsurancegroup@gmail.com</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ GYMS ══════════════════════════════════════════════ -->
+<section class="section" id="gyms">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-eyebrow">Fitness</div>
+      <h2 class="section-title">Gyms &amp; Fitness</h2>
+      <p class="section-desc">From big-box to boutique — find your spot to train in the Falls.</p>
+    </div>
+    <div class="grid-3">
+      <div class="biz-card"><h4>CF RecPlex / Natatorium</h4><div class="biz-tag">City Recreation Facility</div><p class="biz-desc">CF's own rec facility — pool, gym, fitness classes, and rec programs. One of the better city-owned facilities in the region. Membership is a solid value.</p></div>
+      <div class="biz-card"><h4>Planet Fitness</h4><div class="biz-tag">Gym — Cuyahoga Falls</div><p class="biz-desc">Low-cost 24-hour option in CF. Does the job if you just need iron and cardio machines.</p></div>
+      <div class="biz-card"><h4>More Local Gyms Coming Soon</h4><div class="biz-tag">CrossFit · Martial Arts · Boxing · Yoga</div><p class="biz-desc">We're building out the local and indie gym directory. Know a great local gym? Let us know.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ PET SERVICES ══════════════════════════════════════ -->
+<section class="section section-alt" id="pets">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-eyebrow">Pet Owners</div>
+      <h2 class="section-title">Pet Services</h2>
+      <p class="section-desc">The Falls is a good place to have a dog. Here's where to take care of them.</p>
+    </div>
+    <div class="grid-3">
+      <div class="biz-card"><span class="falls-approved">⭐ Falls Approved</span><h4>Cuyahoga Falls Veterinary Clinic</h4><div class="biz-tag">Veterinary Care</div><p class="biz-desc">Your go-to vet in CF. Trusted by Falls families for their four-legged members.</p></div>
+      <div class="biz-card"><span class="falls-approved">⭐ Falls Approved</span><h4>Smoochi Poochi</h4><div class="biz-tag">Pet Grooming</div><p class="biz-desc">Professional pet grooming in CF. Because your dog deserves to look good too.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ EXPLORE ═══════════════════════════════════════════ -->
+<section class="section" id="explore">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-eyebrow">Arts, Culture &amp; Attractions</div>
+      <h2 class="section-title">Explore the Region</h2>
+      <p class="section-desc">CF is perfectly positioned for world-class attractions in every direction.</p>
+    </div>
+    <div class="sub-eyebrow" style="margin-bottom:0.75rem;">Zoos</div>
+    <div class="grid-3" style="margin-bottom:1.5rem;">
+      <div class="card"><span class="card-icon">🦁</span><h3>Akron Zoo</h3><p>The closest zoo to CF — a genuinely solid regional zoo with a great family atmosphere. Easy half-day visit.</p><a class="card-link" href="https://www.akronzoo.org" target="_blank" rel="noopener">akronzoo.org →</a></div>
+      <div class="card"><span class="card-icon">🐘</span><h3>Cleveland Metroparks Zoo</h3><p>One of the Midwest's best zoos — 30 minutes north. Rain Forest building alone is worth the trip.</p><a class="card-link" href="https://www.clevelandmetroparks.com/zoo" target="_blank" rel="noopener">clevelandmetroparks.com →</a></div>
+      <div class="card"><span class="card-icon">🦒</span><h3>Pittsburgh Zoo</h3><p>About 90 minutes south — worth combining with a Pittsburgh day trip. Excellent aquarium on site.</p><a class="card-link" href="https://www.pittsburghzoo.org" target="_blank" rel="noopener">pittsburghzoo.org →</a></div>
+    </div>
+    <div class="gold-divider"></div>
+    <div class="sub-eyebrow" style="margin-bottom:0.75rem;">Museums &amp; Landmarks</div>
+    <div class="grid-3" style="margin-bottom:1.5rem;">
+      <div class="card"><span class="card-icon">🎸</span><h3>Rock and Roll Hall of Fame</h3><p>Cleveland. 30 minutes. One of the most iconic museums in America — a bucket list stop for anyone in northeast Ohio.</p><a class="card-link" href="https://www.rockhall.com" target="_blank" rel="noopener">rockhall.com →</a></div>
+      <div class="card"><span class="card-icon">🏈</span><h3>Pro Football Hall of Fame</h3><p>Canton — 30 minutes south of CF. Incredible facility. Football fan or not, the history is worth seeing.</p><a class="card-link" href="https://www.profootballhof.com" target="_blank" rel="noopener">profootballhof.com →</a></div>
+      <div class="card"><span class="card-icon">🏛️</span><h3>Stan Hywet Hall &amp; Gardens</h3><p>Akron — right next door. The former Goodyear founder's 65-room Tudor mansion and stunning English gardens. Most CF residents drive past it for years before going.</p><a class="card-link" href="https://www.stanhywet.org" target="_blank" rel="noopener">stanhywet.org →</a></div>
+      <div class="card"><span class="card-icon">🌾</span><h3>Hale Farm &amp; Village</h3><p>Bath Township — practically in CF's backyard. Living history museum set in the 1800s. Great for families.</p><a class="card-link" href="https://www.wrhs.org/halefarm" target="_blank" rel="noopener">wrhs.org →</a></div>
+      <div class="card"><span class="card-icon">🚀</span><h3>Great Lakes Science Center</h3><p>Cleveland waterfront. NASA Glenn exhibits, IMAX. A great day out for families and curious minds.</p><a class="card-link" href="https://www.greatscience.com" target="_blank" rel="noopener">greatscience.com →</a></div>
+      <div class="card"><span class="card-icon">🎨</span><h3>Cleveland Museum of Art</h3><p>Free admission to one of the top art museums in the country. Permanent collection rivals any major American city.</p><a class="card-link" href="https://www.clevelandart.org" target="_blank" rel="noopener">clevelandart.org →</a></div>
+    </div>
+    <div class="gold-divider"></div>
+    <div class="sub-eyebrow" style="margin-bottom:0.75rem;">Entertainment</div>
+    <div class="grid-3" style="margin-bottom:1.5rem;">
+      <div class="card"><span class="card-icon">🎳</span><h3>Steels Lanes</h3><p>CF's own bowling alley — a local institution. The kind of place that makes you remember why bowling is fun.</p></div>
+      <div class="card"><span class="card-icon">🕹️</span><h3>Scene 75 — Akron</h3><p>Massive entertainment complex — go-karts, arcade, mini golf, laser tag, bowling, escape rooms, food. An entire evening in one building.</p><a class="card-link" href="https://www.scene75.com" target="_blank" rel="noopener">scene75.com →</a></div>
+      <div class="card"><span class="card-icon">🎬</span><h3>Movie Theaters</h3><p>Cinemark and Atlas Cinemas locations serve the CF/Akron area. Check local listings for the closest screen.</p></div>
+    </div>
+    <div class="gold-divider"></div>
+    <div class="sub-eyebrow" style="margin-bottom:0.75rem;">Outdoors</div>
+    <div class="grid-3">
+      <div class="card"><span class="card-icon">🌊</span><h3>Gorge Metro Park</h3><p>Right in CF's backyard. The gorge trails along the Cuyahoga River are genuinely stunning — one of the best hiking experiences in northeast Ohio. Free.</p></div>
+      <div class="card"><span class="card-icon">🌲</span><h3>Cuyahoga Valley National Park</h3><p>A national park 20 minutes from your front door. Brandywine Falls, the towpath trail, Beaver Marsh — world-class outdoor recreation, free to access.</p><a class="card-link" href="https://www.nps.gov/cuva" target="_blank" rel="noopener">nps.gov/cuva →</a></div>
+      <div class="card"><span class="card-icon">💦</span><h3>Silver Springs Waterpark</h3><p>CF's own waterpark — a summer staple for families in the Falls. Slides, pools, the works.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ EVENTS ════════════════════════════════════════════ -->
+<section class="section section-alt" id="events">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-eyebrow">What's Happening</div>
+      <h2 class="section-title">Events Calendar</h2>
+      <p class="section-desc">Curated events in and around Cuyahoga Falls. No politics, no activism — just things worth doing.</p>
+    </div>
+    <div style="display:flex; flex-direction:column; gap:0.75rem;">
+      <div class="event-card">
+        <div class="event-date"><div class="month">Year-Round</div><div class="day">🎵</div></div>
+        <div class="event-info">
+          <h4>Blossom Music Center</h4>
+          <p>The summer home of the Cleveland Orchestra — and one of the best outdoor venues in the country. CF's crown jewel. Check the full season schedule for concerts and major touring acts.</p>
+          <span class="event-tag">Music</span>
+          <a class="card-link" href="https://www.livenation.com/venue/KovZpZAeE6lA/blossom-music-center-events" target="_blank" rel="noopener" style="display:block; margin-top:0.4rem;">View Blossom Schedule →</a>
+        </div>
+      </div>
+      <div class="event-card">
+        <div class="event-date"><div class="month">Summer</div><div class="day">🌳</div></div>
+        <div class="event-info">
+          <h4>CVNP Seasonal Programming</h4>
+          <p>Cuyahoga Valley National Park runs events, ranger programs, and seasonal activities year-round. Hiking events, photography walks, educational programs — all free or low cost.</p>
+          <span class="event-tag">Outdoors</span>
+          <a class="card-link" href="https://www.nps.gov/cuva/planyourvisit/events.htm" target="_blank" rel="noopener" style="display:block; margin-top:0.4rem;">View CVNP Events →</a>
+        </div>
+      </div>
+      <div class="event-card">
+        <div class="event-date"><div class="month">Spring–Fall</div><div class="day">🚞</div></div>
+        <div class="event-info">
+          <h4>Cuyahoga Valley Scenic Railroad</h4>
+          <p>Seasonal train rides through the national park. Family-friendly, scenic, and a genuinely unique northeast Ohio experience. Special holiday trains in fall and winter.</p>
+          <span class="event-tag">Family</span>
+          <a class="card-link" href="https://www.cvsr.org" target="_blank" rel="noopener" style="display:block; margin-top:0.4rem;">cvsr.org →</a>
+        </div>
+      </div>
+    </div>
+    <p style="font-size:0.8rem; color:var(--gray-3); margin-top:1rem;">📅 More events added regularly. Check back often.</p>
+  </div>
+</section>
+
+<!-- ══ SPORTS ════════════════════════════════════════════ -->
+<section class="section" id="sports">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-eyebrow">Local &amp; Pro Sports</div>
+      <h2 class="section-title">Sports in the Falls</h2>
+      <p class="section-desc">CF is Browns country. Cleveland sports run deep here — plus solid local school athletics.</p>
+    </div>
+    <div class="sub-eyebrow" style="margin-bottom:0.75rem;">Professional Teams</div>
+    <div class="grid-3" style="margin-bottom:1.5rem;">
+      <div class="sport-card"><div class="sport-icon">🏈</div><div><h4>Cleveland Browns</h4><p>NFL. This is Browns country, full stop. Huntington Bank Field — 30 min north.</p></div></div>
+      <div class="sport-card"><div class="sport-icon">⚾</div><div><h4>Cleveland Guardians</h4><p>MLB. Progressive Field, downtown Cleveland. Summer nights at the ballpark don't get much better.</p></div></div>
+      <div class="sport-card"><div class="sport-icon">🏀</div><div><h4>Cleveland Cavaliers</h4><p>NBA. Rocket Mortgage FieldHouse — Cleveland. Championship pedigree.</p></div></div>
+      <div class="sport-card"><div class="sport-icon">🏒</div><div><h4>Cleveland Monsters</h4><p>AHL. Rocket Mortgage FieldHouse. Great hockey at a fraction of NHL prices.</p></div></div>
+      <div class="sport-card"><div class="sport-icon">⚾</div><div><h4>Akron RubberDucks</h4><p>Double-A affiliate of the Guardians. Canal Park, Akron. Affordable, fun, family-friendly minor league baseball.</p></div></div>
+      <div class="sport-card"><div class="sport-icon">🏈</div><div><h4>Akron Zips</h4><p>University of Akron athletics. MAC conference football, basketball, and more — right down the road.</p></div></div>
+    </div>
+    <div class="gold-divider"></div>
+    <div class="sub-eyebrow" style="margin-bottom:0.75rem;">Local School Athletics</div>
+    <div class="grid-3">
+      <div class="sport-card"><div class="sport-icon">⚔️</div><div><h4>Walsh Jesuit Warriors</h4><p>Consistently strong across multiple sports. Football and basketball programs draw real attention.</p></div></div>
+      <div class="sport-card"><div class="sport-icon">👑</div><div><h4>CVCA Royals</h4><p>Right in CF — strong programs across the board. A community staple.</p></div></div>
+      <div class="sport-card"><div class="sport-icon">🏆</div><div><h4>St. Vincent-St. Mary Fighting Irish</h4><p>Basketball royalty in Ohio. LeBron's alma mater still draws eyes. Football is no slouch either.</p></div></div>
+      <div class="sport-card"><div class="sport-icon">🦅</div><div><h4>Archbishop Hoban Knights</h4><p>One of the premier football programs in Ohio. Hoban football nights in Akron are an event.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ REAL ESTATE ═══════════════════════════════════════ -->
+<section class="section section-alt" id="realestate">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-eyebrow">Housing Market</div>
+      <h2 class="section-title">Find Your Home in the Falls</h2>
+      <p class="section-desc">Current market data and live listings. CF remains one of the best value markets in northeast Ohio.</p>
+    </div>
+    <div class="grid-4" style="margin-bottom:1.25rem;">
+      <div class="re-stat"><div class="stat-val">$189K</div><div class="stat-label">Median Sale Price</div></div>
+      <div class="re-stat"><div class="stat-val">$118</div><div class="stat-label">Avg Price / Sq Ft</div></div>
+      <div class="re-stat"><div class="stat-val">28</div><div class="stat-label">Avg Days on Market</div></div>
+      <div class="re-stat"><div class="stat-val">44,000+</div><div class="stat-label">City Population</div></div>
+    </div>
+    <p style="font-size:0.75rem; color:var(--gray-3); margin-bottom:1.25rem;">Market data is approximate and updated quarterly. Source: Summit County Auditor / Zillow Research. Always consult a licensed real estate professional.</p>
+    <div class="embed-wrap">
+      <div style="min-height:380px; display:flex; align-items:center; justify-content:center; flex-direction:column; gap:1rem; color:var(--gray-3); padding:2rem; text-align:center;">
+        <div style="font-size:2.5rem;">🏡</div>
+        <p style="font-size:0.9rem;">Paste your Zillow embed code here for live CF listings.</p>
+        <a href="https://www.zillow.com/cuyahoga-falls-oh/" target="_blank" rel="noopener" class="btn">Browse Current Listings on Zillow →</a>
+      </div>
+      <div class="embed-label">🏡 Listings sourced from Zillow — updated in real time.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ DAY TRIPS ═════════════════════════════════════════ -->
+<section class="section" id="daytrips">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-eyebrow">Get Out of Town</div>
+      <h2 class="section-title">Day Trips from the Falls</h2>
+      <p class="section-desc">CF is perfectly positioned. A lot of great is within easy driving distance.</p>
+    </div>
+    <div class="grid-3">
+      <div class="card"><span class="card-icon">🌆</span><h3>Cleveland — 30 min</h3><p>Rock Hall, West Side Market, Browns games, Guardians, Cavs, world-class dining, the lakefront. Endlessly rewarding.</p></div>
+      <div class="card"><span class="card-icon">🏭</span><h3>Youngstown — 45 min</h3><p>Rust Belt character, serious food scene, and a city on the rise. Worth exploring more than most CF folks realize.</p></div>
+      <div class="card"><span class="card-icon">🎢</span><h3>Cedar Point — 1 hr</h3><p>The Roller Coaster Capital of the World. On Lake Erie. A summer rite of passage for northeast Ohio.<br/><a class="card-link" href="https://www.cedarpoint.com" target="_blank" rel="noopener" style="display:inline-block; margin-top:0.5rem;">cedarpoint.com →</a></p></div>
+      <div class="card"><span class="card-icon">⚓</span><h3>Put-in-Bay — 1.5 hrs</h3><p>Lake Erie island life. Ferry from Sandusky. Summer destination for good reason — beautiful, fun, uniquely Ohio.</p></div>
+      <div class="card"><span class="card-icon">🌉</span><h3>Pittsburgh — Under 2 hrs</h3><p>One of America's most underrated cities. The Strip District, incredible food, beautiful bridges, great sports culture.</p></div>
+      <div class="card"><span class="card-icon">🌄</span><h3>Hocking Hills — 2.5 hrs</h3><p>Waterfalls, gorges, caves, and dramatic scenery. Old Man's Cave and Ash Cave are worth every mile.<br/><a class="card-link" href="https://www.explorehockinghills.com" target="_blank" rel="noopener" style="display:inline-block; margin-top:0.5rem;">explorehockinghills.com →</a></p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ EMPLOYERS ═════════════════════════════════════════ -->
+<section class="section section-alt" id="employers">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-eyebrow">Economy</div>
+      <h2 class="section-title">Major Employers</h2>
+      <p class="section-desc">The employment landscape around Cuyahoga Falls — useful context for anyone relocating for work.</p>
+    </div>
+    <div class="grid-3">
+      <div class="info-block"><h4>🏥 Healthcare</h4><ul><li>Summa Health System</li><li>Akron Children's Hospital</li><li>Cleveland Clinic Akron General</li></ul></div>
+      <div class="info-block"><h4>🏭 Manufacturing &amp; Industry</h4><ul><li>CF has a strong manufacturing base — industrial and precision manufacturing throughout the area</li><li>Bridgestone Americas (Akron)</li><li>Akron remains the Polymer Capital of the World</li></ul></div>
+      <div class="info-block"><h4>🏢 Corporate / Regional</h4><ul><li>Goodyear Tire &amp; Rubber — Akron HQ</li><li>FirstEnergy Corp — Akron HQ</li><li>University of Akron</li><li>Summa Health (system-wide)</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FAQ ════════════════════════════════════════════════ -->
+<section class="section" id="faq">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-eyebrow">Straight Answers</div>
+      <h2 class="section-title">Ask a Local</h2>
+      <p class="section-desc">The questions newcomers always ask. Answered honestly — no spin.</p>
+    </div>
+    <div style="display:flex; flex-direction:column; gap:0.5rem;">
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Is Cuyahoga Falls safe? <span class="faq-icon">+</span></button>
+        <div class="faq-a">CF is a mid-sized Ohio city — it has safe neighborhoods and areas you'd rather avoid, like anywhere else. The west side and areas near the gorge and riverwalk tend to be quiet and family-friendly. Do your homework using the neighborhood safety data above before buying or renting. Overall, CF is considered safer than many comparable Ohio cities its size.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">What's the best neighborhood for families? <span class="faq-icon">+</span></button>
+        <div class="faq-a">The areas west of Route 8 toward the Bath Township line tend to be quiet, well-maintained, and popular with families. The neighborhoods near CVCA and the Silver Springs area also have a strong family feel. Use the crime and safety data above to compare specific streets before committing.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Where do locals actually eat? <span class="faq-icon">+</span></button>
+        <div class="faq-a">Arnie's West Branch for a proper steak night. Rocco's, Lucci's, or Athena's if the pizza debate breaks out (it always does). Chen's Garden for reliable Chinese. Das Schnitzel Haus when you want something nobody else does. And Hartville Kitchen when you want a meal that reminds you why diners exist.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Why does CF have its own electric company? <span class="faq-icon">+</span></button>
+        <div class="faq-a">Cuyahoga Falls Municipal Electric has operated since the early 1900s — one of Ohio's municipal electric utilities. The city owns and operates its own distribution system, which historically has meant stable rates and local control. When your power goes out, you call CF directly — not a regional utility.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">How bad are the winters? <span class="faq-icon">+</span></button>
+        <div class="faq-a">Real talk: northeast Ohio winters are serious. CF sits inland but close enough to Lake Erie to catch lake effect snow events. January and February can see multiple significant snow events. The gorge valley creates its own microclimate that can differ from Akron proper. Get good tires, learn the snow emergency level system, and keep your driveway clear — the neighbors notice.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Is CF a good value compared to Cleveland or Akron? <span class="faq-icon">+</span></button>
+        <div class="faq-a">Yes. CF offers more house for the money than most Cleveland suburbs, with shorter commutes to Akron than many alternatives. Private and parochial school options are strong. Access to outdoor recreation through the gorge and CVNP is genuinely exceptional. It's one of northeast Ohio's underrated places to plant roots.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">What's there to do on a weekend? <span class="faq-icon">+</span></button>
+        <div class="faq-a">Hike the gorge. Drive to Blossom for a show. Catch a RubberDucks game in Akron. Hit Cedar Point in the summer. Day-trip to Cleveland for a Browns or Guardians game. Explore CVNP year-round. There's more to do within 45 minutes of CF than most people realize when they first move here.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ ADVERTISE ══════════════════════════════════════════ -->
+<section class="section section-alt" id="advertise">
+  <div class="container">
+    <div class="advertise-banner">
+      <h3>Advertise on CuyahogaFallsOhio.com</h3>
+      <p>Reach newcomers and lifers actively looking for local businesses and services. Featured listings are clearly labeled and curated — only businesses we stand behind.</p>
+      <a href="mailto:zminsurancegroup@gmail.com" class="btn">Get in Touch →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ═════════════════════════════════════════════ -->
+<footer>
+  <strong>CuyahogaFallsOhio.com</strong><br/>
+  The Unofficial Guide to the Falls — by locals, for locals.<br/>
+  <div class="footer-disclaimer">
+    This is an independent community resource. Not affiliated with any government entity, school district, or political organization. Business listings are curated independently. Paid advertising is clearly labeled. All public safety data sourced from official public records.
+  </div>
+</footer>
+
+<script>
+  function toggleFaq(btn) {
+    const item = btn.closest('.faq-item');
+    item.classList.toggle('open');
+  }
+</script>
+
+</body>
+</html>
