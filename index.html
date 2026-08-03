@@ -97,7 +97,7 @@
     .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.1rem; }
     .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 1rem; }
 
-    /* CARDS */
+    /* BASE CARD */
     .card { background: var(--black-card); border: 1px solid var(--gray-2); border-radius: var(--radius-lg); padding: 1.5rem; box-shadow: var(--shadow); transition: box-shadow 0.2s, border-color 0.2s, transform 0.2s; }
     .card:hover { box-shadow: var(--shadow-lg), var(--gold-glow); border-color: var(--gold-dark); transform: translateY(-2px); }
     .card-icon { font-size: 2rem; margin-bottom: 0.75rem; display: block; }
@@ -106,15 +106,33 @@
     .card-link { display: inline-block; margin-top: 0.75rem; font-size: 0.82rem; font-weight: 600; color: var(--gold); }
     .card-link:hover { color: var(--gold-light); }
 
+    /* ── FLIP CARDS ───────────────────────────────────────── */
+    .flip-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1.1rem; }
+    .flip-card { height: 240px; perspective: 1000px; cursor: pointer; }
+    .flip-card.tall { height: 280px; }
+    .flip-inner { position: relative; width: 100%; height: 100%; transition: transform 0.55s cubic-bezier(0.4,0.2,0.2,1); transform-style: preserve-3d; }
+    .flip-card.flipped .flip-inner { transform: rotateY(180deg); }
+    .flip-front, .flip-back { position: absolute; inset: 0; border-radius: var(--radius); backface-visibility: hidden; -webkit-backface-visibility: hidden; padding: 1.25rem; display: flex; flex-direction: column; }
+    .flip-front { background: var(--black-card); border: 1px solid var(--gray-2); box-shadow: var(--shadow); justify-content: space-between; }
+    .flip-back { background: var(--black-soft); border: 1px solid var(--gold-dark); box-shadow: var(--gold-glow); transform: rotateY(180deg); justify-content: space-between; overflow-y: auto; }
+    .flip-card:hover .flip-front { border-color: var(--gold-dark); box-shadow: var(--shadow-lg), var(--gold-glow); }
+    .flip-front-top { flex: 1; }
+    .flip-badge { display: inline-flex; align-items: center; background: linear-gradient(135deg, var(--gold-dark), var(--gold)); color: var(--black); font-size: 0.58rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.18rem 0.5rem; border-radius: 100px; margin-bottom: 0.5rem; }
+    .flip-name { font-family: var(--font-display); font-size: 1.05rem; font-weight: 700; color: var(--white); margin-bottom: 0.2rem; line-height: 1.2; }
+    .flip-tag { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--gold); opacity: 0.75; }
+    .flip-desc { font-size: 0.82rem; color: var(--text-light); margin-top: 0.5rem; line-height: 1.45; }
+    .flip-hint { font-size: 0.65rem; color: var(--gray-3); display: flex; align-items: center; gap: 0.3rem; margin-top: 0.5rem; }
+    .flip-back-title { font-family: var(--font-display); font-size: 0.95rem; font-weight: 700; color: var(--gold-light); margin-bottom: 0.75rem; border-bottom: 1px solid var(--gold-dark); padding-bottom: 0.4rem; }
+    .flip-info { display: flex; flex-direction: column; gap: 0.4rem; flex: 1; }
+    .flip-info-row { display: flex; gap: 0.5rem; align-items: flex-start; font-size: 0.82rem; color: var(--text-light); line-height: 1.4; }
+    .flip-info-row .fi-icon { flex-shrink: 0; font-size: 0.9rem; margin-top: 0.05rem; }
+    .flip-info-row a { color: var(--gold); font-size: 0.82rem; }
+    .flip-info-row a:hover { color: var(--gold-light); }
+    .flip-back-btn { display: inline-block; margin-top: 0.75rem; background: var(--gold); color: var(--black); font-weight: 800; font-size: 0.75rem; padding: 0.4rem 0.9rem; border-radius: 100px; text-align: center; align-self: flex-start; }
+    .flip-back-btn:hover { background: var(--gold-light); color: var(--black); }
+
     /* FALLS APPROVED */
     .falls-approved { display: inline-flex; align-items: center; gap: 0.3rem; background: linear-gradient(135deg, var(--gold-dark) 0%, var(--gold) 100%); color: var(--black); font-size: 0.62rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.22rem 0.6rem; border-radius: 100px; margin-bottom: 0.5rem; }
-
-    /* BIZ CARDS */
-    .biz-card { background: var(--black-card); border: 1px solid var(--gray-2); border-radius: var(--radius); padding: 1.25rem; box-shadow: var(--shadow); transition: box-shadow 0.2s, border-color 0.2s, transform 0.2s; }
-    .biz-card:hover { box-shadow: var(--shadow-lg), var(--gold-glow); border-color: var(--gold-dark); transform: translateY(-2px); }
-    .biz-card h4 { font-family: var(--font-display); font-size: 1.05rem; font-weight: 700; color: var(--white); margin-bottom: 0.2rem; }
-    .biz-tag { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--gold); opacity: 0.75; }
-    .biz-desc { font-size: 0.88rem; color: var(--text-light); margin-top: 0.4rem; line-height: 1.5; }
 
     /* INFO BLOCKS */
     .info-block { background: var(--black-card); border-left: 3px solid var(--gold); border-radius: 0 var(--radius) var(--radius) 0; padding: 1.25rem 1.5rem; box-shadow: var(--shadow); border-top: 1px solid var(--gray-2); border-right: 1px solid var(--gray-2); border-bottom: 1px solid var(--gray-2); }
@@ -194,74 +212,20 @@
     .paid-ad .ad-cta { display: inline-block; margin-top: 0.9rem; background: var(--gold); color: var(--black); font-weight: 800; font-size: 0.88rem; padding: 0.6rem 1.4rem; border-radius: 100px; transition: background 0.2s; }
     .paid-ad .ad-cta:hover { background: var(--gold-light); color: var(--black); }
 
-    /* CHECKLIST — interactive */
+    /* CHECKLIST */
     .checklist { list-style: none; display: flex; flex-direction: column; gap: 0.55rem; }
-    .checklist li {
-      display: flex;
-      align-items: flex-start;
-      gap: 0.75rem;
-      font-size: 0.92rem;
-      color: var(--text-light);
-      background: var(--black-card);
-      border: 1px solid var(--gray-2);
-      border-radius: var(--radius);
-      padding: 0.75rem 1rem;
-      box-shadow: var(--shadow);
-      cursor: pointer;
-      user-select: none;
-      transition: border-color 0.2s, background 0.2s, opacity 0.2s;
-    }
+    .checklist li { display: flex; align-items: flex-start; gap: 0.75rem; font-size: 0.92rem; color: var(--text-light); background: var(--black-card); border: 1px solid var(--gray-2); border-radius: var(--radius); padding: 0.75rem 1rem; box-shadow: var(--shadow); cursor: pointer; user-select: none; transition: border-color 0.2s, background 0.2s; }
     .checklist li:hover { border-color: var(--gold-dark); }
-    .checklist li.done {
-      background: rgba(200,149,42,0.08);
-      border-color: var(--gold-dark);
-      opacity: 0.7;
-    }
+    .checklist li.done { background: rgba(200,149,42,0.08); border-color: var(--gold-dark); opacity: 0.7; }
     .checklist li.done .check-text { text-decoration: line-through; color: var(--gray-3); }
     .checklist li strong { color: var(--white); }
     .checklist li.done strong { color: var(--gray-3); }
-    .check-box {
-      width: 20px;
-      height: 20px;
-      border: 2px solid var(--gray-2);
-      border-radius: 4px;
-      flex-shrink: 0;
-      margin-top: 0.1rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.75rem;
-      color: var(--black);
-      background: transparent;
-      transition: background 0.2s, border-color 0.2s;
-    }
-    .checklist li.done .check-box {
-      background: var(--gold);
-      border-color: var(--gold);
-    }
+    .check-box { width: 20px; height: 20px; border: 2px solid var(--gray-2); border-radius: 4px; flex-shrink: 0; margin-top: 0.1rem; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; color: var(--black); background: transparent; transition: background 0.2s, border-color 0.2s; }
+    .checklist li.done .check-box { background: var(--gold); border-color: var(--gold); }
     .checklist li.done .check-box::after { content: '✓'; font-weight: 900; }
-    .checklist-progress {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      margin-bottom: 1rem;
-      font-size: 0.85rem;
-      color: var(--text-light);
-    }
-    .checklist-progress-bar {
-      flex: 1;
-      height: 6px;
-      background: var(--gray-2);
-      border-radius: 100px;
-      overflow: hidden;
-    }
-    .checklist-progress-fill {
-      height: 100%;
-      background: var(--gold);
-      border-radius: 100px;
-      transition: width 0.3s ease;
-      width: 0%;
-    }
+    .checklist-progress { display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; font-size: 0.85rem; color: var(--text-light); }
+    .checklist-progress-bar { flex: 1; height: 6px; background: var(--gray-2); border-radius: 100px; overflow: hidden; }
+    .checklist-progress-fill { height: 100%; background: var(--gold); border-radius: 100px; transition: width 0.3s ease; width: 0%; }
     .checklist-count { color: var(--gold); font-weight: 700; white-space: nowrap; }
 
     /* HOSPITAL CARDS */
@@ -303,6 +267,7 @@
       .section { padding: 2.5rem 0; }
       nav a { font-size: 0.7rem; padding: 0.75rem 0.55rem; }
       .link-card { flex-direction: column; text-align: center; }
+      .flip-card { height: auto; min-height: 240px; }
     }
   </style>
 </head>
@@ -357,14 +322,8 @@
       <div class="embed-label">📡 Source: National Weather Service — Cuyahoga Falls, OH</div>
     </div>
     <div class="grid-2">
-      <div class="info-block">
-        <h4>❄️ Lake Effect Snow</h4>
-        <p>CF sits in the snowbelt. Lake effect events can dump inches fast with little warning — especially November through February. Keep an eye on Summit County alerts.</p>
-      </div>
-      <div class="info-block">
-        <h4>🌪️ Tornado Season</h4>
-        <p>Spring through early summer brings tornado watches to northeast Ohio. Know your shelter plan. The city sounds sirens for watches and warnings.</p>
-      </div>
+      <div class="info-block"><h4>❄️ Lake Effect Snow</h4><p>CF sits in the snowbelt. Lake effect events can dump inches fast with little warning — especially November through February. Keep an eye on Summit County alerts.</p></div>
+      <div class="info-block"><h4>🌪️ Tornado Season</h4><p>Spring through early summer brings tornado watches to northeast Ohio. Know your shelter plan. The city sounds sirens for watches and warnings.</p></div>
     </div>
   </div>
 </section>
@@ -401,10 +360,7 @@
     </div>
     <a class="link-card" href="https://www.gasbuddy.com/gas-prices/ohio/summit-county/cuyahoga-falls" target="_blank" rel="noopener">
       <div class="link-card-icon">⛽</div>
-      <div class="link-card-text">
-        <h4>Local Gas Prices</h4>
-        <p>Live crowd-sourced gas prices at stations in and around Cuyahoga Falls — updated in real time by GasBuddy.</p>
-      </div>
+      <div class="link-card-text"><h4>Local Gas Prices</h4><p>Live crowd-sourced gas prices at stations in and around Cuyahoga Falls — updated in real time by GasBuddy.</p></div>
       <span class="btn-gold">View Live Prices →</span>
     </a>
   </div>
@@ -421,18 +377,12 @@
     <div class="grid-2" style="margin-bottom:1.25rem;">
       <a class="link-card" href="https://www.crimemapping.com/map/oh/cuyahogafalls" target="_blank" rel="noopener">
         <div class="link-card-icon">📊</div>
-        <div class="link-card-text">
-          <h4>Crime &amp; Incident Map</h4>
-          <p>Live neighborhood-level crime data for Cuyahoga Falls. Sourced from CF Police Department public reports.</p>
-        </div>
+        <div class="link-card-text"><h4>Crime &amp; Incident Map</h4><p>Live neighborhood-level crime data for Cuyahoga Falls. Sourced from CF Police Department public reports.</p></div>
         <span class="btn-gold">View Map →</span>
       </a>
       <a class="link-card" href="https://esorn.ag.state.oh.us" target="_blank" rel="noopener">
         <div class="link-card-icon">🗺️</div>
-        <div class="link-card-text">
-          <h4>Sex Offender Registry</h4>
-          <p>Search Ohio's official public sex offender registry by address. Maintained by the Ohio Attorney General.</p>
-        </div>
+        <div class="link-card-text"><h4>Sex Offender Registry</h4><p>Search Ohio's official public sex offender registry by address. Maintained by the Ohio Attorney General.</p></div>
         <span class="btn-gold">Search Registry →</span>
       </a>
     </div>
@@ -509,15 +459,8 @@
     </div>
     <p style="font-size:0.78rem; color:var(--gray-3); margin-bottom:1.5rem;">⚠️ Zone assignments are approximate. Confirm your exact day with the City of Cuyahoga Falls Sanitation Department.</p>
     <div class="grid-2">
-      <div class="info-block">
-        <h4>🚛 Bulk / Large Item Pickup</h4>
-        <p>CF holds seasonal bulk pickup events where crews collect nearly anything — furniture, appliances, yard waste, and more. Dates are typically announced in spring and fall.</p>
-      </div>
-      <div class="info-block">
-        <h4>⚡ Power Outages</h4>
-        <p>Cuyahoga Falls operates its <strong style="color:var(--white);">own municipal electric utility</strong> — not FirstEnergy. For outages:</p>
-        <p style="margin-top:0.5rem; color:var(--gold); font-weight:600;">(330) 971-8080</p>
-      </div>
+      <div class="info-block"><h4>🚛 Bulk / Large Item Pickup</h4><p>CF holds seasonal bulk pickup events where crews collect nearly anything — furniture, appliances, yard waste, and more. Dates are typically announced in spring and fall.</p></div>
+      <div class="info-block"><h4>⚡ Power Outages</h4><p>Cuyahoga Falls operates its <strong style="color:var(--white);">own municipal electric utility</strong> — not FirstEnergy. For outages:</p><p style="margin-top:0.5rem; color:var(--gold); font-weight:600;">(330) 971-8080</p></div>
     </div>
   </div>
 </section>
@@ -532,49 +475,17 @@
     </div>
     <div class="sub-eyebrow" style="margin-bottom:0.75rem;">High Schools</div>
     <div class="grid-2" style="margin-bottom:1.5rem;">
-      <div class="school-card">
-        <div class="school-level">High School — Stow, OH</div>
-        <h4>Walsh Jesuit High School</h4>
-        <p>Co-ed Jesuit college preparatory school. Strong academics, athletics, and service tradition. One of the premier private high schools in northeast Ohio.</p>
-        <a class="card-link" href="https://www.walshjesuit.org" target="_blank" rel="noopener" style="display:inline-block; margin-top:0.5rem;">walshjesuit.org →</a>
-      </div>
-      <div class="school-card">
-        <div class="school-level">High School — Cuyahoga Falls, OH</div>
-        <h4>Cuyahoga Valley Christian Academy (CVCA)</h4>
-        <p>Christian college-prep school with strong academics and athletics. Located right in CF. Excellent reputation for both scholarship and character development.</p>
-        <a class="card-link" href="https://www.cvcaroyals.org" target="_blank" rel="noopener" style="display:inline-block; margin-top:0.5rem;">cvcaroyals.org →</a>
-      </div>
-      <div class="school-card">
-        <div class="school-level">High School — Akron, OH</div>
-        <h4>St. Vincent-St. Mary High School</h4>
-        <p>Historic Catholic high school in Akron. Nationally recognized — famously LeBron James's alma mater. Strong academics, arts, and athletics programs.</p>
-        <a class="card-link" href="https://www.stvm.com" target="_blank" rel="noopener" style="display:inline-block; margin-top:0.5rem;">stvm.com →</a>
-      </div>
-      <div class="school-card">
-        <div class="school-level">High School — Akron, OH</div>
-        <h4>Archbishop Hoban High School</h4>
-        <p>Catholic co-ed high school with strong academics and competitive athletics, particularly football. Located in Akron, minutes from CF.</p>
-        <a class="card-link" href="https://www.hoban.org" target="_blank" rel="noopener" style="display:inline-block; margin-top:0.5rem;">hoban.org →</a>
-      </div>
+      <div class="school-card"><div class="school-level">High School — Stow, OH</div><h4>Walsh Jesuit High School</h4><p>Co-ed Jesuit college preparatory school. Strong academics, athletics, and service tradition. One of the premier private high schools in northeast Ohio.</p><a class="card-link" href="https://www.walshjesuit.org" target="_blank" rel="noopener" style="display:inline-block; margin-top:0.5rem;">walshjesuit.org →</a></div>
+      <div class="school-card"><div class="school-level">High School — Cuyahoga Falls, OH</div><h4>Cuyahoga Valley Christian Academy (CVCA)</h4><p>Christian college-prep school with strong academics and athletics. Located right in CF. Excellent reputation for both scholarship and character development.</p><a class="card-link" href="https://www.cvcaroyals.org" target="_blank" rel="noopener" style="display:inline-block; margin-top:0.5rem;">cvcaroyals.org →</a></div>
+      <div class="school-card"><div class="school-level">High School — Akron, OH</div><h4>St. Vincent-St. Mary High School</h4><p>Historic Catholic high school in Akron. Nationally recognized — famously LeBron James's alma mater. Strong academics, arts, and athletics programs.</p><a class="card-link" href="https://www.stvm.com" target="_blank" rel="noopener" style="display:inline-block; margin-top:0.5rem;">stvm.com →</a></div>
+      <div class="school-card"><div class="school-level">High School — Akron, OH</div><h4>Archbishop Hoban High School</h4><p>Catholic co-ed high school with strong academics and competitive athletics, particularly football. Located in Akron, minutes from CF.</p><a class="card-link" href="https://www.hoban.org" target="_blank" rel="noopener" style="display:inline-block; margin-top:0.5rem;">hoban.org →</a></div>
     </div>
     <div class="gold-divider"></div>
     <div class="sub-eyebrow" style="margin-bottom:0.75rem;">Elementary &amp; Middle Schools</div>
     <div class="grid-3">
-      <div class="school-card">
-        <div class="school-level">K–8 — Cuyahoga Falls</div>
-        <h4>Holy Family School</h4>
-        <p>Catholic elementary and middle school in CF. Strong faith-based education with a tight-knit community feel.</p>
-      </div>
-      <div class="school-card">
-        <div class="school-level">K–8 — Akron</div>
-        <h4>Immaculate Heart of Mary (IHM)</h4>
-        <p>Catholic school serving families in the Akron area. Solid academic foundation with faith-centered values.</p>
-      </div>
-      <div class="school-card">
-        <div class="school-level">K–8 — Akron</div>
-        <h4>Redeemer Lutheran School</h4>
-        <p>Lutheran school offering faith-integrated education in a nurturing environment close to CF.</p>
-      </div>
+      <div class="school-card"><div class="school-level">K–8 — Cuyahoga Falls</div><h4>Holy Family School</h4><p>Catholic elementary and middle school in CF. Strong faith-based education with a tight-knit community feel.</p></div>
+      <div class="school-card"><div class="school-level">K–8 — Akron</div><h4>Immaculate Heart of Mary (IHM)</h4><p>Catholic school serving families in the Akron area. Solid academic foundation with faith-centered values.</p></div>
+      <div class="school-card"><div class="school-level">K–8 — Akron</div><h4>Redeemer Lutheran School</h4><p>Lutheran school offering faith-integrated education in a nurturing environment close to CF.</p></div>
     </div>
   </div>
 </section>
@@ -588,115 +499,535 @@
       <p class="section-desc">Know where to go before you need it.</p>
     </div>
     <div class="grid-2" style="margin-bottom:1.25rem;">
-      <div class="hospital-card">
-        <h4>Summa Health System — Akron City Hospital</h4>
-        <p>The primary full-service hospital for most CF residents. Level I Trauma Center. Emergency, cardiac, cancer care, and more.</p>
-        <a class="phone" href="tel:3303753000">(330) 375-3000</a><br/>
-        <a class="card-link" href="https://www.summahealth.org" target="_blank" rel="noopener" style="display:inline-block; margin-top:0.3rem;">summahealth.org →</a>
-      </div>
-      <div class="hospital-card">
-        <h4>Akron Children's Hospital</h4>
-        <p>One of the nation's top children's hospitals. Ranked among the best in multiple specialties. The go-to for pediatric care in northeast Ohio.</p>
-        <a class="phone" href="tel:3305431000">(330) 543-1000</a><br/>
-        <a class="card-link" href="https://www.akronchildrens.org" target="_blank" rel="noopener" style="display:inline-block; margin-top:0.3rem;">akronchildrens.org →</a>
-      </div>
-      <div class="hospital-card">
-        <h4>Cleveland Clinic Akron General</h4>
-        <p>Full-service hospital with the resources of the Cleveland Clinic system. Strong cardiac and surgical programs. Minutes from CF.</p>
-        <a class="phone" href="tel:3303446000">(330) 344-6000</a><br/>
-        <a class="card-link" href="https://my.clevelandclinic.org/locations/akron-general" target="_blank" rel="noopener" style="display:inline-block; margin-top:0.3rem;">clevelandclinic.org →</a>
-      </div>
-      <div class="hospital-card">
-        <h4>Crystal Clinic Orthopaedic Center</h4>
-        <p>Northeast Ohio's leading orthopedic specialty hospital. Sports medicine, joint replacement, spine care — without the wait of a general ER.</p>
-        <a class="phone" href="tel:3306680560">(330) 668-0560</a><br/>
-        <a class="card-link" href="https://www.crystalclinic.com" target="_blank" rel="noopener" style="display:inline-block; margin-top:0.3rem;">crystalclinic.com →</a>
-      </div>
+      <div class="hospital-card"><h4>Summa Health System — Akron City Hospital</h4><p>The primary full-service hospital for most CF residents. Level I Trauma Center. Emergency, cardiac, cancer care, and more.</p><a class="phone" href="tel:3303753000">(330) 375-3000</a><br/><a class="card-link" href="https://www.summahealth.org" target="_blank" rel="noopener" style="display:inline-block; margin-top:0.3rem;">summahealth.org →</a></div>
+      <div class="hospital-card"><h4>Akron Children's Hospital</h4><p>One of the nation's top children's hospitals. Ranked among the best in multiple specialties. The go-to for pediatric care in northeast Ohio.</p><a class="phone" href="tel:3305431000">(330) 543-1000</a><br/><a class="card-link" href="https://www.akronchildrens.org" target="_blank" rel="noopener" style="display:inline-block; margin-top:0.3rem;">akronchildrens.org →</a></div>
+      <div class="hospital-card"><h4>Cleveland Clinic Akron General</h4><p>Full-service hospital with the resources of the Cleveland Clinic system. Strong cardiac and surgical programs. Minutes from CF.</p><a class="phone" href="tel:3303446000">(330) 344-6000</a><br/><a class="card-link" href="https://my.clevelandclinic.org/locations/akron-general" target="_blank" rel="noopener" style="display:inline-block; margin-top:0.3rem;">clevelandclinic.org →</a></div>
+      <div class="hospital-card"><h4>Crystal Clinic Orthopaedic Center</h4><p>Northeast Ohio's leading orthopedic specialty hospital. Sports medicine, joint replacement, spine care — without the wait of a general ER.</p><a class="phone" href="tel:3306680560">(330) 668-0560</a><br/><a class="card-link" href="https://www.crystalclinic.com" target="_blank" rel="noopener" style="display:inline-block; margin-top:0.3rem;">crystalclinic.com →</a></div>
     </div>
-    <div class="info-block green">
-      <h4>🏥 Urgent Care Options</h4>
-      <p>For non-emergency needs, urgent care is faster and cheaper than the ER. Summa Health, Cleveland Clinic Express Care, and Concentra locations serve the CF/Akron corridor. Full urgent care directory coming soon.</p>
-    </div>
+    <div class="info-block green"><h4>🏥 Urgent Care Options</h4><p>For non-emergency needs, urgent care is faster and cheaper than the ER. Summa Health, Cleveland Clinic Express Care, and Concentra locations serve the CF/Akron corridor. Full urgent care directory coming soon.</p></div>
   </div>
 </section>
 
-<!-- RESTAURANTS -->
+<!-- RESTAURANTS — FLIP CARDS -->
 <section class="section" id="restaurants">
   <div class="container">
     <div class="section-header">
       <div class="section-eyebrow">Eat &amp; Drink</div>
       <h2 class="section-title">Restaurants &amp; Bars</h2>
-      <p class="section-desc">Curated local favorites. No chains, no nonsense.</p>
+      <p class="section-desc">Curated local favorites. Click any card for address, hours, and more.</p>
     </div>
+
     <div class="sub-eyebrow" style="margin-bottom:0.75rem;">Steakhouse &amp; American</div>
-    <div class="grid-3" style="margin-bottom:1.5rem;">
-      <div class="biz-card"><span class="falls-approved">⭐ Falls Approved</span><h4>Arnie's West Branch Steak House</h4><div class="biz-tag">Steakhouse</div><p class="biz-desc">A CF institution. Old-school steakhouse done right — the kind of place you bring your parents and nobody leaves disappointed.</p></div>
-      <div class="biz-card"><span class="falls-approved">⭐ Falls Approved</span><h4>Hartville Kitchen</h4><div class="biz-tag">American — Hartville, OH</div><p class="biz-desc">Just outside CF, worth the short drive. Classic American comfort food at a scale and quality that keeps people coming back for decades.</p></div>
-      <div class="biz-card"><span class="falls-approved">⭐ Falls Approved</span><h4>Big Eue's BBQ</h4><div class="biz-tag">BBQ</div><p class="biz-desc">Serious BBQ in the Falls. The kind of place where the smoke does the talking.</p></div>
+    <div class="flip-grid" style="margin-bottom:1.5rem;">
+
+      <div class="flip-card" onclick="flipCard(this)">
+        <div class="flip-inner">
+          <div class="flip-front">
+            <div class="flip-front-top">
+              <div class="flip-badge">⭐ Falls Approved</div>
+              <div class="flip-name">Arnie's West Branch Steak House</div>
+              <div class="flip-tag">Steakhouse — Ravenna, OH</div>
+              <div class="flip-desc">A regional institution for over 35 years. Famous for steaks and seafood — the kind of place that earns a drive.</div>
+            </div>
+            <div class="flip-hint">👆 Tap for details</div>
+          </div>
+          <div class="flip-back">
+            <div class="flip-back-title">Arnie's West Branch Steak House</div>
+            <div class="flip-info">
+              <div class="flip-info-row"><span class="fi-icon">📍</span><span>5343 State Rte 14, Ravenna, OH 44266</span></div>
+              <div class="flip-info-row"><span class="fi-icon">📞</span><a href="tel:3302971717">(330) 297-1717</a></div>
+              <div class="flip-info-row"><span class="fi-icon">🕐</span><span>Tue–Sat 4–9 PM · Mon &amp; Sun Closed</span></div>
+              <div class="flip-info-row"><span class="fi-icon">ℹ️</span><span>No reservations (parties of 6–10 accepted). First come, first served.</span></div>
+            </div>
+            <a class="flip-back-btn" href="https://arniessteakhouse.com" target="_blank" rel="noopener">Visit Website →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="flip-card" onclick="flipCard(this)">
+        <div class="flip-inner">
+          <div class="flip-front">
+            <div class="flip-front-top">
+              <div class="flip-badge">⭐ Falls Approved</div>
+              <div class="flip-name">Hartville Kitchen</div>
+              <div class="flip-tag">American — Hartville, OH</div>
+              <div class="flip-desc">Classic American comfort food from scratch since 1966. Real mashed potatoes, hand-cut meats, 21 pies. Worth every mile.</div>
+            </div>
+            <div class="flip-hint">👆 Tap for details</div>
+          </div>
+          <div class="flip-back">
+            <div class="flip-back-title">Hartville Kitchen</div>
+            <div class="flip-info">
+              <div class="flip-info-row"><span class="fi-icon">📍</span><span>1015 Edison St NW, Hartville, OH 44632</span></div>
+              <div class="flip-info-row"><span class="fi-icon">📞</span><a href="tel:3308779353">(330) 877-9353</a></div>
+              <div class="flip-info-row"><span class="fi-icon">🕐</span><span>Mon, Tue, Thu–Sat 11 AM–8 PM · Wed &amp; Sun Closed</span></div>
+              <div class="flip-info-row"><span class="fi-icon">🥞</span><span>Breakfast buffet Fri &amp; Sat 7–10 AM</span></div>
+            </div>
+            <a class="flip-back-btn" href="https://hartvillekitchen.com" target="_blank" rel="noopener">Visit Website →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="flip-card" onclick="flipCard(this)">
+        <div class="flip-inner">
+          <div class="flip-front">
+            <div class="flip-front-top">
+              <div class="flip-badge">⭐ Falls Approved</div>
+              <div class="flip-name">Big Eue's BBQ</div>
+              <div class="flip-tag">BBQ — Cuyahoga Falls</div>
+              <div class="flip-desc">Slow-smoked hardwood BBQ on Portage Trail. Ribs, brisket, pulled pork, mac &amp; cheese. The smoke does the talking.</div>
+            </div>
+            <div class="flip-hint">👆 Tap for details</div>
+          </div>
+          <div class="flip-back">
+            <div class="flip-back-title">Big Eue's BBQ</div>
+            <div class="flip-info">
+              <div class="flip-info-row"><span class="fi-icon">📍</span><span>1730 Portage Trail, Cuyahoga Falls, OH 44223</span></div>
+              <div class="flip-info-row"><span class="fi-icon">📞</span><a href="tel:2347066700">(234) 706-6700</a></div>
+              <div class="flip-info-row"><span class="fi-icon">🕐</span><span>Tue–Sat 11 AM–9 PM · Sun &amp; Mon Closed</span></div>
+              <div class="flip-info-row"><span class="fi-icon">🍖</span><span>Dine-in, takeout &amp; catering available</span></div>
+            </div>
+            <a class="flip-back-btn" href="https://bigeues.com" target="_blank" rel="noopener">Visit Website →</a>
+          </div>
+        </div>
+      </div>
+
     </div>
+
     <div class="gold-divider"></div>
     <div class="sub-eyebrow" style="margin-bottom:0.75rem;">Italian</div>
-    <div class="grid-3" style="margin-bottom:1.5rem;">
-      <div class="biz-card"><span class="falls-approved">⭐ Falls Approved</span><h4>Dontino's</h4><div class="biz-tag">Italian Restaurant</div><p class="biz-desc">Solid Italian in the Falls. The kind of red-sauce spot that earns regulars.</p></div>
+    <div class="flip-grid" style="margin-bottom:1.5rem;">
+
+      <div class="flip-card" onclick="flipCard(this)">
+        <div class="flip-inner">
+          <div class="flip-front">
+            <div class="flip-front-top">
+              <div class="flip-badge">⭐ Falls Approved</div>
+              <div class="flip-name">Dontino's Italian Restaurant</div>
+              <div class="flip-tag">Italian — North Akron (CF Ave)</div>
+              <div class="flip-desc">An Akron tradition since 1930. Family owned and operated. The kind of red-sauce spot that earns regulars for life.</div>
+            </div>
+            <div class="flip-hint">👆 Tap for details</div>
+          </div>
+          <div class="flip-back">
+            <div class="flip-back-title">Dontino's Italian Restaurant</div>
+            <div class="flip-info">
+              <div class="flip-info-row"><span class="fi-icon">📍</span><span>555 E Cuyahoga Falls Ave, Akron, OH 44310</span></div>
+              <div class="flip-info-row"><span class="fi-icon">📞</span><a href="tel:3309289530">(330) 928-9530</a></div>
+              <div class="flip-info-row"><span class="fi-icon">🕐</span><span>Mon–Sat 11:30 AM–9 PM · Sun Closed</span></div>
+              <div class="flip-info-row"><span class="fi-icon">🍷</span><span>Full bar · Outdoor seating · Family owned since 1930</span></div>
+            </div>
+            <a class="flip-back-btn" href="https://dontinos.com" target="_blank" rel="noopener">Visit Website →</a>
+          </div>
+        </div>
+      </div>
+
     </div>
+
     <div class="gold-divider"></div>
     <div class="sub-eyebrow" style="margin-bottom:0.75rem;">Pizza</div>
-    <div class="grid-3" style="margin-bottom:1.5rem;">
-      <div class="biz-card"><span class="falls-approved">⭐ Falls Approved</span><h4>Rocco's Pizza</h4><div class="biz-tag">Pizza</div><p class="biz-desc">Local pizza done the right way. A Falls staple.</p></div>
-      <div class="biz-card"><span class="falls-approved">⭐ Falls Approved</span><h4>Lucci's Pizza</h4><div class="biz-tag">Pizza</div><p class="biz-desc">Another CF classic. The Rocco's vs. Lucci's debate has been going on for years — try both and decide for yourself.</p></div>
-      <div class="biz-card"><span class="falls-approved">⭐ Falls Approved</span><h4>Athena's Pizza</h4><div class="biz-tag">Pizza</div><p class="biz-desc">A third contender in the CF pizza wars. This town takes pizza seriously.</p></div>
+    <div class="flip-grid" style="margin-bottom:1.5rem;">
+
+      <div class="flip-card" onclick="flipCard(this)">
+        <div class="flip-inner">
+          <div class="flip-front">
+            <div class="flip-front-top">
+              <div class="flip-badge">⭐ Falls Approved</div>
+              <div class="flip-name">Rocco's Pizza</div>
+              <div class="flip-tag">Pizza — Cuyahoga Falls</div>
+              <div class="flip-desc">Open since 1953. A CF pizza institution. Two locations — Portage Trail and Graham Rd in Stow.</div>
+            </div>
+            <div class="flip-hint">👆 Tap for details</div>
+          </div>
+          <div class="flip-back">
+            <div class="flip-back-title">Rocco's Pizza</div>
+            <div class="flip-info">
+              <div class="flip-info-row"><span class="fi-icon">📍</span><span>1053 Portage Trail, Cuyahoga Falls, OH 44221</span></div>
+              <div class="flip-info-row"><span class="fi-icon">📞</span><a href="tel:3309283344">(330) 928-3344</a></div>
+              <div class="flip-info-row"><span class="fi-icon">🕐</span><span>Sun–Thurs 11 AM–10 PM · Fri &amp; Sat 11 AM–11 PM</span></div>
+              <div class="flip-info-row"><span class="fi-icon">📍</span><span>Also: 973 Graham Rd, Stow · (330) 920-1111</span></div>
+            </div>
+            <a class="flip-back-btn" href="https://roccos-pizza.com" target="_blank" rel="noopener">Visit Website →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="flip-card" onclick="flipCard(this)">
+        <div class="flip-inner">
+          <div class="flip-front">
+            <div class="flip-front-top">
+              <div class="flip-badge">⭐ Falls Approved</div>
+              <div class="flip-name">Athena's Pizza</div>
+              <div class="flip-tag">Pizza / Gyros / Chicken — CF</div>
+              <div class="flip-desc">Mom &amp; pop pizza shop on State Rd. Fresh dough daily. Famous pierogi pizza, gyros, and fried chicken. Near Blossom.</div>
+            </div>
+            <div class="flip-hint">👆 Tap for details</div>
+          </div>
+          <div class="flip-back">
+            <div class="flip-back-title">Athena's Pizza</div>
+            <div class="flip-info">
+              <div class="flip-info-row"><span class="fi-icon">📍</span><span>4037 State Rd, Cuyahoga Falls, OH 44223</span></div>
+              <div class="flip-info-row"><span class="fi-icon">📞</span><a href="tel:3309292940">(330) 929-2940</a></div>
+              <div class="flip-info-row"><span class="fi-icon">🕐</span><span>Tue–Thu 11 AM–8 PM · Fri 11 AM–10 PM · Sat 12–10 PM · Sun 12–8 PM · Mon Closed</span></div>
+              <div class="flip-info-row"><span class="fi-icon">🛵</span><span>Delivery &amp; takeout available · Order online</span></div>
+            </div>
+            <a class="flip-back-btn" href="https://athenaspizza.net" target="_blank" rel="noopener">Visit Website →</a>
+          </div>
+        </div>
+      </div>
+
     </div>
+
     <div class="gold-divider"></div>
     <div class="sub-eyebrow" style="margin-bottom:0.75rem;">International</div>
-    <div class="grid-3" style="margin-bottom:1.5rem;">
-      <div class="biz-card"><span class="falls-approved">⭐ Falls Approved</span><h4>Chen's Garden</h4><div class="biz-tag">Chinese</div><p class="biz-desc">Reliable, consistent Chinese food that CF residents have trusted for years.</p></div>
-      <div class="biz-card"><span class="falls-approved">⭐ Falls Approved</span><h4>Seoul Garden</h4><div class="biz-tag">Korean</div><p class="biz-desc">Authentic Korean cuisine — one of the better options in the Akron/CF area.</p></div>
-      <div class="biz-card"><span class="falls-approved">⭐ Falls Approved</span><h4>El Meson</h4><div class="biz-tag">Mexican</div><p class="biz-desc">Solid Mexican that goes beyond the basics. A go-to for the Falls.</p></div>
-      <div class="biz-card"><span class="falls-approved">⭐ Falls Approved</span><h4>Das Schnitzel Haus</h4><div class="biz-tag">German</div><p class="biz-desc">Authentic German food — schnitzel, spaetzle, the works. A unique find in northeast Ohio.</p></div>
+    <div class="flip-grid" style="margin-bottom:1.5rem;">
+
+      <div class="flip-card" onclick="flipCard(this)">
+        <div class="flip-inner">
+          <div class="flip-front">
+            <div class="flip-front-top">
+              <div class="flip-badge">⭐ Falls Approved</div>
+              <div class="flip-name">Chen's Garden</div>
+              <div class="flip-tag">Chinese — Cuyahoga Falls</div>
+              <div class="flip-desc">Reliable, consistent Chinese food CF residents have trusted for years. No MSG. Fast delivery. Best egg rolls in the Falls.</div>
+            </div>
+            <div class="flip-hint">👆 Tap for details</div>
+          </div>
+          <div class="flip-back">
+            <div class="flip-back-title">Chen's Garden</div>
+            <div class="flip-info">
+              <div class="flip-info-row"><span class="fi-icon">📍</span><span>2047 State Rd, Cuyahoga Falls, OH 44223</span></div>
+              <div class="flip-info-row"><span class="fi-icon">📞</span><a href="tel:3309457188">(330) 945-7188</a></div>
+              <div class="flip-info-row"><span class="fi-icon">🕐</span><span>Tue–Thu 11 AM–9:30 PM · Fri–Sat 11 AM–10:30 PM · Mon &amp; Sun Closed</span></div>
+              <div class="flip-info-row"><span class="fi-icon">🚗</span><span>Delivery available · No MSG added · 100% vegetable oil</span></div>
+            </div>
+            <a class="flip-back-btn" href="https://chensgardenoh.com" target="_blank" rel="noopener">Visit Website →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="flip-card" onclick="flipCard(this)">
+        <div class="flip-inner">
+          <div class="flip-front">
+            <div class="flip-front-top">
+              <div class="flip-badge">⭐ Falls Approved</div>
+              <div class="flip-name">Seoul Garden</div>
+              <div class="flip-tag">Korean — Cuyahoga Falls</div>
+              <div class="flip-desc">Authentic Korean in CF — bibimbap, bulgogi, japchae, Korean BBQ. Fresh, made-to-order, and the real thing.</div>
+            </div>
+            <div class="flip-hint">👆 Tap for details</div>
+          </div>
+          <div class="flip-back">
+            <div class="flip-back-title">Seoul Garden</div>
+            <div class="flip-info">
+              <div class="flip-info-row"><span class="fi-icon">📍</span><span>2559 State Rd, Cuyahoga Falls, OH 44223</span></div>
+              <div class="flip-info-row"><span class="fi-icon">📞</span><a href="tel:3309299971">(330) 929-9971</a></div>
+              <div class="flip-info-row"><span class="fi-icon">🕐</span><span>Mon–Fri 11:30 AM–3 PM, 3:30–9 PM · Sat 12–3 PM, 3:30–9 PM · Sun Closed</span></div>
+              <div class="flip-info-row"><span class="fi-icon">🍶</span><span>Beer, wine &amp; cocktails available · Dine-in &amp; takeout</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="flip-card" onclick="flipCard(this)">
+        <div class="flip-inner">
+          <div class="flip-front">
+            <div class="flip-front-top">
+              <div class="flip-badge">⭐ Falls Approved</div>
+              <div class="flip-name">El Meson</div>
+              <div class="flip-tag">Mexican — Cuyahoga Falls</div>
+              <div class="flip-desc">Authentic Mexican with fresh ingredients daily. Great margaritas, open patio with garage doors, best tacos in the Falls.</div>
+            </div>
+            <div class="flip-hint">👆 Tap for details</div>
+          </div>
+          <div class="flip-back">
+            <div class="flip-back-title">El Meson Mexican Restaurant</div>
+            <div class="flip-info">
+              <div class="flip-info-row"><span class="fi-icon">📍</span><span>657 Portage Trail, Cuyahoga Falls, OH 44221</span></div>
+              <div class="flip-info-row"><span class="fi-icon">📞</span><a href="tel:3309201759">(330) 920-1759</a></div>
+              <div class="flip-info-row"><span class="fi-icon">🕐</span><span>Mon–Thu 11 AM–10 PM · Fri–Sat 11 AM–10:30 PM · Sun 11 AM–9 PM</span></div>
+              <div class="flip-info-row"><span class="fi-icon">🍹</span><span>Full bar · Patio seating · Online ordering available</span></div>
+            </div>
+            <a class="flip-back-btn" href="https://elmesonohiotogo.com" target="_blank" rel="noopener">Visit Website →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="flip-card" onclick="flipCard(this)">
+        <div class="flip-inner">
+          <div class="flip-front">
+            <div class="flip-front-top">
+              <div class="flip-badge">⭐ Falls Approved</div>
+              <div class="flip-name">Das Schnitzel Haus</div>
+              <div class="flip-tag">German — Parma, OH</div>
+              <div class="flip-desc">Authentic Bavarian — schnitzel, spaetzle, wurst, German draft beer. Worth the drive north. One of the best in the region.</div>
+            </div>
+            <div class="flip-hint">👆 Tap for details</div>
+          </div>
+          <div class="flip-back">
+            <div class="flip-back-title">Das Schnitzel Haus</div>
+            <div class="flip-info">
+              <div class="flip-info-row"><span class="fi-icon">📍</span><span>5728 Pearl Rd, Parma, OH 44129</span></div>
+              <div class="flip-info-row"><span class="fi-icon">📞</span><a href="tel:4408865050">(440) 886-5050</a></div>
+              <div class="flip-info-row"><span class="fi-icon">🕐</span><span>Mon–Thu 11 AM–9:30 PM · Fri 11 AM–10:30 PM · Sat 12–10:30 PM</span></div>
+              <div class="flip-info-row"><span class="fi-icon">🍺</span><span>German draft beers · Covered beer garden with fireplace</span></div>
+            </div>
+            <a class="flip-back-btn" href="https://dshparma.com" target="_blank" rel="noopener">Visit Website →</a>
+          </div>
+        </div>
+      </div>
+
     </div>
+
     <div class="gold-divider"></div>
     <div class="sub-eyebrow" style="margin-bottom:0.75rem;">Bakeries &amp; Sweets</div>
-    <div class="grid-3" style="margin-bottom:1.5rem;">
-      <div class="biz-card"><span class="falls-approved">⭐ Falls Approved</span><h4>Palotta's Pastries</h4><div class="biz-tag">Bakery / Pastries</div><p class="biz-desc">The kind of bakery that makes you feel guilty about every chain you've ever visited. Real pastries, real quality.</p></div>
-      <div class="biz-card"><span class="falls-approved">⭐ Falls Approved</span><h4>Pav's Ice Cream</h4><div class="biz-tag">Ice Cream — Multiple Locations</div><p class="biz-desc">A northeast Ohio institution. Multiple locations, long lines in summer for good reason.</p></div>
-      <div class="biz-card"><span class="falls-approved">⭐ Falls Approved</span><h4>Country Maid Ice Cream</h4><div class="biz-tag">Ice Cream</div><p class="biz-desc">Old-school ice cream done right. A warm-weather ritual for CF families.</p></div>
+    <div class="flip-grid" style="margin-bottom:1.5rem;">
+
+      <div class="flip-card" onclick="flipCard(this)">
+        <div class="flip-inner">
+          <div class="flip-front">
+            <div class="flip-front-top">
+              <div class="flip-badge">⭐ Falls Approved</div>
+              <div class="flip-name">Pallotta's Pastries</div>
+              <div class="flip-tag">Bakery — Cuyahoga Falls</div>
+              <div class="flip-desc">Four generations of from-scratch baking. One of the last true scratch bakeries in the Akron area. Go early — they sell out.</div>
+            </div>
+            <div class="flip-hint">👆 Tap for details</div>
+          </div>
+          <div class="flip-back">
+            <div class="flip-back-title">Pallotta's Pastries</div>
+            <div class="flip-info">
+              <div class="flip-info-row"><span class="fi-icon">📍</span><span>2120 Byrd Ave, Cuyahoga Falls, OH 44223</span></div>
+              <div class="flip-info-row"><span class="fi-icon">📞</span><a href="tel:3309201766">(330) 920-1766</a></div>
+              <div class="flip-info-row"><span class="fi-icon">🕐</span><span>Tue 8 AM–2 PM · Wed–Fri 8 AM–4 PM · Sat 6:30 AM–2 PM · Mon &amp; Sun Closed</span></div>
+              <div class="flip-info-row"><span class="fi-icon">🧁</span><span>Everything made from scratch · Four generations of baking excellence</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="flip-card" onclick="flipCard(this)">
+        <div class="flip-inner">
+          <div class="flip-front">
+            <div class="flip-front-top">
+              <div class="flip-badge">⭐ Falls Approved</div>
+              <div class="flip-name">Pav's Creamery</div>
+              <div class="flip-tag">Ice Cream — Cuyahoga Falls</div>
+              <div class="flip-desc">A northeast Ohio summer institution. Long lines for good reason. Front St location is a CF warm-weather destination.</div>
+            </div>
+            <div class="flip-hint">👆 Tap for details</div>
+          </div>
+          <div class="flip-back">
+            <div class="flip-back-title">Pav's Creamery</div>
+            <div class="flip-info">
+              <div class="flip-info-row"><span class="fi-icon">📍</span><span>2162 Front St, Cuyahoga Falls, OH 44221</span></div>
+              <div class="flip-info-row"><span class="fi-icon">🕐</span><span>Mon–Sun 12–9 PM (seasonal)</span></div>
+              <div class="flip-info-row"><span class="fi-icon">🍦</span><span>Multiple locations in the area — check for other spots</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="flip-card" onclick="flipCard(this)">
+        <div class="flip-inner">
+          <div class="flip-front">
+            <div class="flip-front-top">
+              <div class="flip-badge">⭐ Falls Approved</div>
+              <div class="flip-name">Country Maid Ice Cream</div>
+              <div class="flip-tag">Ice Cream — Richfield, OH</div>
+              <div class="flip-desc">Serving smiles for over 70 years. Housemade ice cream and locally grown fruit. A short drive south — worth every mile.</div>
+            </div>
+            <div class="flip-hint">👆 Tap for details</div>
+          </div>
+          <div class="flip-back">
+            <div class="flip-back-title">Country Maid Ice Cream</div>
+            <div class="flip-info">
+              <div class="flip-info-row"><span class="fi-icon">📍</span><span>3252 W Streetsboro Rd, Richfield, OH 44286</span></div>
+              <div class="flip-info-row"><span class="fi-icon">📞</span><a href="tel:3306596830">(330) 659-6830</a></div>
+              <div class="flip-info-row"><span class="fi-icon">🕐</span><span>Daily 12–9 PM (seasonal)</span></div>
+              <div class="flip-info-row"><span class="fi-icon">🍎</span><span>Apple barn &amp; orchard also on-site · Great fall destination</span></div>
+            </div>
+            <a class="flip-back-btn" href="https://countrymaidicecream.com" target="_blank" rel="noopener">Visit Website →</a>
+          </div>
+        </div>
+      </div>
+
     </div>
+
     <div class="gold-divider"></div>
     <div class="sub-eyebrow" style="margin-bottom:0.75rem;">Worth the Drive</div>
-    <div class="grid-3">
-      <div class="biz-card"><span class="falls-approved">⭐ Falls Approved</span><h4>Amish Door</h4><div class="biz-tag">Amish / American — Wilmot, OH</div><p class="biz-desc">About an hour south — worth every minute. Massive portions of honest Amish cooking. Go hungry. Bring your stretchy pants.</p></div>
-      <div class="biz-card"><span class="falls-approved">⭐ Falls Approved</span><h4>Wild Goose</h4><div class="biz-tag">Bar / Restaurant — Willoughby, OH</div><p class="biz-desc">Worth the drive north. Great bar atmosphere, solid food, good people.</p></div>
+    <div class="flip-grid">
+
+      <div class="flip-card tall" onclick="flipCard(this)">
+        <div class="flip-inner">
+          <div class="flip-front">
+            <div class="flip-front-top">
+              <div class="flip-badge">⭐ Falls Approved</div>
+              <div class="flip-name">Amish Door</div>
+              <div class="flip-tag">Amish / American — Wilmot, OH</div>
+              <div class="flip-desc">About an hour south. Massive portions of honest Amish cooking. Go hungry. Bring your stretchy pants.</div>
+            </div>
+            <div class="flip-hint">👆 Tap for details</div>
+          </div>
+          <div class="flip-back">
+            <div class="flip-back-title">Amish Door</div>
+            <div class="flip-info">
+              <div class="flip-info-row"><span class="fi-icon">📍</span><span>1210 Winesburg St, Wilmot, OH 44689</span></div>
+              <div class="flip-info-row"><span class="fi-icon">📞</span><a href="tel:3305592000">(330) 359-2000</a></div>
+              <div class="flip-info-row"><span class="fi-icon">🕐</span><span>Mon–Sat 7 AM–8 PM · Sun Closed</span></div>
+              <div class="flip-info-row"><span class="fi-icon">🐴</span><span>Full restaurant, inn, and gift shop. ~1 hr from CF.</span></div>
+            </div>
+            <a class="flip-back-btn" href="https://www.amishdoor.com" target="_blank" rel="noopener">Visit Website →</a>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
 
-<!-- SERVICES -->
+<!-- SERVICES — FLIP CARDS -->
 <section class="section section-alt" id="services">
   <div class="container">
     <div class="section-header">
       <div class="section-eyebrow">Home &amp; Auto Services</div>
       <h2 class="section-title">Services You Can Trust</h2>
-      <p class="section-desc">Vetted local service providers — the ones CF residents actually call.</p>
+      <p class="section-desc">Vetted local service providers. Click any card for address, phone, and hours.</p>
     </div>
+
     <div class="sub-eyebrow" style="margin-bottom:0.75rem;">Auto</div>
-    <div class="grid-3" style="margin-bottom:1.5rem;">
-      <div class="biz-card"><span class="falls-approved">⭐ Falls Approved</span><h4>G&amp;R Auto Care</h4><div class="biz-tag">Auto Repair</div><p class="biz-desc">Honest local auto care. The kind of shop you recommend to family.</p></div>
-      <div class="biz-card"><span class="falls-approved">⭐ Falls Approved</span><h4>Leipold Tire</h4><div class="biz-tag">Tires / Auto Service</div><p class="biz-desc">A CF tire institution. Fair prices, real service, no runaround.</p></div>
-      <div class="biz-card"><span class="falls-approved">⭐ Falls Approved</span><h4>Tim's Transmission</h4><div class="biz-tag">Transmission Specialist</div><p class="biz-desc">When your transmission needs work, you want a specialist — not a generalist. Tim's is the call.</p></div>
-      <div class="biz-card"><span class="falls-approved">⭐ Falls Approved</span><h4>Big Mike's Auto / Towing / Body Shop</h4><div class="biz-tag">Auto / Towing / Body Shop</div><p class="biz-desc">Full-service auto — repairs, towing, and body work all in one place. Good to have in your phone before you need it.</p></div>
+    <div class="flip-grid" style="margin-bottom:1.5rem;">
+
+      <div class="flip-card" onclick="flipCard(this)">
+        <div class="flip-inner">
+          <div class="flip-front">
+            <div class="flip-front-top">
+              <div class="flip-badge">⭐ Falls Approved</div>
+              <div class="flip-name">G&amp;R Auto Care</div>
+              <div class="flip-tag">Auto Repair — Cuyahoga Falls</div>
+              <div class="flip-desc">ASE certified, 30+ years experience. Neighbors call them "one of the best finds in CF" — honest, fair, trustworthy.</div>
+            </div>
+            <div class="flip-hint">👆 Tap for details</div>
+          </div>
+          <div class="flip-back">
+            <div class="flip-back-title">G&amp;R Auto Care</div>
+            <div class="flip-info">
+              <div class="flip-info-row"><span class="fi-icon">📍</span><span>807 Portage Trail, Cuyahoga Falls, OH 44221</span></div>
+              <div class="flip-info-row"><span class="fi-icon">📞</span><a href="tel:3309289242">(330) 928-9242</a></div>
+              <div class="flip-info-row"><span class="fi-icon">🕐</span><span>Mon–Fri 8:30 AM–5 PM · Sat &amp; Sun Closed</span></div>
+              <div class="flip-info-row"><span class="fi-icon">🔧</span><span>ASE Certified · 30 Years Experience · Honest local shop</span></div>
+            </div>
+            <a class="flip-back-btn" href="https://gandrautoinc.com" target="_blank" rel="noopener">Visit Website →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="flip-card" onclick="flipCard(this)">
+        <div class="flip-inner">
+          <div class="flip-front">
+            <div class="flip-front-top">
+              <div class="flip-badge">⭐ Falls Approved</div>
+              <div class="flip-name">Leipold Tire</div>
+              <div class="flip-tag">Tires / Auto Service — CF</div>
+              <div class="flip-desc">Three generations of CF families trust Leipold. Christian-based business model. Honest and fair — the real deal.</div>
+            </div>
+            <div class="flip-hint">👆 Tap for details</div>
+          </div>
+          <div class="flip-back">
+            <div class="flip-back-title">Leipold Tire</div>
+            <div class="flip-info">
+              <div class="flip-info-row"><span class="fi-icon">📍</span><span>1808 State Rd, Cuyahoga Falls, OH 44223</span></div>
+              <div class="flip-info-row"><span class="fi-icon">📞</span><a href="tel:3309234450">(330) 923-4450</a></div>
+              <div class="flip-info-row"><span class="fi-icon">🕐</span><span>Mon–Fri 9 AM–6 PM · Sat 9 AM–12 PM · Sun Closed</span></div>
+              <div class="flip-info-row"><span class="fi-icon">🚗</span><span>Goodyear dealer · Tires, brakes, alignment &amp; more</span></div>
+            </div>
+            <a class="flip-back-btn" href="https://leipoldtire.com" target="_blank" rel="noopener">Visit Website →</a>
+          </div>
+        </div>
+      </div>
+
     </div>
+
     <div class="gold-divider"></div>
     <div class="sub-eyebrow" style="margin-bottom:0.75rem;">Home Services</div>
-    <div class="grid-3" style="margin-bottom:1.5rem;">
-      <div class="biz-card"><span class="falls-approved">⭐ Falls Approved</span><h4>Barberton Tree</h4><div class="biz-tag">Tree Service / Landscaping</div><p class="biz-desc">Professional tree service for CF and surrounding areas. Removal, trimming, the works.</p></div>
-      <div class="biz-card"><span class="falls-approved">⭐ Falls Approved</span><h4>Pioneer Basement</h4><div class="biz-tag">Basement Waterproofing / Foundation</div><p class="biz-desc">Northeast Ohio basements are notorious. Pioneer is the name locals trust when water becomes a problem.</p></div>
+    <div class="flip-grid" style="margin-bottom:1.5rem;">
+
+      <div class="flip-card" onclick="flipCard(this)">
+        <div class="flip-inner">
+          <div class="flip-front">
+            <div class="flip-front-top">
+              <div class="flip-badge">⭐ Falls Approved</div>
+              <div class="flip-name">Barberton Tree Service</div>
+              <div class="flip-tag">Tree Service — Serving CF Area</div>
+              <div class="flip-desc">Doing things right since 1971. Serves a 60-mile radius including CF. Zero-waste policy. Fast, efficient, affordable.</div>
+            </div>
+            <div class="flip-hint">👆 Tap for details</div>
+          </div>
+          <div class="flip-back">
+            <div class="flip-back-title">Barberton Tree Service</div>
+            <div class="flip-info">
+              <div class="flip-info-row"><span class="fi-icon">📍</span><span>635 Norton Ave, Barberton, OH 44203</span></div>
+              <div class="flip-info-row"><span class="fi-icon">📞</span><a href="tel:3308482344">(330) 848-2344</a></div>
+              <div class="flip-info-row"><span class="fi-icon">🕐</span><span>Available 24/7 for emergencies</span></div>
+              <div class="flip-info-row"><span class="fi-icon">🌳</span><span>Serving CF, Akron, Summit, Medina &amp; surrounding counties since 1971</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="flip-card" onclick="flipCard(this)">
+        <div class="flip-inner">
+          <div class="flip-front">
+            <div class="flip-front-top">
+              <div class="flip-badge">⭐ Falls Approved</div>
+              <div class="flip-name">Pioneer Basement Solutions</div>
+              <div class="flip-tag">Waterproofing / Foundation — NE Ohio</div>
+              <div class="flip-desc">Serving northeast Ohio since 1979. Northeast Ohio basements are notorious — Pioneer has the fixes with FREE lifetime warranties.</div>
+            </div>
+            <div class="flip-hint">👆 Tap for details</div>
+          </div>
+          <div class="flip-back">
+            <div class="flip-back-title">Pioneer Basement Solutions</div>
+            <div class="flip-info">
+              <div class="flip-info-row"><span class="fi-icon">📞</span><a href="tel:3304548066">(330) 454-8066</a></div>
+              <div class="flip-info-row"><span class="fi-icon">🕐</span><span>Mon–Fri 8 AM–5 PM · Free estimates available</span></div>
+              <div class="flip-info-row"><span class="fi-icon">🏠</span><span>Waterproofing · Foundation repair · Basement finishing · 40+ years serving CF &amp; NE Ohio</span></div>
+            </div>
+            <a class="flip-back-btn" href="https://pioneerbasementsolutions.com" target="_blank" rel="noopener">Visit Website →</a>
+          </div>
+        </div>
+      </div>
+
     </div>
+
     <div class="gold-divider"></div>
     <div class="sub-eyebrow" style="margin-bottom:0.75rem;">Specialty</div>
-    <div class="grid-3" style="margin-bottom:1.5rem;">
-      <div class="biz-card"><span class="falls-approved">⭐ Falls Approved</span><h4>Iron Ink Tattoo Shop</h4><div class="biz-tag">Tattoo / Body Art</div><p class="biz-desc">Quality ink in the Falls. Do your research on any tattoo shop, but this one earns the nod.</p></div>
-      <div class="biz-card"><span class="falls-approved">⭐ Falls Approved</span><h4>DeVitis &amp; Sons</h4><div class="biz-tag">Italian Market / Grocery — Akron</div><p class="biz-desc">The Italian market in Akron every food lover needs to know. Imported goods, fresh pasta, deli — the real deal.</p></div>
+    <div class="flip-grid" style="margin-bottom:1.5rem;">
+
+      <div class="flip-card" onclick="flipCard(this)">
+        <div class="flip-inner">
+          <div class="flip-front">
+            <div class="flip-front-top">
+              <div class="flip-badge">⭐ Falls Approved</div>
+              <div class="flip-name">Iron Ink Tattoo</div>
+              <div class="flip-tag">Tattoo / Body Art — CF</div>
+              <div class="flip-desc">5-artist tattoo shop in CF. Full custom work, all styles. Book by calling or texting.</div>
+            </div>
+            <div class="flip-hint">👆 Tap for details</div>
+          </div>
+          <div class="flip-back">
+            <div class="flip-back-title">Iron Ink Tattoo</div>
+            <div class="flip-info">
+              <div class="flip-info-row"><span class="fi-icon">📍</span><span>2695 N Haven Blvd, Cuyahoga Falls, OH 44223</span></div>
+              <div class="flip-info-row"><span class="fi-icon">📞</span><a href="tel:3309930077">(330) 993-0077</a></div>
+              <div class="flip-info-row"><span class="fi-icon">🎨</span><span>5 artists · Call or text to book · All styles</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
+
     <div class="gold-divider"></div>
     <div class="sub-eyebrow" style="margin-bottom:0.75rem;">Insurance</div>
     <div class="paid-ad">
@@ -719,14 +1050,14 @@
       <p class="section-desc">From big-box to boutique — find your spot to train in the Falls.</p>
     </div>
     <div class="grid-3">
-      <div class="biz-card"><h4>CF RecPlex / Natatorium</h4><div class="biz-tag">City Recreation Facility</div><p class="biz-desc">CF's own rec facility — pool, gym, fitness classes, and rec programs. One of the better city-owned facilities in the region. Membership is a solid value.</p></div>
-      <div class="biz-card"><h4>Planet Fitness</h4><div class="biz-tag">Gym — Cuyahoga Falls</div><p class="biz-desc">Low-cost 24-hour option in CF. Does the job if you just need iron and cardio machines.</p></div>
-      <div class="biz-card"><h4>More Local Gyms Coming Soon</h4><div class="biz-tag">CrossFit · Martial Arts · Boxing · Yoga</div><p class="biz-desc">We're building out the local and indie gym directory. Know a great local gym? Let us know.</p></div>
+      <div class="card"><h3>CF RecPlex / Natatorium</h3><p>CF's own rec facility — pool, gym, fitness classes, and rec programs. One of the better city-owned facilities in the region. Membership is a solid value.</p></div>
+      <div class="card"><h3>Planet Fitness</h3><p>Low-cost 24-hour option in CF. Does the job if you just need iron and cardio machines.</p></div>
+      <div class="card"><h3>More Local Gyms Coming Soon</h3><p>CrossFit · Martial Arts · Boxing · Yoga. We're building out the local and indie gym directory. Know a great local gym? Let us know.</p></div>
     </div>
   </div>
 </section>
 
-<!-- PET SERVICES -->
+<!-- PET SERVICES — FLIP CARDS -->
 <section class="section section-alt" id="pets">
   <div class="container">
     <div class="section-header">
@@ -734,9 +1065,55 @@
       <h2 class="section-title">Pet Services</h2>
       <p class="section-desc">The Falls is a good place to have a dog. Here's where to take care of them.</p>
     </div>
-    <div class="grid-3">
-      <div class="biz-card"><span class="falls-approved">⭐ Falls Approved</span><h4>Cuyahoga Falls Veterinary Clinic</h4><div class="biz-tag">Veterinary Care</div><p class="biz-desc">Your go-to vet in CF. Trusted by Falls families for their four-legged members.</p></div>
-      <div class="biz-card"><span class="falls-approved">⭐ Falls Approved</span><h4>Smoochi Poochi</h4><div class="biz-tag">Pet Grooming</div><p class="biz-desc">Professional pet grooming in CF. Because your dog deserves to look good too.</p></div>
+    <div class="flip-grid">
+
+      <div class="flip-card" onclick="flipCard(this)">
+        <div class="flip-inner">
+          <div class="flip-front">
+            <div class="flip-front-top">
+              <div class="flip-badge">⭐ Falls Approved</div>
+              <div class="flip-name">Cuyahoga Falls Veterinary Clinic</div>
+              <div class="flip-tag">Full-Service Vet — CF</div>
+              <div class="flip-desc">Full-service clinic — surgery, diagnostics, dental, laser therapy, boarding &amp; bathing. Compassionate care from Dr. Gates &amp; team.</div>
+            </div>
+            <div class="flip-hint">👆 Tap for details</div>
+          </div>
+          <div class="flip-back">
+            <div class="flip-back-title">Cuyahoga Falls Veterinary Clinic</div>
+            <div class="flip-info">
+              <div class="flip-info-row"><span class="fi-icon">📍</span><span>3305 State Rd, Cuyahoga Falls, OH 44223</span></div>
+              <div class="flip-info-row"><span class="fi-icon">📞</span><a href="tel:3309293223">(330) 929-3223</a></div>
+              <div class="flip-info-row"><span class="fi-icon">🕐</span><span>Mon–Tue &amp; Thu 8 AM–6 PM · Wed &amp; Fri 8 AM–5 PM · Sat 8:30 AM–12 PM · Sun Closed</span></div>
+              <div class="flip-info-row"><span class="fi-icon">🐾</span><span>Dr. Ryan &amp; Jenn Gates · Dr. Tracie Springer</span></div>
+            </div>
+            <a class="flip-back-btn" href="https://fallsvetclinic.com" target="_blank" rel="noopener">Visit Website →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="flip-card" onclick="flipCard(this)">
+        <div class="flip-inner">
+          <div class="flip-front">
+            <div class="flip-front-top">
+              <div class="flip-badge">⭐ Falls Approved</div>
+              <div class="flip-name">Smoochi Poochi</div>
+              <div class="flip-tag">Pet Grooming — Cuyahoga Falls</div>
+              <div class="flip-desc">One-on-one grooming with private rooms. No crate time. Gentle, patient groomers. Leslie is the dog whisperer of CF.</div>
+            </div>
+            <div class="flip-hint">👆 Tap for details</div>
+          </div>
+          <div class="flip-back">
+            <div class="flip-back-title">Smoochi Poochi Pet Grooming</div>
+            <div class="flip-info">
+              <div class="flip-info-row"><span class="fi-icon">📍</span><span>3440 Bailey Rd #8, Cuyahoga Falls, OH 44221</span></div>
+              <div class="flip-info-row"><span class="fi-icon">📧</span><a href="mailto:Delilah3514@yahoo.com">Delilah3514@yahoo.com</a></div>
+              <div class="flip-info-row"><span class="fi-icon">🕐</span><span>Mon–Sat (by appointment) · Call or email to book</span></div>
+              <div class="flip-info-row"><span class="fi-icon">🐩</span><span>Private rooms · No crate time · One-on-one care · Dogs &amp; cats</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -762,8 +1139,8 @@
       <div class="card"><span class="card-icon">🏈</span><h3>Pro Football Hall of Fame</h3><p>Canton — 30 minutes south. Incredible facility. Football fan or not, the history is worth seeing.</p><a class="card-link" href="https://www.profootballhof.com" target="_blank" rel="noopener">profootballhof.com →</a></div>
       <div class="card"><span class="card-icon">🏛️</span><h3>Stan Hywet Hall &amp; Gardens</h3><p>Akron — right next door. The former Goodyear founder's 65-room Tudor mansion and stunning English gardens.</p><a class="card-link" href="https://www.stanhywet.org" target="_blank" rel="noopener">stanhywet.org →</a></div>
       <div class="card"><span class="card-icon">🌾</span><h3>Hale Farm &amp; Village</h3><p>Bath Township — practically in CF's backyard. Living history museum set in the 1800s. Great for families.</p><a class="card-link" href="https://www.wrhs.org/halefarm" target="_blank" rel="noopener">wrhs.org →</a></div>
-      <div class="card"><span class="card-icon">🚀</span><h3>Great Lakes Science Center</h3><p>Cleveland waterfront. NASA Glenn exhibits, IMAX. A great day out for families and curious minds.</p><a class="card-link" href="https://www.greatscience.com" target="_blank" rel="noopener">greatscience.com →</a></div>
-      <div class="card"><span class="card-icon">🎨</span><h3>Cleveland Museum of Art</h3><p>Free admission to one of the top art museums in the country. Permanent collection rivals any major American city.</p><a class="card-link" href="https://www.clevelandart.org" target="_blank" rel="noopener">clevelandart.org →</a></div>
+      <div class="card"><span class="card-icon">🚀</span><h3>Great Lakes Science Center</h3><p>Cleveland waterfront. NASA Glenn exhibits, IMAX. A great day out for families.</p><a class="card-link" href="https://www.greatscience.com" target="_blank" rel="noopener">greatscience.com →</a></div>
+      <div class="card"><span class="card-icon">🎨</span><h3>Cleveland Museum of Art</h3><p>Free admission to one of the top art museums in the country.</p><a class="card-link" href="https://www.clevelandart.org" target="_blank" rel="noopener">clevelandart.org →</a></div>
     </div>
     <div class="gold-divider"></div>
     <div class="sub-eyebrow" style="margin-bottom:0.75rem;">Entertainment</div>
@@ -863,15 +1240,12 @@
       <div class="re-stat"><div class="stat-val">$189K</div><div class="stat-label">Median Sale Price</div></div>
       <div class="re-stat"><div class="stat-val">$118</div><div class="stat-label">Avg Price / Sq Ft</div></div>
       <div class="re-stat"><div class="stat-val">28</div><div class="stat-label">Avg Days on Market</div></div>
-      <div class="re-stat"><div class="stat-val">44,000+</div><div class="stat-label">City Population</div></div>
+      <div class="re-stat"><div class="stat-val">51,000+</div><div class="stat-label">City Population</div></div>
     </div>
     <p style="font-size:0.75rem; color:var(--gray-3); margin-bottom:1.25rem;">Market data is approximate and updated quarterly. Source: Summit County Auditor / Zillow Research. Always consult a licensed real estate professional.</p>
     <a class="link-card" href="https://www.zillow.com/cuyahoga-falls-oh/" target="_blank" rel="noopener">
       <div class="link-card-icon">🏡</div>
-      <div class="link-card-text">
-        <h4>Browse Current Listings</h4>
-        <p>Live home listings in Cuyahoga Falls, OH — updated in real time on Zillow. Filter by price, beds, baths, and neighborhood.</p>
-      </div>
+      <div class="link-card-text"><h4>Browse Current Listings</h4><p>Live home listings in Cuyahoga Falls, OH — updated in real time on Zillow. Filter by price, beds, baths, and neighborhood.</p></div>
       <span class="btn-gold">View Listings →</span>
     </a>
   </div>
@@ -921,34 +1295,13 @@
       <p class="section-desc">The questions newcomers always ask. Answered honestly — no spin.</p>
     </div>
     <div style="display:flex; flex-direction:column; gap:0.5rem;">
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">Is Cuyahoga Falls safe? <span class="faq-icon">+</span></button>
-        <div class="faq-a">CF is a mid-sized Ohio city — it has safe neighborhoods and areas you'd rather avoid, like anywhere else. The west side and areas near the gorge and riverwalk tend to be quiet and family-friendly. Do your homework using the neighborhood safety data above before buying or renting. Overall, CF is considered safer than many comparable Ohio cities its size.</div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">What's the best neighborhood for families? <span class="faq-icon">+</span></button>
-        <div class="faq-a">The areas west of Route 8 toward the Bath Township line tend to be quiet, well-maintained, and popular with families. The neighborhoods near CVCA and the Silver Springs area also have a strong family feel. Use the crime and safety data above to compare specific streets before committing.</div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">Where do locals actually eat? <span class="faq-icon">+</span></button>
-        <div class="faq-a">Arnie's West Branch for a proper steak night. Rocco's, Lucci's, or Athena's if the pizza debate breaks out (it always does). Chen's Garden for reliable Chinese. Das Schnitzel Haus when you want something nobody else does. And Hartville Kitchen when you want a meal that reminds you why diners exist.</div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">Why does CF have its own electric company? <span class="faq-icon">+</span></button>
-        <div class="faq-a">Cuyahoga Falls Municipal Electric has operated since the early 1900s — one of Ohio's municipal electric utilities. The city owns and operates its own distribution system, which historically has meant stable rates and local control. When your power goes out, you call CF directly — not a regional utility.</div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">How bad are the winters? <span class="faq-icon">+</span></button>
-        <div class="faq-a">Real talk: northeast Ohio winters are serious. CF sits inland but close enough to Lake Erie to catch lake effect snow events. January and February can see multiple significant snow events. The gorge valley creates its own microclimate that can differ from Akron proper. Get good tires, learn the snow emergency level system, and keep your driveway clear — the neighbors notice.</div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">Is CF a good value compared to Cleveland or Akron? <span class="faq-icon">+</span></button>
-        <div class="faq-a">Yes. CF offers more house for the money than most Cleveland suburbs, with shorter commutes to Akron than many alternatives. Private and parochial school options are strong. Access to outdoor recreation through the gorge and CVNP is genuinely exceptional. It's one of northeast Ohio's underrated places to plant roots.</div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">What's there to do on a weekend? <span class="faq-icon">+</span></button>
-        <div class="faq-a">Hike the gorge. Drive to Blossom for a show. Catch a RubberDucks game in Akron. Hit Cedar Point in the summer. Day-trip to Cleveland for a Browns or Guardians game. Explore CVNP year-round. There's more to do within 45 minutes of CF than most people realize when they first move here.</div>
-      </div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Is Cuyahoga Falls safe? <span class="faq-icon">+</span></button><div class="faq-a">CF is a mid-sized Ohio city — it has safe neighborhoods and areas you'd rather avoid, like anywhere else. The west side and areas near the gorge and riverwalk tend to be quiet and family-friendly. Do your homework using the neighborhood safety data above before buying or renting. Overall, CF is considered safer than many comparable Ohio cities its size.</div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">What's the best neighborhood for families? <span class="faq-icon">+</span></button><div class="faq-a">The areas west of Route 8 toward the Bath Township line tend to be quiet, well-maintained, and popular with families. The neighborhoods near CVCA and the Silver Springs area also have a strong family feel. Use the crime and safety data above to compare specific streets before committing.</div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Where do locals actually eat? <span class="faq-icon">+</span></button><div class="faq-a">Arnie's West Branch for a proper steak night. Rocco's or Athena's if the pizza mood strikes. Chen's Garden for reliable Chinese. Das Schnitzel Haus when you want something nobody else does. El Meson for margaritas and solid Mexican. And Hartville Kitchen when you want a meal that reminds you why diners exist.</div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Why does CF have its own electric company? <span class="faq-icon">+</span></button><div class="faq-a">Cuyahoga Falls Municipal Electric has operated since the early 1900s — one of Ohio's municipal electric utilities. The city owns and operates its own distribution system, which historically has meant stable rates and local control. When your power goes out, you call CF directly — not a regional utility.</div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">How bad are the winters? <span class="faq-icon">+</span></button><div class="faq-a">Real talk: northeast Ohio winters are serious. CF sits inland but close enough to Lake Erie to catch lake effect snow events. January and February can see multiple significant snow events. The gorge valley creates its own microclimate that can differ from Akron proper. Get good tires, learn the snow emergency level system, and keep your driveway clear — the neighbors notice.</div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Is CF a good value compared to Cleveland or Akron? <span class="faq-icon">+</span></button><div class="faq-a">Yes. CF offers more house for the money than most Cleveland suburbs, with shorter commutes to Akron than many alternatives. Private and parochial school options are strong. Access to outdoor recreation through the gorge and CVNP is genuinely exceptional. It's one of northeast Ohio's underrated places to plant roots.</div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">What's there to do on a weekend? <span class="faq-icon">+</span></button><div class="faq-a">Hike the gorge. Drive to Blossom for a show. Catch a RubberDucks game in Akron. Hit Cedar Point in the summer. Day-trip to Cleveland for a Browns or Guardians game. Explore CVNP year-round. There's more to do within 45 minutes of CF than most people realize when they first move here.</div></div>
     </div>
   </div>
 </section>
@@ -974,6 +1327,10 @@
 </footer>
 
 <script>
+  function flipCard(card) {
+    card.classList.toggle('flipped');
+  }
+
   function toggleFaq(btn) {
     const item = btn.closest('.faq-item');
     item.classList.toggle('open');
