@@ -32,7 +32,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Sans+3:wght@400;500;600&family=Source+Serif+4:ital,wght@0,400;1,400&display=swap" rel="stylesheet" />
 
   <style>
-    /* ── TOKENS ─────────────────────────────────────────── */
     :root {
       --black:        #0A0A0A;
       --black-mid:    #141414;
@@ -40,7 +39,6 @@
       --black-card:   #242424;
       --gold:         #C8952A;
       --gold-light:   #F0C96A;
-      --gold-pale:    #FBE9B4;
       --gold-dark:    #8A6318;
       --white:        #FFFFFF;
       --gray-1:       #2A2A2A;
@@ -49,11 +47,9 @@
       --gray-4:       #BBBBBB;
       --text:         #F0F0F0;
       --text-light:   #BBBBBB;
-
       --font-display: 'Playfair Display', Georgia, serif;
       --font-body:    'Source Sans 3', system-ui, sans-serif;
       --font-serif:   'Source Serif 4', Georgia, serif;
-
       --radius:    8px;
       --radius-lg: 16px;
       --shadow:    0 2px 12px rgba(0,0,0,0.5);
@@ -61,261 +57,100 @@
       --gold-glow: 0 0 20px rgba(200,149,42,0.25);
     }
 
-    /* ── RESET ──────────────────────────────────────────── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
-    body {
-      font-family: var(--font-body);
-      background: var(--black);
-      color: var(--text);
-      line-height: 1.6;
-      font-size: 16px;
-    }
+    body { font-family: var(--font-body); background: var(--black); color: var(--text); line-height: 1.6; font-size: 16px; }
     img { max-width: 100%; display: block; }
     a { color: var(--gold); text-decoration: none; }
     a:hover { color: var(--gold-light); }
 
-    /* ── NAV ────────────────────────────────────────────── */
-    nav {
-      background: var(--black);
-      border-bottom: 1px solid var(--gold-dark);
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      box-shadow: 0 2px 16px rgba(0,0,0,0.8);
-    }
-    .nav-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 1.5rem;
-      display: flex;
-      align-items: center;
-      overflow-x: auto;
-      scrollbar-width: none;
-    }
+    /* NAV */
+    nav { background: var(--black); border-bottom: 1px solid var(--gold-dark); position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 16px rgba(0,0,0,0.8); }
+    .nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; display: flex; align-items: center; overflow-x: auto; scrollbar-width: none; }
     .nav-inner::-webkit-scrollbar { display: none; }
-    .nav-logo {
-      font-family: var(--font-display);
-      font-weight: 900;
-      font-size: 1.1rem;
-      color: var(--gold);
-      white-space: nowrap;
-      padding: 0.85rem 1.25rem 0.85rem 0;
-      border-right: 1px solid var(--gray-2);
-      margin-right: 0.5rem;
-      flex-shrink: 0;
-      letter-spacing: 0.02em;
-    }
-    nav a {
-      color: var(--gray-4);
-      font-size: 0.74rem;
-      font-weight: 600;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      padding: 0.85rem 0.7rem;
-      white-space: nowrap;
-      flex-shrink: 0;
-      transition: color 0.15s;
-    }
+    .nav-logo { font-family: var(--font-display); font-weight: 900; font-size: 1.1rem; color: var(--gold); white-space: nowrap; padding: 0.85rem 1.25rem 0.85rem 0; border-right: 1px solid var(--gray-2); margin-right: 0.5rem; flex-shrink: 0; }
+    nav a { color: var(--gray-4); font-size: 0.74rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; padding: 0.85rem 0.7rem; white-space: nowrap; flex-shrink: 0; transition: color 0.15s; }
     nav a:hover { color: var(--gold); }
 
-    /* ── HERO ───────────────────────────────────────────── */
-    .hero {
-      background: var(--black);
-      color: var(--white);
-      text-align: center;
-      padding: 4.5rem 1.5rem 4rem;
-      position: relative;
-      overflow: hidden;
-      border-bottom: 1px solid var(--gold-dark);
-    }
-    .hero::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(ellipse at 50% 0%, rgba(200,149,42,0.12) 0%, transparent 65%);
-      pointer-events: none;
-    }
-    .hero::after {
-      content: '';
-      position: absolute;
-      bottom: 0; left: 0; right: 0;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, var(--gold), transparent);
-    }
-    .hero-logo {
-      width: 210px;
-      height: 210px;
-      object-fit: cover;
-      border-radius: 50%;
-      margin: 0 auto 1.75rem;
-      border: 3px solid var(--gold);
-      box-shadow: 0 0 50px rgba(200,149,42,0.35), 0 0 100px rgba(200,149,42,0.1);
-    }
-    .hero h1 {
-      font-family: var(--font-display);
-      font-size: clamp(2.4rem, 6vw, 4rem);
-      font-weight: 900;
-      line-height: 1.08;
-      margin-bottom: 0.75rem;
-      color: var(--white);
-      letter-spacing: -0.01em;
-    }
+    /* HERO */
+    .hero { background: var(--black); color: var(--white); text-align: center; padding: 4.5rem 1.5rem 4rem; position: relative; overflow: hidden; border-bottom: 1px solid var(--gold-dark); }
+    .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 0%, rgba(200,149,42,0.12) 0%, transparent 65%); pointer-events: none; }
+    .hero::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, var(--gold), transparent); }
+    .hero-logo { width: 210px; height: 210px; object-fit: cover; border-radius: 50%; margin: 0 auto 1.75rem; border: 3px solid var(--gold); box-shadow: 0 0 50px rgba(200,149,42,0.35), 0 0 100px rgba(200,149,42,0.1); }
+    .hero h1 { font-family: var(--font-display); font-size: clamp(2.4rem, 6vw, 4rem); font-weight: 900; line-height: 1.08; margin-bottom: 0.75rem; color: var(--white); }
     .hero h1 span { color: var(--gold); }
-    .hero-sub {
-      font-family: var(--font-serif);
-      font-style: italic;
-      font-size: clamp(1rem, 2.5vw, 1.2rem);
-      color: var(--gray-4);
-      max-width: 560px;
-      margin: 0 auto 2rem;
-    }
-    .hero-badges {
-      display: flex;
-      justify-content: center;
-      gap: 0.6rem;
-      flex-wrap: wrap;
-    }
-    .hero-badge {
-      background: rgba(200,149,42,0.12);
-      border: 1px solid rgba(200,149,42,0.4);
-      color: var(--gold-light);
-      font-size: 0.72rem;
-      font-weight: 600;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      padding: 0.35rem 0.9rem;
-      border-radius: 100px;
-    }
+    .hero-sub { font-family: var(--font-serif); font-style: italic; font-size: clamp(1rem, 2.5vw, 1.2rem); color: var(--gray-4); max-width: 560px; margin: 0 auto 2rem; }
+    .hero-badges { display: flex; justify-content: center; gap: 0.6rem; flex-wrap: wrap; }
+    .hero-badge { background: rgba(200,149,42,0.12); border: 1px solid rgba(200,149,42,0.4); color: var(--gold-light); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; padding: 0.35rem 0.9rem; border-radius: 100px; }
 
-    /* ── LAYOUT ─────────────────────────────────────────── */
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 1.5rem;
-    }
-    .section {
-      padding: 3.5rem 0;
-      border-bottom: 1px solid var(--gray-1);
-    }
+    /* LAYOUT */
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
+    .section { padding: 3.5rem 0; border-bottom: 1px solid var(--gray-1); }
     .section-alt { background: var(--black-mid); }
     .section-header { margin-bottom: 2rem; }
-    .section-eyebrow {
-      font-size: 0.68rem;
-      font-weight: 700;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 0.4rem;
-    }
-    .section-title {
-      font-family: var(--font-display);
-      font-size: clamp(1.6rem, 4vw, 2.4rem);
-      font-weight: 700;
-      line-height: 1.15;
-      color: var(--white);
-    }
-    .section-desc {
-      margin-top: 0.5rem;
-      color: var(--text-light);
-      max-width: 640px;
-      font-size: 0.97rem;
-    }
+    .section-eyebrow { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.4rem; }
+    .section-title { font-family: var(--font-display); font-size: clamp(1.6rem, 4vw, 2.4rem); font-weight: 700; line-height: 1.15; color: var(--white); }
+    .section-desc { margin-top: 0.5rem; color: var(--text-light); max-width: 640px; font-size: 0.97rem; }
 
-    /* ── GRIDS ──────────────────────────────────────────── */
+    /* GRIDS */
     .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.1rem; }
     .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.1rem; }
     .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 1rem; }
 
-    /* ── BASE CARD ──────────────────────────────────────── */
-    .card {
-      background: var(--black-card);
-      border: 1px solid var(--gray-2);
-      border-radius: var(--radius-lg);
-      padding: 1.5rem;
-      box-shadow: var(--shadow);
-      transition: box-shadow 0.2s, border-color 0.2s, transform 0.2s;
-    }
+    /* CARDS */
+    .card { background: var(--black-card); border: 1px solid var(--gray-2); border-radius: var(--radius-lg); padding: 1.5rem; box-shadow: var(--shadow); transition: box-shadow 0.2s, border-color 0.2s, transform 0.2s; }
     .card:hover { box-shadow: var(--shadow-lg), var(--gold-glow); border-color: var(--gold-dark); transform: translateY(-2px); }
     .card-icon { font-size: 2rem; margin-bottom: 0.75rem; display: block; }
     .card h3 { font-family: var(--font-display); font-size: 1.15rem; font-weight: 700; color: var(--white); margin-bottom: 0.4rem; }
     .card p { font-size: 0.9rem; color: var(--text-light); line-height: 1.55; }
-    .card-link { display: inline-block; margin-top: 0.75rem; font-size: 0.82rem; font-weight: 600; color: var(--gold); letter-spacing: 0.02em; }
+    .card-link { display: inline-block; margin-top: 0.75rem; font-size: 0.82rem; font-weight: 600; color: var(--gold); }
     .card-link:hover { color: var(--gold-light); }
 
-    /* ── FALLS APPROVED BADGE ───────────────────────────── */
-    .falls-approved {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.3rem;
-      background: linear-gradient(135deg, var(--gold-dark) 0%, var(--gold) 100%);
-      color: var(--black);
-      font-size: 0.62rem;
-      font-weight: 800;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      padding: 0.22rem 0.6rem;
-      border-radius: 100px;
-      margin-bottom: 0.5rem;
-    }
+    /* FALLS APPROVED */
+    .falls-approved { display: inline-flex; align-items: center; gap: 0.3rem; background: linear-gradient(135deg, var(--gold-dark) 0%, var(--gold) 100%); color: var(--black); font-size: 0.62rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.22rem 0.6rem; border-radius: 100px; margin-bottom: 0.5rem; }
 
-    /* ── BUSINESS CARDS ─────────────────────────────────── */
-    .biz-card {
-      background: var(--black-card);
-      border: 1px solid var(--gray-2);
-      border-radius: var(--radius);
-      padding: 1.25rem;
-      box-shadow: var(--shadow);
-      transition: box-shadow 0.2s, border-color 0.2s, transform 0.2s;
-    }
+    /* BIZ CARDS */
+    .biz-card { background: var(--black-card); border: 1px solid var(--gray-2); border-radius: var(--radius); padding: 1.25rem; box-shadow: var(--shadow); transition: box-shadow 0.2s, border-color 0.2s, transform 0.2s; }
     .biz-card:hover { box-shadow: var(--shadow-lg), var(--gold-glow); border-color: var(--gold-dark); transform: translateY(-2px); }
     .biz-card h4 { font-family: var(--font-display); font-size: 1.05rem; font-weight: 700; color: var(--white); margin-bottom: 0.2rem; }
     .biz-tag { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--gold); opacity: 0.75; }
     .biz-desc { font-size: 0.88rem; color: var(--text-light); margin-top: 0.4rem; line-height: 1.5; }
 
-    /* ── INFO BLOCKS ────────────────────────────────────── */
-    .info-block {
-      background: var(--black-card);
-      border-left: 3px solid var(--gold);
-      border-radius: 0 var(--radius) var(--radius) 0;
-      padding: 1.25rem 1.5rem;
-      box-shadow: var(--shadow);
-      border-top: 1px solid var(--gray-2);
-      border-right: 1px solid var(--gray-2);
-      border-bottom: 1px solid var(--gray-2);
-    }
-    .info-block.dim { border-left-color: var(--gray-3); }
+    /* INFO BLOCKS */
+    .info-block { background: var(--black-card); border-left: 3px solid var(--gold); border-radius: 0 var(--radius) var(--radius) 0; padding: 1.25rem 1.5rem; box-shadow: var(--shadow); border-top: 1px solid var(--gray-2); border-right: 1px solid var(--gray-2); border-bottom: 1px solid var(--gray-2); }
     .info-block.green { border-left-color: #4A8C54; }
-    .info-block.red { border-left-color: #C0392B; }
     .info-block h4 { font-family: var(--font-display); font-size: 1rem; font-weight: 700; color: var(--white); margin-bottom: 0.4rem; }
     .info-block p, .info-block li { font-size: 0.9rem; color: var(--text-light); line-height: 1.6; }
     .info-block ul { padding-left: 1.1rem; }
     .info-block li { margin-bottom: 0.25rem; }
 
-    /* ── TRASH TABLE ────────────────────────────────────── */
+    /* LINK CARDS */
+    .link-card { background: var(--black-card); border: 1px solid var(--gray-2); border-radius: var(--radius-lg); padding: 1.75rem 2rem; display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; box-shadow: var(--shadow); transition: border-color 0.2s, box-shadow 0.2s; text-decoration: none; }
+    .link-card:hover { border-color: var(--gold-dark); box-shadow: var(--shadow-lg), var(--gold-glow); }
+    .link-card-text h4 { font-family: var(--font-display); font-size: 1.1rem; font-weight: 700; color: var(--white); margin-bottom: 0.3rem; }
+    .link-card-text p { font-size: 0.88rem; color: var(--text-light); }
+    .link-card-icon { font-size: 2.5rem; flex-shrink: 0; }
+    .btn-gold { display: inline-block; background: var(--gold); color: var(--black); font-weight: 800; font-size: 0.85rem; padding: 0.6rem 1.25rem; border-radius: 100px; transition: background 0.2s; white-space: nowrap; flex-shrink: 0; }
+    .btn-gold:hover { background: var(--gold-light); color: var(--black); }
+
+    /* TRASH TABLE */
     .trash-table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
     .trash-table th { background: var(--black-soft); color: var(--gold); padding: 0.65rem 1rem; text-align: left; font-weight: 700; font-size: 0.75rem; letter-spacing: 0.06em; text-transform: uppercase; border-bottom: 2px solid var(--gold-dark); }
     .trash-table td { padding: 0.65rem 1rem; border-bottom: 1px solid var(--gray-1); color: var(--text-light); }
     .trash-table tr:hover td { background: var(--gray-1); color: var(--text); }
 
-    /* ── SCHOOL CARDS ───────────────────────────────────── */
+    /* SCHOOL CARDS */
     .school-card { background: var(--black-card); border: 1px solid var(--gray-2); border-radius: var(--radius); padding: 1.25rem; box-shadow: var(--shadow); }
     .school-level { font-size: 0.66rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); opacity: 0.8; margin-bottom: 0.3rem; }
     .school-card h4 { font-family: var(--font-display); font-size: 1rem; font-weight: 700; color: var(--white); margin-bottom: 0.25rem; }
     .school-card p { font-size: 0.85rem; color: var(--text-light); }
 
-    /* ── EMBED WRAPPERS ─────────────────────────────────── */
+    /* EMBED WRAPPERS */
     .embed-wrap { background: var(--black-card); border: 1px solid var(--gray-2); border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow); }
     .embed-wrap iframe { width: 100%; border: none; display: block; }
     .embed-label { background: var(--black-soft); border-top: 1px solid var(--gray-2); padding: 0.55rem 1rem; font-size: 0.73rem; color: var(--gray-3); }
 
-    /* ── WIDGET PLACEHOLDER ─────────────────────────────── */
-    .widget-wrap { background: var(--black-card); border: 1px solid var(--gray-2); border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow); min-height: 200px; display: flex; align-items: center; justify-content: center; }
-    .widget-placeholder { text-align: center; color: var(--gray-3); padding: 2rem; }
-    .widget-placeholder .ph-icon { font-size: 2.5rem; margin-bottom: 0.5rem; }
-    .widget-placeholder p { font-size: 0.85rem; }
-
-    /* ── SNOW EMERGENCY ─────────────────────────────────── */
+    /* SNOW EMERGENCY */
     .snow-levels { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; }
     .snow-level { border-radius: var(--radius); padding: 1.25rem; color: var(--white); border: 1px solid rgba(255,255,255,0.1); }
     .snow-level.l1 { background: #1A4A2A; border-color: #27AE60; }
@@ -325,7 +160,7 @@
     .snow-level h4 { font-size: 0.9rem; font-weight: 700; margin-bottom: 0.4rem; }
     .snow-level p { font-size: 0.82rem; opacity: 0.85; line-height: 1.5; }
 
-    /* ── FAQ ────────────────────────────────────────────── */
+    /* FAQ */
     .faq-item { background: var(--black-card); border: 1px solid var(--gray-2); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); transition: border-color 0.2s; }
     .faq-item.open { border-color: var(--gold-dark); }
     .faq-q { width: 100%; background: none; border: none; padding: 1.1rem 1.25rem; text-align: left; font-family: var(--font-display); font-size: 1rem; font-weight: 700; color: var(--white); cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
@@ -335,7 +170,7 @@
     .faq-item.open .faq-a { display: block; }
     .faq-item.open .faq-icon { transform: rotate(45deg); }
 
-    /* ── EVENTS ─────────────────────────────────────────── */
+    /* EVENTS */
     .event-card { background: var(--black-card); border: 1px solid var(--gray-2); border-radius: var(--radius); padding: 1.1rem 1.25rem; display: flex; gap: 1rem; align-items: flex-start; box-shadow: var(--shadow); transition: border-color 0.2s, box-shadow 0.2s; }
     .event-card:hover { border-color: var(--gold-dark); box-shadow: var(--shadow-lg), var(--gold-glow); }
     .event-date { background: var(--black-soft); border: 1px solid var(--gold-dark); border-radius: var(--radius); padding: 0.5rem 0.75rem; text-align: center; min-width: 58px; flex-shrink: 0; }
@@ -345,71 +180,135 @@
     .event-info p { font-size: 0.85rem; color: var(--text-light); }
     .event-tag { display: inline-block; font-size: 0.63rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; background: rgba(200,149,42,0.15); color: var(--gold); border: 1px solid rgba(200,149,42,0.3); padding: 0.15rem 0.5rem; border-radius: 100px; margin-top: 0.35rem; }
 
-    /* ── REAL ESTATE STATS ──────────────────────────────── */
+    /* REAL ESTATE */
     .re-stat { background: var(--black-card); border: 1px solid var(--gray-2); border-radius: var(--radius-lg); padding: 1.5rem; text-align: center; box-shadow: var(--shadow); }
     .re-stat .stat-val { font-family: var(--font-display); font-size: 2rem; font-weight: 900; color: var(--gold); line-height: 1; margin-bottom: 0.35rem; }
     .re-stat .stat-label { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--gray-3); }
 
-    /* ── PAID AD ─────────────────────────────────────────── */
+    /* PAID AD */
     .paid-ad { background: var(--black-soft); border: 1px solid var(--gold-dark); border-radius: var(--radius-lg); padding: 2rem; color: var(--white); position: relative; overflow: hidden; box-shadow: var(--gold-glow); }
     .paid-ad::before { content: ''; position: absolute; top: -60px; right: -60px; width: 240px; height: 240px; background: radial-gradient(circle, rgba(200,149,42,0.12) 0%, transparent 70%); pointer-events: none; }
     .paid-ad .ad-label { font-size: 0.63rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.5rem; opacity: 0.85; }
     .paid-ad h3 { font-family: var(--font-display); font-size: 1.6rem; font-weight: 900; margin-bottom: 0.5rem; color: var(--white); }
     .paid-ad p { font-size: 0.92rem; color: var(--gray-4); line-height: 1.65; margin-bottom: 0.4rem; }
-    .paid-ad .ad-cta { display: inline-block; margin-top: 0.9rem; background: var(--gold); color: var(--black); font-weight: 800; font-size: 0.88rem; padding: 0.6rem 1.4rem; border-radius: 100px; transition: background 0.2s; letter-spacing: 0.02em; }
+    .paid-ad .ad-cta { display: inline-block; margin-top: 0.9rem; background: var(--gold); color: var(--black); font-weight: 800; font-size: 0.88rem; padding: 0.6rem 1.4rem; border-radius: 100px; transition: background 0.2s; }
     .paid-ad .ad-cta:hover { background: var(--gold-light); color: var(--black); }
 
-    /* ── CHECKLIST ───────────────────────────────────────── */
+    /* CHECKLIST — interactive */
     .checklist { list-style: none; display: flex; flex-direction: column; gap: 0.55rem; }
-    .checklist li { display: flex; align-items: flex-start; gap: 0.75rem; font-size: 0.92rem; color: var(--text-light); background: var(--black-card); border: 1px solid var(--gray-2); border-radius: var(--radius); padding: 0.75rem 1rem; box-shadow: var(--shadow); }
-    .checklist li::before { content: '◻'; font-size: 1rem; color: var(--gold); flex-shrink: 0; margin-top: 0.08rem; }
+    .checklist li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      font-size: 0.92rem;
+      color: var(--text-light);
+      background: var(--black-card);
+      border: 1px solid var(--gray-2);
+      border-radius: var(--radius);
+      padding: 0.75rem 1rem;
+      box-shadow: var(--shadow);
+      cursor: pointer;
+      user-select: none;
+      transition: border-color 0.2s, background 0.2s, opacity 0.2s;
+    }
+    .checklist li:hover { border-color: var(--gold-dark); }
+    .checklist li.done {
+      background: rgba(200,149,42,0.08);
+      border-color: var(--gold-dark);
+      opacity: 0.7;
+    }
+    .checklist li.done .check-text { text-decoration: line-through; color: var(--gray-3); }
     .checklist li strong { color: var(--white); }
+    .checklist li.done strong { color: var(--gray-3); }
+    .check-box {
+      width: 20px;
+      height: 20px;
+      border: 2px solid var(--gray-2);
+      border-radius: 4px;
+      flex-shrink: 0;
+      margin-top: 0.1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      color: var(--black);
+      background: transparent;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .checklist li.done .check-box {
+      background: var(--gold);
+      border-color: var(--gold);
+    }
+    .checklist li.done .check-box::after { content: '✓'; font-weight: 900; }
+    .checklist-progress {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1rem;
+      font-size: 0.85rem;
+      color: var(--text-light);
+    }
+    .checklist-progress-bar {
+      flex: 1;
+      height: 6px;
+      background: var(--gray-2);
+      border-radius: 100px;
+      overflow: hidden;
+    }
+    .checklist-progress-fill {
+      height: 100%;
+      background: var(--gold);
+      border-radius: 100px;
+      transition: width 0.3s ease;
+      width: 0%;
+    }
+    .checklist-count { color: var(--gold); font-weight: 700; white-space: nowrap; }
 
-    /* ── HOSPITAL CARDS ──────────────────────────────────── */
+    /* HOSPITAL CARDS */
     .hospital-card { background: var(--black-card); border: 1px solid var(--gray-2); border-top: 2px solid var(--gold-dark); border-radius: var(--radius); padding: 1.25rem; box-shadow: var(--shadow); }
     .hospital-card h4 { font-family: var(--font-display); font-size: 1rem; font-weight: 700; color: var(--white); margin-bottom: 0.3rem; }
     .hospital-card p { font-size: 0.85rem; color: var(--text-light); line-height: 1.55; }
     .hospital-card .phone { display: inline-block; margin-top: 0.5rem; font-weight: 600; font-size: 0.88rem; color: var(--gold); }
 
-    /* ── SPORT CARDS ─────────────────────────────────────── */
+    /* SPORT CARDS */
     .sport-card { background: var(--black-card); border: 1px solid var(--gray-2); border-radius: var(--radius); padding: 1.1rem 1.25rem; box-shadow: var(--shadow); display: flex; align-items: center; gap: 1rem; transition: border-color 0.2s; }
     .sport-card:hover { border-color: var(--gold-dark); }
     .sport-icon { font-size: 2rem; flex-shrink: 0; }
     .sport-card h4 { font-family: var(--font-display); font-size: 0.98rem; font-weight: 700; color: var(--white); margin-bottom: 0.15rem; }
     .sport-card p { font-size: 0.82rem; color: var(--text-light); }
 
-    /* ── GOLD DIVIDER ────────────────────────────────────── */
+    /* GOLD DIVIDER */
     .gold-divider { height: 1px; background: linear-gradient(90deg, transparent, var(--gold-dark), transparent); margin: 1.5rem 0; }
 
-    /* ── SUB-EYEBROW ─────────────────────────────────────── */
+    /* SUB-EYEBROW */
     .sub-eyebrow { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); opacity: 0.75; margin-bottom: 0.75rem; }
 
-    /* ── BUTTONS ─────────────────────────────────────────── */
-    .btn { display: inline-block; background: var(--gold); color: var(--black); font-weight: 800; font-size: 0.88rem; padding: 0.65rem 1.5rem; border-radius: 100px; transition: background 0.2s; letter-spacing: 0.02em; }
+    /* BUTTONS */
+    .btn { display: inline-block; background: var(--gold); color: var(--black); font-weight: 800; font-size: 0.88rem; padding: 0.65rem 1.5rem; border-radius: 100px; transition: background 0.2s; }
     .btn:hover { background: var(--gold-light); color: var(--black); }
 
-    /* ── ADVERTISE BANNER ────────────────────────────────── */
+    /* ADVERTISE */
     .advertise-banner { background: var(--black-soft); border: 1px dashed var(--gold-dark); border-radius: var(--radius-lg); padding: 2.5rem; text-align: center; }
     .advertise-banner h3 { font-family: var(--font-display); font-size: 1.4rem; color: var(--white); margin-bottom: 0.5rem; }
     .advertise-banner p { font-size: 0.92rem; color: var(--text-light); margin-bottom: 1.25rem; }
 
-    /* ── FOOTER ──────────────────────────────────────────── */
+    /* FOOTER */
     footer { background: var(--black); border-top: 1px solid var(--gold-dark); color: var(--gray-3); text-align: center; padding: 2.5rem 1.5rem; font-size: 0.85rem; line-height: 1.7; }
     footer strong { color: var(--gold); }
     .footer-disclaimer { max-width: 600px; margin: 0.75rem auto 0; font-size: 0.76rem; opacity: 0.65; }
 
-    /* ── RESPONSIVE ──────────────────────────────────────── */
     @media (max-width: 600px) {
       .hero { padding: 3rem 1rem 2.5rem; }
       .hero-logo { width: 160px; height: 160px; }
       .section { padding: 2.5rem 0; }
       nav a { font-size: 0.7rem; padding: 0.75rem 0.55rem; }
+      .link-card { flex-direction: column; text-align: center; }
     }
   </style>
 </head>
 <body>
 
-<!-- ══ NAV ══════════════════════════════════════════════ -->
+<!-- NAV -->
 <nav>
   <div class="nav-inner">
     <div class="nav-logo">The Falls</div>
@@ -432,7 +331,7 @@
   </div>
 </nav>
 
-<!-- ══ HERO ═════════════════════════════════════════════ -->
+<!-- HERO -->
 <section class="hero">
   <img src="hero.jpg" alt="Cuyahoga Falls" class="hero-logo" />
   <h1>Welcome to <span>Cuyahoga Falls</span></h1>
@@ -445,7 +344,7 @@
   </div>
 </section>
 
-<!-- ══ WEATHER ══════════════════════════════════════════ -->
+<!-- WEATHER -->
 <section class="section section-alt" id="weather">
   <div class="container">
     <div class="section-header">
@@ -453,13 +352,11 @@
       <h2 class="section-title">Weather in the Falls</h2>
       <p class="section-desc">Northeast Ohio weather is its own beast. Check before you leave the house.</p>
     </div>
-    <div class="widget-wrap" style="min-height:260px;">
-      <div class="widget-placeholder">
-        <div class="ph-icon">🌤</div>
-        <p>Paste your Tomorrow.io or Weather Underground embed code here.</p>
-      </div>
+    <div class="embed-wrap" style="margin-bottom:1.25rem;">
+      <iframe src="https://forecast.weather.gov/MapClick.php?CityName=Cuyahoga+Falls&state=OH&site=CLE&textField1=41.1345&textField2=-81.4846&FcstType=digital" height="420" title="NWS Forecast — Cuyahoga Falls OH" loading="lazy"></iframe>
+      <div class="embed-label">📡 Source: National Weather Service — Cuyahoga Falls, OH</div>
     </div>
-    <div style="margin-top:1.25rem;" class="grid-2">
+    <div class="grid-2">
       <div class="info-block">
         <h4>❄️ Lake Effect Snow</h4>
         <p>CF sits in the snowbelt. Lake effect events can dump inches fast with little warning — especially November through February. Keep an eye on Summit County alerts.</p>
@@ -472,7 +369,7 @@
   </div>
 </section>
 
-<!-- ══ TRAFFIC & ROADS ══════════════════════════════════ -->
+<!-- TRAFFIC -->
 <section class="section" id="traffic">
   <div class="container">
     <div class="section-header">
@@ -494,25 +391,26 @@
       </div>
       <div class="info-block">
         <h4>🚧 Construction &amp; Alerts</h4>
-        <p>OHGO is Ohio's official real-time traffic platform — construction zones, lane closures, accidents, and winter road conditions all in one place.</p>
+        <p>OHGO is Ohio's official real-time traffic and construction platform. Opens directly to the northeast Ohio corridor.</p>
         <a class="card-link" href="https://ohgo.com" target="_blank" rel="noopener" style="margin-top:0.75rem; display:inline-block;">Open OHGO Live Map →</a>
       </div>
     </div>
     <div class="embed-wrap" style="margin-bottom:1.25rem;">
-      <iframe src="https://ohgo.com/map" height="420" title="OHGO Live Traffic Map" loading="lazy"></iframe>
-      <div class="embed-label">📡 OHGO — Ohio Dept. of Transportation live traffic data</div>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d47788.12!2d-81.4846!3d41.1345!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sus!4v1!5m2!1sen!2sus&layer=t" height="420" style="border:0;" allowfullscreen="" loading="lazy" title="Live Traffic — Cuyahoga Falls OH"></iframe>
+      <div class="embed-label">📡 Google Maps — Live traffic layer, Cuyahoga Falls OH</div>
     </div>
-    <div class="section-eyebrow" style="margin-bottom:0.75rem;">⛽ Local Gas Prices</div>
-    <div class="widget-wrap" style="min-height:130px;">
-      <div class="widget-placeholder">
-        <p>Paste your GasBuddy embed code here for live CF area gas prices.</p>
-        <a href="https://www.gasbuddy.com/go/cuyahoga-falls-oh" target="_blank" rel="noopener" class="card-link" style="margin-top:0.5rem; display:inline-block;">View on GasBuddy →</a>
+    <a class="link-card" href="https://www.gasbuddy.com/gas-prices/ohio/summit-county/cuyahoga-falls" target="_blank" rel="noopener">
+      <div class="link-card-icon">⛽</div>
+      <div class="link-card-text">
+        <h4>Local Gas Prices</h4>
+        <p>Live crowd-sourced gas prices at stations in and around Cuyahoga Falls — updated in real time by GasBuddy.</p>
       </div>
-    </div>
+      <span class="btn-gold">View Live Prices →</span>
+    </a>
   </div>
 </section>
 
-<!-- ══ SAFETY ═══════════════════════════════════════════ -->
+<!-- SAFETY -->
 <section class="section section-alt" id="safety">
   <div class="container">
     <div class="section-header">
@@ -521,20 +419,22 @@
       <p class="section-desc">All data sourced from public records. Know your neighborhood before you move in.</p>
     </div>
     <div class="grid-2" style="margin-bottom:1.25rem;">
-      <div>
-        <div class="sub-eyebrow">📊 Crime &amp; Incident Map</div>
-        <div class="embed-wrap">
-          <iframe src="https://www.crimemapping.com/map/oh/cuyahogafalls" height="380" title="CF Crime Map" loading="lazy"></iframe>
-          <div class="embed-label">📡 CrimeMapping.com — CF Police Department public data</div>
+      <a class="link-card" href="https://www.crimemapping.com/map/oh/cuyahogafalls" target="_blank" rel="noopener">
+        <div class="link-card-icon">📊</div>
+        <div class="link-card-text">
+          <h4>Crime &amp; Incident Map</h4>
+          <p>Live neighborhood-level crime data for Cuyahoga Falls. Sourced from CF Police Department public reports.</p>
         </div>
-      </div>
-      <div>
-        <div class="sub-eyebrow">🗺️ Sex Offender Registry</div>
-        <div class="embed-wrap">
-          <iframe src="https://esorn.ag.state.oh.us/ESORN2/faces/Map.jspx" height="380" title="Ohio eSORN Map" loading="lazy"></iframe>
-          <div class="embed-label">📡 Ohio eSORN — Ohio Attorney General public registry</div>
+        <span class="btn-gold">View Map →</span>
+      </a>
+      <a class="link-card" href="https://esorn.ag.state.oh.us" target="_blank" rel="noopener">
+        <div class="link-card-icon">🗺️</div>
+        <div class="link-card-text">
+          <h4>Sex Offender Registry</h4>
+          <p>Search Ohio's official public sex offender registry by address. Maintained by the Ohio Attorney General.</p>
         </div>
-      </div>
+        <span class="btn-gold">Search Registry →</span>
+      </a>
     </div>
     <div class="grid-2" style="margin-bottom:1.75rem;">
       <div class="info-block green">
@@ -558,32 +458,36 @@
   </div>
 </section>
 
-<!-- ══ NEW RESIDENT CHECKLIST ═══════════════════════════ -->
+<!-- NEW RESIDENT CHECKLIST -->
 <section class="section" id="newcomer">
   <div class="container">
     <div class="section-header">
       <div class="section-eyebrow">Just Moved In?</div>
       <h2 class="section-title">New Resident Checklist</h2>
-      <p class="section-desc">The stuff nobody tells you when you move to CF. Work through this in your first 30 days.</p>
+      <p class="section-desc">The stuff nobody tells you when you move to CF. Click each item as you complete it.</p>
     </div>
-    <ul class="checklist">
-      <li>Set up your <strong>CF Municipal Electric</strong> account — CF runs its own electric utility, not FirstEnergy. Call or visit City Hall to transfer service.</li>
-      <li>Find out your <strong>trash pickup day</strong> — it varies by neighborhood. See the schedule below.</li>
-      <li>Update your <strong>Ohio driver's license</strong> at the nearest BMV within 30 days of establishing residency.</li>
-      <li>Register your <strong>vehicle</strong> with the Summit County BMV. You'll need proof of Ohio insurance and your title.</li>
-      <li>Register to vote at your new address — Ohio requires registration at your current address.</li>
-      <li>Find a <strong>primary care physician</strong> — Summa Health and Cleveland Clinic both have offices throughout the CF/Akron area.</li>
-      <li>Locate your nearest <strong>urgent care</strong> before you need it.</li>
-      <li>Find a <strong>veterinarian</strong> if you have pets — see our pet services section.</li>
-      <li>Set up your <strong>water and sewer</strong> service with the City of Cuyahoga Falls.</li>
-      <li>Learn your <strong>snow emergency level</strong> rules — Level 3 means stay home or risk arrest.</li>
-      <li>Know where your nearest <strong>fire station</strong> is.</li>
-      <li>Bookmark this page. You'll use it.</li>
+    <div class="checklist-progress">
+      <div class="checklist-progress-bar"><div class="checklist-progress-fill" id="progressFill"></div></div>
+      <span class="checklist-count" id="progressCount">0 / 12 complete</span>
+    </div>
+    <ul class="checklist" id="checklist">
+      <li onclick="toggleCheck(this)"><div class="check-box"></div><span class="check-text">Set up your <strong>CF Municipal Electric</strong> account — CF runs its own electric utility, not FirstEnergy. Call or visit City Hall to transfer service.</span></li>
+      <li onclick="toggleCheck(this)"><div class="check-box"></div><span class="check-text">Find out your <strong>trash pickup day</strong> — it varies by neighborhood. See the schedule below.</span></li>
+      <li onclick="toggleCheck(this)"><div class="check-box"></div><span class="check-text">Update your <strong>Ohio driver's license</strong> at the nearest BMV within 30 days of establishing residency.</span></li>
+      <li onclick="toggleCheck(this)"><div class="check-box"></div><span class="check-text">Register your <strong>vehicle</strong> with the Summit County BMV. You'll need proof of Ohio insurance and your title.</span></li>
+      <li onclick="toggleCheck(this)"><div class="check-box"></div><span class="check-text">Register to vote at your new address — Ohio requires registration at your current address.</span></li>
+      <li onclick="toggleCheck(this)"><div class="check-box"></div><span class="check-text">Find a <strong>primary care physician</strong> — Summa Health and Cleveland Clinic both have offices throughout the CF/Akron area.</span></li>
+      <li onclick="toggleCheck(this)"><div class="check-box"></div><span class="check-text">Locate your nearest <strong>urgent care</strong> before you need it.</span></li>
+      <li onclick="toggleCheck(this)"><div class="check-box"></div><span class="check-text">Find a <strong>veterinarian</strong> if you have pets — see our pet services section.</span></li>
+      <li onclick="toggleCheck(this)"><div class="check-box"></div><span class="check-text">Set up your <strong>water and sewer</strong> service with the City of Cuyahoga Falls.</span></li>
+      <li onclick="toggleCheck(this)"><div class="check-box"></div><span class="check-text">Learn your <strong>snow emergency level</strong> rules — Level 3 means stay home or risk arrest.</span></li>
+      <li onclick="toggleCheck(this)"><div class="check-box"></div><span class="check-text">Know where your nearest <strong>fire station</strong> is.</span></li>
+      <li onclick="toggleCheck(this)"><div class="check-box"></div><span class="check-text">Bookmark this page. You'll use it.</span></li>
     </ul>
   </div>
 </section>
 
-<!-- ══ TRASH SCHEDULE ════════════════════════════════════ -->
+<!-- TRASH -->
 <section class="section section-alt" id="trash">
   <div class="container">
     <div class="section-header">
@@ -593,14 +497,7 @@
     </div>
     <div style="overflow-x:auto; border-radius:var(--radius); box-shadow:var(--shadow); margin-bottom:1.5rem; border:1px solid var(--gray-2);">
       <table class="trash-table">
-        <thead>
-          <tr>
-            <th>Zone / Area</th>
-            <th>Trash Day</th>
-            <th>Recycling Day</th>
-            <th>Notes</th>
-          </tr>
-        </thead>
+        <thead><tr><th>Zone / Area</th><th>Trash Day</th><th>Recycling Day</th><th>Notes</th></tr></thead>
         <tbody>
           <tr><td>Zone A — North CF</td><td>Monday</td><td>Every other Monday</td><td>Check your first week</td></tr>
           <tr><td>Zone B — Central CF</td><td>Tuesday</td><td>Every other Tuesday</td><td></td></tr>
@@ -625,13 +522,13 @@
   </div>
 </section>
 
-<!-- ══ SCHOOLS ═══════════════════════════════════════════ -->
+<!-- SCHOOLS -->
 <section class="section" id="schools">
   <div class="container">
     <div class="section-header">
       <div class="section-eyebrow">Education</div>
-      <h2 class="section-title">Private Schools Near the Falls</h2>
-      <p class="section-desc">A guide to the area's private and parochial school options for families.</p>
+      <h2 class="section-title">Schools</h2>
+      <p class="section-desc">Private and parochial school options for families in and around Cuyahoga Falls.</p>
     </div>
     <div class="sub-eyebrow" style="margin-bottom:0.75rem;">High Schools</div>
     <div class="grid-2" style="margin-bottom:1.5rem;">
@@ -660,6 +557,7 @@
         <a class="card-link" href="https://www.hoban.org" target="_blank" rel="noopener" style="display:inline-block; margin-top:0.5rem;">hoban.org →</a>
       </div>
     </div>
+    <div class="gold-divider"></div>
     <div class="sub-eyebrow" style="margin-bottom:0.75rem;">Elementary &amp; Middle Schools</div>
     <div class="grid-3">
       <div class="school-card">
@@ -681,7 +579,7 @@
   </div>
 </section>
 
-<!-- ══ HOSPITALS ════════════════════════════════════════ -->
+<!-- HOSPITALS -->
 <section class="section section-alt" id="hospitals">
   <div class="container">
     <div class="section-header">
@@ -722,7 +620,7 @@
   </div>
 </section>
 
-<!-- ══ RESTAURANTS ══════════════════════════════════════ -->
+<!-- RESTAURANTS -->
 <section class="section" id="restaurants">
   <div class="container">
     <div class="section-header">
@@ -752,7 +650,7 @@
     <div class="sub-eyebrow" style="margin-bottom:0.75rem;">International</div>
     <div class="grid-3" style="margin-bottom:1.5rem;">
       <div class="biz-card"><span class="falls-approved">⭐ Falls Approved</span><h4>Chen's Garden</h4><div class="biz-tag">Chinese</div><p class="biz-desc">Reliable, consistent Chinese food that CF residents have trusted for years.</p></div>
-      <div class="biz-card"><span class="falls-approved">⭐ Falls Approved</span><h4>Seoul Garden</h4><div class="biz-tag">Korean</div><p class="biz-desc">Authentic Korean cuisine — one of the better options in the Akron/CF area for those who know what they're looking for.</p></div>
+      <div class="biz-card"><span class="falls-approved">⭐ Falls Approved</span><h4>Seoul Garden</h4><div class="biz-tag">Korean</div><p class="biz-desc">Authentic Korean cuisine — one of the better options in the Akron/CF area.</p></div>
       <div class="biz-card"><span class="falls-approved">⭐ Falls Approved</span><h4>El Meson</h4><div class="biz-tag">Mexican</div><p class="biz-desc">Solid Mexican that goes beyond the basics. A go-to for the Falls.</p></div>
       <div class="biz-card"><span class="falls-approved">⭐ Falls Approved</span><h4>Das Schnitzel Haus</h4><div class="biz-tag">German</div><p class="biz-desc">Authentic German food — schnitzel, spaetzle, the works. A unique find in northeast Ohio.</p></div>
     </div>
@@ -772,7 +670,7 @@
   </div>
 </section>
 
-<!-- ══ HOME SERVICES ════════════════════════════════════ -->
+<!-- SERVICES -->
 <section class="section section-alt" id="services">
   <div class="container">
     <div class="section-header">
@@ -812,7 +710,7 @@
   </div>
 </section>
 
-<!-- ══ GYMS ══════════════════════════════════════════════ -->
+<!-- GYMS -->
 <section class="section" id="gyms">
   <div class="container">
     <div class="section-header">
@@ -828,7 +726,7 @@
   </div>
 </section>
 
-<!-- ══ PET SERVICES ══════════════════════════════════════ -->
+<!-- PET SERVICES -->
 <section class="section section-alt" id="pets">
   <div class="container">
     <div class="section-header">
@@ -843,7 +741,7 @@
   </div>
 </section>
 
-<!-- ══ EXPLORE ═══════════════════════════════════════════ -->
+<!-- EXPLORE -->
 <section class="section" id="explore">
   <div class="container">
     <div class="section-header">
@@ -860,9 +758,9 @@
     <div class="gold-divider"></div>
     <div class="sub-eyebrow" style="margin-bottom:0.75rem;">Museums &amp; Landmarks</div>
     <div class="grid-3" style="margin-bottom:1.5rem;">
-      <div class="card"><span class="card-icon">🎸</span><h3>Rock and Roll Hall of Fame</h3><p>Cleveland. 30 minutes. One of the most iconic museums in America — a bucket list stop for anyone in northeast Ohio.</p><a class="card-link" href="https://www.rockhall.com" target="_blank" rel="noopener">rockhall.com →</a></div>
-      <div class="card"><span class="card-icon">🏈</span><h3>Pro Football Hall of Fame</h3><p>Canton — 30 minutes south of CF. Incredible facility. Football fan or not, the history is worth seeing.</p><a class="card-link" href="https://www.profootballhof.com" target="_blank" rel="noopener">profootballhof.com →</a></div>
-      <div class="card"><span class="card-icon">🏛️</span><h3>Stan Hywet Hall &amp; Gardens</h3><p>Akron — right next door. The former Goodyear founder's 65-room Tudor mansion and stunning English gardens. Most CF residents drive past it for years before going.</p><a class="card-link" href="https://www.stanhywet.org" target="_blank" rel="noopener">stanhywet.org →</a></div>
+      <div class="card"><span class="card-icon">🎸</span><h3>Rock and Roll Hall of Fame</h3><p>Cleveland. 30 minutes. One of the most iconic museums in America.</p><a class="card-link" href="https://www.rockhall.com" target="_blank" rel="noopener">rockhall.com →</a></div>
+      <div class="card"><span class="card-icon">🏈</span><h3>Pro Football Hall of Fame</h3><p>Canton — 30 minutes south. Incredible facility. Football fan or not, the history is worth seeing.</p><a class="card-link" href="https://www.profootballhof.com" target="_blank" rel="noopener">profootballhof.com →</a></div>
+      <div class="card"><span class="card-icon">🏛️</span><h3>Stan Hywet Hall &amp; Gardens</h3><p>Akron — right next door. The former Goodyear founder's 65-room Tudor mansion and stunning English gardens.</p><a class="card-link" href="https://www.stanhywet.org" target="_blank" rel="noopener">stanhywet.org →</a></div>
       <div class="card"><span class="card-icon">🌾</span><h3>Hale Farm &amp; Village</h3><p>Bath Township — practically in CF's backyard. Living history museum set in the 1800s. Great for families.</p><a class="card-link" href="https://www.wrhs.org/halefarm" target="_blank" rel="noopener">wrhs.org →</a></div>
       <div class="card"><span class="card-icon">🚀</span><h3>Great Lakes Science Center</h3><p>Cleveland waterfront. NASA Glenn exhibits, IMAX. A great day out for families and curious minds.</p><a class="card-link" href="https://www.greatscience.com" target="_blank" rel="noopener">greatscience.com →</a></div>
       <div class="card"><span class="card-icon">🎨</span><h3>Cleveland Museum of Art</h3><p>Free admission to one of the top art museums in the country. Permanent collection rivals any major American city.</p><a class="card-link" href="https://www.clevelandart.org" target="_blank" rel="noopener">clevelandart.org →</a></div>
@@ -877,14 +775,14 @@
     <div class="gold-divider"></div>
     <div class="sub-eyebrow" style="margin-bottom:0.75rem;">Outdoors</div>
     <div class="grid-3">
-      <div class="card"><span class="card-icon">🌊</span><h3>Gorge Metro Park</h3><p>Right in CF's backyard. The gorge trails along the Cuyahoga River are genuinely stunning — one of the best hiking experiences in northeast Ohio. Free.</p></div>
-      <div class="card"><span class="card-icon">🌲</span><h3>Cuyahoga Valley National Park</h3><p>A national park 20 minutes from your front door. Brandywine Falls, the towpath trail, Beaver Marsh — world-class outdoor recreation, free to access.</p><a class="card-link" href="https://www.nps.gov/cuva" target="_blank" rel="noopener">nps.gov/cuva →</a></div>
+      <div class="card"><span class="card-icon">🌊</span><h3>Gorge Metro Park</h3><p>Right in CF's backyard. The gorge trails along the Cuyahoga River are genuinely stunning — one of the best hikes in northeast Ohio. Free.</p></div>
+      <div class="card"><span class="card-icon">🌲</span><h3>Cuyahoga Valley National Park</h3><p>A national park 20 minutes from your front door. Brandywine Falls, the towpath trail, Beaver Marsh — free to access.</p><a class="card-link" href="https://www.nps.gov/cuva" target="_blank" rel="noopener">nps.gov/cuva →</a></div>
       <div class="card"><span class="card-icon">💦</span><h3>Silver Springs Waterpark</h3><p>CF's own waterpark — a summer staple for families in the Falls. Slides, pools, the works.</p></div>
     </div>
   </div>
 </section>
 
-<!-- ══ EVENTS ════════════════════════════════════════════ -->
+<!-- EVENTS -->
 <section class="section section-alt" id="events">
   <div class="container">
     <div class="section-header">
@@ -897,7 +795,7 @@
         <div class="event-date"><div class="month">Year-Round</div><div class="day">🎵</div></div>
         <div class="event-info">
           <h4>Blossom Music Center</h4>
-          <p>The summer home of the Cleveland Orchestra — and one of the best outdoor venues in the country. CF's crown jewel. Check the full season schedule for concerts and major touring acts.</p>
+          <p>The summer home of the Cleveland Orchestra — one of the best outdoor venues in the country. CF's crown jewel.</p>
           <span class="event-tag">Music</span>
           <a class="card-link" href="https://www.livenation.com/venue/KovZpZAeE6lA/blossom-music-center-events" target="_blank" rel="noopener" style="display:block; margin-top:0.4rem;">View Blossom Schedule →</a>
         </div>
@@ -906,7 +804,7 @@
         <div class="event-date"><div class="month">Summer</div><div class="day">🌳</div></div>
         <div class="event-info">
           <h4>CVNP Seasonal Programming</h4>
-          <p>Cuyahoga Valley National Park runs events, ranger programs, and seasonal activities year-round. Hiking events, photography walks, educational programs — all free or low cost.</p>
+          <p>Cuyahoga Valley National Park runs events, ranger programs, and seasonal activities year-round. All free or low cost.</p>
           <span class="event-tag">Outdoors</span>
           <a class="card-link" href="https://www.nps.gov/cuva/planyourvisit/events.htm" target="_blank" rel="noopener" style="display:block; margin-top:0.4rem;">View CVNP Events →</a>
         </div>
@@ -915,7 +813,7 @@
         <div class="event-date"><div class="month">Spring–Fall</div><div class="day">🚞</div></div>
         <div class="event-info">
           <h4>Cuyahoga Valley Scenic Railroad</h4>
-          <p>Seasonal train rides through the national park. Family-friendly, scenic, and a genuinely unique northeast Ohio experience. Special holiday trains in fall and winter.</p>
+          <p>Seasonal train rides through the national park. Family-friendly, scenic, uniquely Ohio. Special holiday trains in fall and winter.</p>
           <span class="event-tag">Family</span>
           <a class="card-link" href="https://www.cvsr.org" target="_blank" rel="noopener" style="display:block; margin-top:0.4rem;">cvsr.org →</a>
         </div>
@@ -925,7 +823,7 @@
   </div>
 </section>
 
-<!-- ══ SPORTS ════════════════════════════════════════════ -->
+<!-- SPORTS -->
 <section class="section" id="sports">
   <div class="container">
     <div class="section-header">
@@ -937,9 +835,9 @@
     <div class="grid-3" style="margin-bottom:1.5rem;">
       <div class="sport-card"><div class="sport-icon">🏈</div><div><h4>Cleveland Browns</h4><p>NFL. This is Browns country, full stop. Huntington Bank Field — 30 min north.</p></div></div>
       <div class="sport-card"><div class="sport-icon">⚾</div><div><h4>Cleveland Guardians</h4><p>MLB. Progressive Field, downtown Cleveland. Summer nights at the ballpark don't get much better.</p></div></div>
-      <div class="sport-card"><div class="sport-icon">🏀</div><div><h4>Cleveland Cavaliers</h4><p>NBA. Rocket Mortgage FieldHouse — Cleveland. Championship pedigree.</p></div></div>
+      <div class="sport-card"><div class="sport-icon">🏀</div><div><h4>Cleveland Cavaliers</h4><p>NBA. Rocket Mortgage FieldHouse. Championship pedigree.</p></div></div>
       <div class="sport-card"><div class="sport-icon">🏒</div><div><h4>Cleveland Monsters</h4><p>AHL. Rocket Mortgage FieldHouse. Great hockey at a fraction of NHL prices.</p></div></div>
-      <div class="sport-card"><div class="sport-icon">⚾</div><div><h4>Akron RubberDucks</h4><p>Double-A affiliate of the Guardians. Canal Park, Akron. Affordable, fun, family-friendly minor league baseball.</p></div></div>
+      <div class="sport-card"><div class="sport-icon">⚾</div><div><h4>Akron RubberDucks</h4><p>Double-A affiliate of the Guardians. Canal Park, Akron. Affordable, fun, family-friendly.</p></div></div>
       <div class="sport-card"><div class="sport-icon">🏈</div><div><h4>Akron Zips</h4><p>University of Akron athletics. MAC conference football, basketball, and more — right down the road.</p></div></div>
     </div>
     <div class="gold-divider"></div>
@@ -947,13 +845,13 @@
     <div class="grid-3">
       <div class="sport-card"><div class="sport-icon">⚔️</div><div><h4>Walsh Jesuit Warriors</h4><p>Consistently strong across multiple sports. Football and basketball programs draw real attention.</p></div></div>
       <div class="sport-card"><div class="sport-icon">👑</div><div><h4>CVCA Royals</h4><p>Right in CF — strong programs across the board. A community staple.</p></div></div>
-      <div class="sport-card"><div class="sport-icon">🏆</div><div><h4>St. Vincent-St. Mary Fighting Irish</h4><p>Basketball royalty in Ohio. LeBron's alma mater still draws eyes. Football is no slouch either.</p></div></div>
+      <div class="sport-card"><div class="sport-icon">🏆</div><div><h4>St. Vincent-St. Mary Fighting Irish</h4><p>Basketball royalty in Ohio. LeBron's alma mater still draws eyes.</p></div></div>
       <div class="sport-card"><div class="sport-icon">🦅</div><div><h4>Archbishop Hoban Knights</h4><p>One of the premier football programs in Ohio. Hoban football nights in Akron are an event.</p></div></div>
     </div>
   </div>
 </section>
 
-<!-- ══ REAL ESTATE ═══════════════════════════════════════ -->
+<!-- REAL ESTATE -->
 <section class="section section-alt" id="realestate">
   <div class="container">
     <div class="section-header">
@@ -968,18 +866,18 @@
       <div class="re-stat"><div class="stat-val">44,000+</div><div class="stat-label">City Population</div></div>
     </div>
     <p style="font-size:0.75rem; color:var(--gray-3); margin-bottom:1.25rem;">Market data is approximate and updated quarterly. Source: Summit County Auditor / Zillow Research. Always consult a licensed real estate professional.</p>
-    <div class="embed-wrap">
-      <div style="min-height:380px; display:flex; align-items:center; justify-content:center; flex-direction:column; gap:1rem; color:var(--gray-3); padding:2rem; text-align:center;">
-        <div style="font-size:2.5rem;">🏡</div>
-        <p style="font-size:0.9rem;">Paste your Zillow embed code here for live CF listings.</p>
-        <a href="https://www.zillow.com/cuyahoga-falls-oh/" target="_blank" rel="noopener" class="btn">Browse Current Listings on Zillow →</a>
+    <a class="link-card" href="https://www.zillow.com/cuyahoga-falls-oh/" target="_blank" rel="noopener">
+      <div class="link-card-icon">🏡</div>
+      <div class="link-card-text">
+        <h4>Browse Current Listings</h4>
+        <p>Live home listings in Cuyahoga Falls, OH — updated in real time on Zillow. Filter by price, beds, baths, and neighborhood.</p>
       </div>
-      <div class="embed-label">🏡 Listings sourced from Zillow — updated in real time.</div>
-    </div>
+      <span class="btn-gold">View Listings →</span>
+    </a>
   </div>
 </section>
 
-<!-- ══ DAY TRIPS ═════════════════════════════════════════ -->
+<!-- DAY TRIPS -->
 <section class="section" id="daytrips">
   <div class="container">
     <div class="section-header">
@@ -993,12 +891,12 @@
       <div class="card"><span class="card-icon">🎢</span><h3>Cedar Point — 1 hr</h3><p>The Roller Coaster Capital of the World. On Lake Erie. A summer rite of passage for northeast Ohio.<br/><a class="card-link" href="https://www.cedarpoint.com" target="_blank" rel="noopener" style="display:inline-block; margin-top:0.5rem;">cedarpoint.com →</a></p></div>
       <div class="card"><span class="card-icon">⚓</span><h3>Put-in-Bay — 1.5 hrs</h3><p>Lake Erie island life. Ferry from Sandusky. Summer destination for good reason — beautiful, fun, uniquely Ohio.</p></div>
       <div class="card"><span class="card-icon">🌉</span><h3>Pittsburgh — Under 2 hrs</h3><p>One of America's most underrated cities. The Strip District, incredible food, beautiful bridges, great sports culture.</p></div>
-      <div class="card"><span class="card-icon">🌄</span><h3>Hocking Hills — 2.5 hrs</h3><p>Waterfalls, gorges, caves, and dramatic scenery. Old Man's Cave and Ash Cave are worth every mile.<br/><a class="card-link" href="https://www.explorehockinghills.com" target="_blank" rel="noopener" style="display:inline-block; margin-top:0.5rem;">explorehockinghills.com →</a></p></div>
+      <div class="card"><span class="card-icon">🌄</span><h3>Hocking Hills — 2.5 hrs</h3><p>Waterfalls, gorges, caves, dramatic scenery. Old Man's Cave and Ash Cave are worth every mile.<br/><a class="card-link" href="https://www.explorehockinghills.com" target="_blank" rel="noopener" style="display:inline-block; margin-top:0.5rem;">explorehockinghills.com →</a></p></div>
     </div>
   </div>
 </section>
 
-<!-- ══ EMPLOYERS ═════════════════════════════════════════ -->
+<!-- EMPLOYERS -->
 <section class="section section-alt" id="employers">
   <div class="container">
     <div class="section-header">
@@ -1008,13 +906,13 @@
     </div>
     <div class="grid-3">
       <div class="info-block"><h4>🏥 Healthcare</h4><ul><li>Summa Health System</li><li>Akron Children's Hospital</li><li>Cleveland Clinic Akron General</li></ul></div>
-      <div class="info-block"><h4>🏭 Manufacturing &amp; Industry</h4><ul><li>CF has a strong manufacturing base — industrial and precision manufacturing throughout the area</li><li>Bridgestone Americas (Akron)</li><li>Akron remains the Polymer Capital of the World</li></ul></div>
+      <div class="info-block"><h4>🏭 Manufacturing &amp; Industry</h4><ul><li>Strong manufacturing base throughout the area</li><li>Bridgestone Americas (Akron)</li><li>Akron remains the Polymer Capital of the World</li></ul></div>
       <div class="info-block"><h4>🏢 Corporate / Regional</h4><ul><li>Goodyear Tire &amp; Rubber — Akron HQ</li><li>FirstEnergy Corp — Akron HQ</li><li>University of Akron</li><li>Summa Health (system-wide)</li></ul></div>
     </div>
   </div>
 </section>
 
-<!-- ══ FAQ ════════════════════════════════════════════════ -->
+<!-- FAQ -->
 <section class="section" id="faq">
   <div class="container">
     <div class="section-header">
@@ -1055,7 +953,7 @@
   </div>
 </section>
 
-<!-- ══ ADVERTISE ══════════════════════════════════════════ -->
+<!-- ADVERTISE -->
 <section class="section section-alt" id="advertise">
   <div class="container">
     <div class="advertise-banner">
@@ -1066,7 +964,7 @@
   </div>
 </section>
 
-<!-- ══ FOOTER ═════════════════════════════════════════════ -->
+<!-- FOOTER -->
 <footer>
   <strong>CuyahogaFallsOhio.com</strong><br/>
   The Unofficial Guide to the Falls — by locals, for locals.<br/>
@@ -1079,6 +977,20 @@
   function toggleFaq(btn) {
     const item = btn.closest('.faq-item');
     item.classList.toggle('open');
+  }
+
+  function toggleCheck(li) {
+    li.classList.toggle('done');
+    updateProgress();
+  }
+
+  function updateProgress() {
+    const items = document.querySelectorAll('#checklist li');
+    const done = document.querySelectorAll('#checklist li.done').length;
+    const total = items.length;
+    const pct = Math.round((done / total) * 100);
+    document.getElementById('progressFill').style.width = pct + '%';
+    document.getElementById('progressCount').textContent = done + ' / ' + total + ' complete';
   }
 </script>
 
