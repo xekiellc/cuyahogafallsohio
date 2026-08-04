@@ -122,14 +122,6 @@
     .sl .ln{font-family:var(--fd);font-size:2.2rem;line-height:1;margin-bottom:0.3rem;color:var(--gold-light);}
     .sl h4{font-size:0.9rem;font-weight:700;margin-bottom:0.4rem;}
     .sl p{font-size:0.82rem;opacity:0.85;line-height:1.5;}
-    .fq{background:var(--black-card);border:1px solid var(--gray-2);border-radius:var(--r);overflow:hidden;box-shadow:var(--sh);transition:border-color 0.2s;}
-    .fq.open{border-color:var(--gold-dark);}
-    .fq-q{width:100%;background:none;border:none;padding:1.1rem 1.25rem;text-align:left;font-family:var(--fs);font-size:1rem;font-weight:700;color:var(--white);cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:1rem;}
-    .fq-q:hover{background:var(--gray-1);}
-    .fq-ic{font-size:1.3rem;flex-shrink:0;color:var(--gold);transition:transform 0.2s;}
-    .fq-a{padding:0.9rem 1.25rem 1.1rem;font-size:0.92rem;color:var(--text-light);line-height:1.65;display:none;border-top:1px solid var(--gray-1);}
-    .fq.open .fq-a{display:block;}
-    .fq.open .fq-ic{transform:rotate(45deg);}
     .rst{background:var(--black-card);border:1px solid var(--gray-2);border-radius:var(--rl);padding:1.5rem;text-align:center;box-shadow:var(--sh);}
     .rst .sv{font-family:var(--fs);font-size:2rem;font-weight:700;color:var(--gold);line-height:1;margin-bottom:0.35rem;}
     .rst .sl2{font-size:0.75rem;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:var(--gray-3);}
@@ -637,28 +629,8 @@
   </div>
 </section>
 
-<!-- ASK A LOCAL -->
-<section class="section section-alt" id="faq">
-  <div class="container">
-    <div class="section-header">
-      <div class="eyebrow">Straight Answers</div>
-      <h2 class="sec-title">Ask a Local</h2>
-      <p class="sec-desc">The questions newcomers always ask. Answered honestly — no spin.</p>
-    </div>
-    <div style="display:flex;flex-direction:column;gap:0.5rem;">
-      <div class="fq"><button class="fq-q" onclick="toggleFaq(this)">Is Cuyahoga Falls safe? <span class="fq-ic">+</span></button><div class="fq-a">CF is a mid-sized Ohio city — it has safe neighborhoods and areas you'd rather avoid, like anywhere else. The west side and areas near the gorge and riverwalk tend to be quiet and family-friendly. Do your homework using the safety data on this site before buying or renting. Overall, CF is considered safer than many comparable Ohio cities its size.</div></div>
-      <div class="fq"><button class="fq-q" onclick="toggleFaq(this)">What's the best neighborhood for families? <span class="fq-ic">+</span></button><div class="fq-a">The areas west of Route 8 toward the Bath Township line tend to be quiet, well-maintained, and popular with families. The neighborhoods near CVCA and the Silver Springs area also have a strong family feel. Use the crime and safety data on this site to compare specific streets before committing.</div></div>
-      <div class="fq"><button class="fq-q" onclick="toggleFaq(this)">Where do locals actually eat? <span class="fq-ic">+</span></button><div class="fq-a">Arnie's West Branch for a proper steak night. Rocco's or Athena's when the pizza mood strikes. Chen's Garden for reliable Chinese. Das Schnitzel Haus when you want something nobody else does. El Meson for margaritas and solid Mexican. Hartville Kitchen when you want a meal that reminds you why scratch cooking exists.</div></div>
-      <div class="fq"><button class="fq-q" onclick="toggleFaq(this)">Why does CF have its own electric company? <span class="fq-ic">+</span></button><div class="fq-a">Cuyahoga Falls Municipal Electric has operated since the early 1900s — one of Ohio's municipal electric utilities. The city owns and operates its own distribution system, which historically has meant stable rates and local control. When your power goes out, you call CF directly — not a regional utility.</div></div>
-      <div class="fq"><button class="fq-q" onclick="toggleFaq(this)">How bad are the winters? <span class="fq-ic">+</span></button><div class="fq-a">Real talk: northeast Ohio winters are serious. CF sits inland but close enough to Lake Erie to catch lake effect snow events. January and February can see multiple significant snow events. Get good tires, learn the snow emergency level system, and keep your driveway clear — the neighbors notice.</div></div>
-      <div class="fq"><button class="fq-q" onclick="toggleFaq(this)">Is CF a good value compared to Cleveland or Akron? <span class="fq-ic">+</span></button><div class="fq-a">Yes. CF offers more house for the money than most Cleveland suburbs, with shorter commutes to Akron than many alternatives. School options are strong. Access to outdoor recreation through the gorge and CVNP is genuinely exceptional. It's one of northeast Ohio's underrated places to plant roots.</div></div>
-      <div class="fq"><button class="fq-q" onclick="toggleFaq(this)">What's there to do on a weekend? <span class="fq-ic">+</span></button><div class="fq-a">Hike the gorge. Drive to Blossom for a show. Catch a RubberDucks game in Akron. Hit Cedar Point in the summer. Day-trip to Cleveland for a Browns or Guardians game. Explore CVNP year-round. There's more to do within 45 minutes of CF than most people realize when they first move here.</div></div>
-    </div>
-  </div>
-</section>
-
 <!-- ADVERTISE -->
-<section class="section" id="advertise">
+<section class="section section-alt" id="advertise">
   <div class="container">
     <div class="ab">
       <h3>Advertise on CuyahogaFallsOhio.com</h3>
@@ -676,7 +648,6 @@
 
 <script>
   function flipCard(card){card.classList.toggle('flipped');}
-  function toggleFaq(btn){btn.closest('.fq').classList.toggle('open');}
   function toggleCheck(el,e){
     e.stopPropagation();
     const li=el.closest('li');
