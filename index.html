@@ -175,7 +175,6 @@
     <a href="#trash">Trash</a>
     <a href="#weather">Weather</a>
     <a href="#traffic">Traffic</a>
-    <a href="#faq">FAQ</a>
   </div>
 </nav>
 
@@ -283,7 +282,7 @@
       <div class="sc"><div class="sc-name">Gorge Metro Park</div><div class="sc-tag">CF — Free</div><p class="sc-desc">The gorge trails along the Cuyahoga River are genuinely stunning — one of the best hikes in NE Ohio. 1000 Front St, CF 44221. Dogs welcome on leash. Year-round.</p></div>
       <div class="sc"><div class="sc-name">Cuyahoga Valley National Park</div><div class="sc-tag">20 min from CF · Free</div><p class="sc-desc">Brandywine Falls, the towpath trail, Beaver Marsh — world-class outdoor recreation right next door. 125+ miles of trails.</p><a href="https://www.nps.gov/cuva" target="_blank" rel="noopener">NPS Website</a></div>
       <div class="sc"><div class="sc-name">Silver Springs Waterpark</div><div class="sc-tag">CF — Seasonal</div><p class="sc-desc">CF's own waterpark — a summer staple for Falls families. Slides, pools, lazy river. 1769 Bailey Rd, CF 44221.</p></div>
-      <div class="sc"><div class="sc-name">Kim Tam Park at Melanie Springs</div><div class="sc-tag">Uniontown, OH — 15 min · Seasonal</div><p class="sc-desc">A northeast Ohio original since 1952. Natural artesian spring-fed lake, the only high dive left in Ohio, 3 diving boards, water slides, sandy beach, camping, volleyball, pickleball, bonfire pits, food trucks, and live music at the River Rock pavilion stage. A genuine summer institution. 2881 Canton Rd, Uniontown, OH 44685.</p><a href="https://kimtampark.com" target="_blank" rel="noopener">kimtampark.com</a></div>
+      <div class="sc"><div class="sc-name">Kim Tam Park at Melanie Springs</div><div class="sc-tag">Uniontown, OH — 15 min · Seasonal</div><p class="sc-desc">A northeast Ohio original since 1952. Natural artesian spring-fed lake, the only high dive left in Ohio, 3 diving boards, water slides, sandy beach, camping, volleyball, pickleball, bonfire pits, food trucks, and live music at the River Rock pavilion stage. 2881 Canton Rd, Uniontown, OH 44685.</p><a href="https://kimtampark.com" target="_blank" rel="noopener">kimtampark.com</a></div>
     </div>
     <div class="gold-div"></div>
     <div class="sub-label">Museums &amp; Landmarks</div>
@@ -638,7 +637,7 @@
   </div>
 </section>
 
-<!-- FAQ -->
+<!-- ASK A LOCAL -->
 <section class="section section-alt" id="faq">
   <div class="container">
     <div class="section-header">
@@ -687,7 +686,6 @@
     document.getElementById('progressFill').style.width=Math.round((done/total)*100)+'%';
     document.getElementById('progressCount').textContent=done+' / '+total+' complete';
   }
-
   async function loadWeather(){
     try{
       const pt=await fetch('https://api.weather.gov/points/41.1345,-81.4846');
