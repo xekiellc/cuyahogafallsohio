@@ -28,10 +28,13 @@
     a{color:var(--gold);text-decoration:none;}
     a:hover{color:var(--gold-light);}
     nav{background:var(--black);border-bottom:1px solid var(--gold-dark);position:sticky;top:0;z-index:100;box-shadow:0 2px 16px rgba(0,0,0,0.8);}
-    .nav-inner{max-width:1200px;margin:0 auto;padding:0 1.5rem;display:flex;align-items:center;overflow-x:auto;scrollbar-width:none;}
+    .nav-inner{max-width:1200px;margin:0 auto;padding:0 1rem;display:flex;align-items:center;overflow-x:auto;scrollbar-width:none;}
     .nav-inner::-webkit-scrollbar{display:none;}
-    .nav-logo{font-family:var(--fd);font-weight:400;font-size:1.3rem;color:var(--gold);white-space:nowrap;padding:0.85rem 1.25rem 0.85rem 0;border-right:1px solid var(--gray-2);margin-right:0.5rem;flex-shrink:0;letter-spacing:0.06em;}
-    nav a{color:var(--gray-4);font-size:0.74rem;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;padding:0.85rem 0.7rem;white-space:nowrap;flex-shrink:0;transition:color 0.15s;}
+    .nav-weather{display:flex;align-items:center;gap:0.3rem;padding:0.85rem 0.75rem 0.85rem 0;border-right:1px solid var(--gray-2);margin-right:0.6rem;flex-shrink:0;white-space:nowrap;}
+    .nav-weather .wx-icon{font-size:1rem;line-height:1;}
+    .nav-weather .wx-temp{font-family:var(--fs);font-size:0.85rem;color:var(--white);font-weight:600;}
+    .nav-logo{font-family:var(--fd);font-weight:400;font-size:1.15rem;color:var(--gold);white-space:nowrap;padding:0.85rem 1rem 0.85rem 0;border-right:1px solid var(--gray-2);margin-right:0.4rem;flex-shrink:0;letter-spacing:0.06em;}
+    nav a{color:var(--gray-4);font-size:0.68rem;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;padding:0.85rem 0.55rem;white-space:nowrap;flex-shrink:0;transition:color 0.15s;}
     nav a:hover{color:var(--gold);}
     .hero{background:var(--black);color:var(--white);text-align:center;padding:4.5rem 1.5rem 4rem;position:relative;overflow:hidden;border-bottom:1px solid var(--gold-dark);}
     .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(200,149,42,0.12) 0%,transparent 65%);pointer-events:none;}
@@ -130,9 +133,9 @@
     .rst{background:var(--black-card);border:1px solid var(--gray-2);border-radius:var(--rl);padding:1.5rem;text-align:center;box-shadow:var(--sh);}
     .rst .sv{font-family:var(--fs);font-size:2rem;font-weight:700;color:var(--gold);line-height:1;margin-bottom:0.35rem;}
     .rst .sl2{font-size:0.75rem;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:var(--gray-3);}
-    .pad{background:var(--black-soft);border:1px solid var(--gold-dark);border-radius:var(--rl);padding:2rem;color:var(--white);position:relative;overflow:hidden;box-shadow:var(--gg);}
-    .pad::before{content:'';position:absolute;top:-60px;right:-60px;width:240px;height:240px;background:radial-gradient(circle,rgba(200,149,42,0.12) 0%,transparent 70%);pointer-events:none;}
-    .pad .al{font-size:0.63rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);margin-bottom:0.5rem;opacity:0.85;}
+    .pad{background:var(--black-soft);border:2px solid var(--gold);border-radius:var(--rl);padding:2rem;color:var(--white);position:relative;overflow:hidden;box-shadow:var(--gg);}
+    .pad::before{content:'';position:absolute;top:-60px;right:-60px;width:240px;height:240px;background:radial-gradient(circle,rgba(200,149,42,0.15) 0%,transparent 70%);pointer-events:none;}
+    .pad .al{font-size:0.68rem;font-weight:800;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);margin-bottom:0.6rem;}
     .pad h3{font-family:var(--fs);font-size:1.6rem;font-weight:700;margin-bottom:0.5rem;color:var(--white);}
     .pad p{font-size:0.92rem;color:var(--gray-4);line-height:1.65;margin-bottom:0.4rem;}
     .pad .acta{display:inline-block;margin-top:0.9rem;background:var(--gold);color:var(--black);font-weight:800;font-size:0.88rem;padding:0.6rem 1.4rem;border-radius:100px;transition:background 0.2s;}
@@ -148,12 +151,13 @@
     footer{background:var(--black);border-top:1px solid var(--gold-dark);color:var(--gray-3);text-align:center;padding:2.5rem 1.5rem;font-size:0.85rem;line-height:1.7;}
     footer strong{color:var(--gold);}
     .fd2{max-width:600px;margin:0.75rem auto 0;font-size:0.76rem;opacity:0.65;}
-    @media(max-width:600px){.hero{padding:3rem 1rem 2.5rem;}.section{padding:2.5rem 0;}nav a{font-size:0.7rem;padding:0.75rem 0.55rem;}.lc{flex-direction:column;text-align:center;}.fc{height:auto;min-height:180px;}}
+    @media(max-width:600px){.hero{padding:3rem 1rem 2.5rem;}.section{padding:2.5rem 0;}nav a{font-size:0.65rem;padding:0.75rem 0.45rem;}.lc{flex-direction:column;text-align:center;}.fc{height:auto;min-height:180px;}.nav-weather{display:none;}}
   </style>
 </head>
 <body>
 <nav>
   <div class="nav-inner">
+    <div class="nav-weather"><span class="wx-icon" id="wxIcon">·</span><span class="wx-temp" id="wxTemp">--°</span></div>
     <div class="nav-logo">The Falls</div>
     <a href="#newcomer">New Resident</a>
     <a href="#restaurants">Eat &amp; Drink</a>
@@ -171,7 +175,7 @@
     <a href="#trash">Trash</a>
     <a href="#weather">Weather</a>
     <a href="#traffic">Traffic</a>
-    <a href="#faq">Ask a Local</a>
+    <a href="#faq">FAQ</a>
   </div>
 </nav>
 
@@ -199,20 +203,19 @@
     </div>
     <div class="cl-prog">
       <div class="cl-bar"><div class="cl-fill" id="progressFill"></div></div>
-      <span class="cl-ct" id="progressCount">0 / 12 complete</span>
+      <span class="cl-ct" id="progressCount">0 / 11 complete</span>
     </div>
     <ul class="cl" id="checklist">
       <li><div class="cb" onclick="toggleCheck(this,event)"></div><span class="ct">Set up your <strong>CF Municipal Electric</strong> account — CF runs its own electric utility, not FirstEnergy.<br><a href="https://www.cityofcf.com/departments/electric" target="_blank" rel="noopener">Set up CF Electric service</a></span></li>
       <li><div class="cb" onclick="toggleCheck(this,event)"></div><span class="ct">Find out your <strong>trash pickup day</strong> — it varies by neighborhood.<br><a href="#trash">View trash schedule on this page</a></span></li>
-      <li><div class="cb" onclick="toggleCheck(this,event)"></div><span class="ct">Update your <strong>Ohio driver's license</strong> at the nearest BMV within 30 days of establishing residency.<br><a href="https://www.bmv.ohio.gov/driver-license/" target="_blank" rel="noopener">Ohio BMV — driver license info</a></span></li>
-      <li><div class="cb" onclick="toggleCheck(this,event)"></div><span class="ct">Register your <strong>vehicle</strong> with the Summit County BMV.<br><a href="https://www.bmv.ohio.gov/vehicle-registration/" target="_blank" rel="noopener">Ohio BMV — vehicle registration</a></span></li>
+      <li><div class="cb" onclick="toggleCheck(this,event)"></div><span class="ct">Update your <strong>Ohio driver's license</strong> address at the Ohio ID portal within 10 days of moving.<br><a href="https://ohid.ohio.gov" target="_blank" rel="noopener">ohid.ohio.gov — Ohio ID &amp; BMV portal</a></span></li>
+      <li><div class="cb" onclick="toggleCheck(this,event)"></div><span class="ct">Register or renew your <strong>vehicle registration</strong> with Ohio OPLATES.<br><a href="https://www.oplates.com" target="_blank" rel="noopener">oplates.com — Ohio vehicle registration</a></span></li>
       <li><div class="cb" onclick="toggleCheck(this,event)"></div><span class="ct">Register to <strong>vote</strong> at your new address.<br><a href="https://olvr.ohiosos.gov/" target="_blank" rel="noopener">Ohio Online Voter Registration</a></span></li>
       <li><div class="cb" onclick="toggleCheck(this,event)"></div><span class="ct">Set up <strong>water and sewer</strong> service with the City of Cuyahoga Falls.<br><a href="https://www.cityofcf.com/public-utilities" target="_blank" rel="noopener">CF Public Utilities</a></span></li>
-      <li><div class="cb" onclick="toggleCheck(this,event)"></div><span class="ct">Find a <strong>primary care physician</strong> — Summa Health and Cleveland Clinic both have CF/Akron area offices.<br><a href="https://www.summahealth.org/find-a-doctor" target="_blank" rel="noopener">Find a doctor — Summa Health</a></span></li>
       <li><div class="cb" onclick="toggleCheck(this,event)"></div><span class="ct">Locate your nearest <strong>urgent care</strong> before you need it.<br><a href="https://www.summahealth.org/locations/urgent-care" target="_blank" rel="noopener">Summa Health urgent care locations</a></span></li>
       <li><div class="cb" onclick="toggleCheck(this,event)"></div><span class="ct">Find a <strong>veterinarian</strong> if you have pets.<br><a href="https://fallsvetclinic.com/contact/" target="_blank" rel="noopener">Cuyahoga Falls Veterinary Clinic</a></span></li>
       <li><div class="cb" onclick="toggleCheck(this,event)"></div><span class="ct">Learn the <strong>Summit County snow emergency levels</strong> — Level 3 means stay home or risk arrest.<br><a href="https://www.summitcounty.us/emergency" target="_blank" rel="noopener">Summit County Emergency Management</a></span></li>
-      <li><div class="cb" onclick="toggleCheck(this,event)"></div><span class="ct">Know where your nearest <strong>fire station</strong> is.<br><a href="https://www.cityofcf.com/fire" target="_blank" rel="noopener">CF Fire Department</a></span></li>
+      <li><div class="cb" onclick="toggleCheck(this,event)"></div><span class="ct">Know where your nearest <strong>fire station</strong> is.<br><a href="https://www.cityofcf.com/government/departments/fire" target="_blank" rel="noopener">CF Fire Department</a></span></li>
       <li><div class="cb" onclick="toggleCheck(this,event)"></div><span class="ct"><strong>Bookmark this page.</strong> You will use it.</span></li>
     </ul>
   </div>
@@ -280,6 +283,7 @@
       <div class="sc"><div class="sc-name">Gorge Metro Park</div><div class="sc-tag">CF — Free</div><p class="sc-desc">The gorge trails along the Cuyahoga River are genuinely stunning — one of the best hikes in NE Ohio. 1000 Front St, CF 44221. Dogs welcome on leash. Year-round.</p></div>
       <div class="sc"><div class="sc-name">Cuyahoga Valley National Park</div><div class="sc-tag">20 min from CF · Free</div><p class="sc-desc">Brandywine Falls, the towpath trail, Beaver Marsh — world-class outdoor recreation right next door. 125+ miles of trails.</p><a href="https://www.nps.gov/cuva" target="_blank" rel="noopener">NPS Website</a></div>
       <div class="sc"><div class="sc-name">Silver Springs Waterpark</div><div class="sc-tag">CF — Seasonal</div><p class="sc-desc">CF's own waterpark — a summer staple for Falls families. Slides, pools, lazy river. 1769 Bailey Rd, CF 44221.</p></div>
+      <div class="sc"><div class="sc-name">Kim Tam Park at Melanie Springs</div><div class="sc-tag">Uniontown, OH — 15 min · Seasonal</div><p class="sc-desc">A northeast Ohio original since 1952. Natural artesian spring-fed lake, the only high dive left in Ohio, 3 diving boards, water slides, sandy beach, camping, volleyball, pickleball, bonfire pits, food trucks, and live music at the River Rock pavilion stage. A genuine summer institution. 2881 Canton Rd, Uniontown, OH 44685.</p><a href="https://kimtampark.com" target="_blank" rel="noopener">kimtampark.com</a></div>
     </div>
     <div class="gold-div"></div>
     <div class="sub-label">Museums &amp; Landmarks</div>
@@ -347,7 +351,7 @@
     <div class="gold-div"></div>
     <div class="sub-label">Insurance</div>
     <div class="pad">
-      <div class="al">Featured Advertiser</div>
+      <div class="al">Official Insurance Broker of CuyahogaFallsOhio.com</div>
       <h3>ZM Insurance Group</h3>
       <p>Your local independent insurance broker — serving Cuyahoga Falls and all of northeast Ohio. Independent means ZM works for <em>you</em>, not the insurance company.</p>
       <p><strong style="color:var(--gold-light);">Products:</strong> Life · Health · Auto · Home &amp; Renters · Business · Medicare Supplements</p>
@@ -403,11 +407,19 @@
     <div class="section-header">
       <div class="eyebrow">Fitness</div>
       <h2 class="sec-title">Gyms &amp; Fitness</h2>
-      <p class="sec-desc">From big-box to boutique — find your spot to train in the Falls.</p>
+      <p class="sec-desc">From 24/7 independent gyms to a medically-based wellness center — find your spot to train in the Falls.</p>
     </div>
+    <div class="sub-label">City &amp; Independent</div>
+    <div class="fg" style="margin-bottom:1.5rem;">
+      <div class="sc"><div class="sc-name">The Natatorium</div><div class="sc-tag">City Facility — CF</div><p class="sc-desc">CF's flagship rec center — 116,000 sq ft with four pools, 12,000+ sq ft of fitness space, basketball, volleyball, pickleball, and group classes. A genuine community anchor. 2310 Second St, CF 44221.</p><a href="https://www.fallsnat.com" target="_blank" rel="noopener">fallsnat.com</a></div>
+      <div class="sc"><div class="sc-name">Devoted Fitness &amp; Strength</div><div class="sc-tag">24/7 Strength &amp; Coaching — CF</div><p class="sc-desc">CF's only 24/7 gym devoted to strength, strongman, and functional fitness. Personalized group coaching, nutrition support, and real results. 355 Remington Rd, CF 44224. (330) 970-9935.</p><a href="https://devotedstrength.com" target="_blank" rel="noopener">devotedstrength.com</a></div>
+      <div class="sc"><div class="sc-name">Fit Life Gym</div><div class="sc-tag">Independent Gym — CF</div><p class="sc-desc">Local independent gym on the CF waterfront corridor. Full equipment, personal training, and a community-driven atmosphere. 2101 Front St, CF 44221. (330) 548-7879.</p><a href="https://fitlifeakron.com" target="_blank" rel="noopener">fitlifeakron.com</a></div>
+      <div class="sc"><div class="sc-name">Planet Fitness</div><div class="sc-tag">Budget Gym — Cuyahoga Falls</div><p class="sc-desc">Low-cost 24-hour option. Does the job if you need iron and cardio machines without frills. Multiple CF area locations.</p><a href="https://www.planetfitness.com/gym-locations/ohio/cuyahoga-falls" target="_blank" rel="noopener">Find Location</a></div>
+    </div>
+    <div class="gold-div"></div>
+    <div class="sub-label">Medically-Based Fitness</div>
     <div class="fg">
-      <div class="sc"><div class="sc-name">CF RecPlex / Natatorium</div><div class="sc-tag">City Recreation Facility</div><p class="sc-desc">CF's own rec facility — pool, gym, fitness classes, rec programs. City-owned. Membership is a solid value. 2310 Second St, CF 44221.</p></div>
-      <div class="sc"><div class="sc-name">Planet Fitness</div><div class="sc-tag">Gym — Cuyahoga Falls</div><p class="sc-desc">Low-cost 24-hour option in CF. Does the job if you just need iron and cardio machines. Multiple CF area locations.</p><a href="https://www.planetfitness.com/gym-locations/ohio/cuyahoga-falls" target="_blank" rel="noopener">Find Location</a></div>
+      <div class="sc"><div class="sc-name">Cleveland Clinic Akron General LifeStyles</div><div class="sc-tag">Medically-Based Fitness · 3 Locations</div><p class="sc-desc">Akron General's LifeStyles program is a medically-supervised fitness facility with degreed exercise specialists, personalized fitness assessments, group classes, and nutrition programs. Closest location to CF: <strong style="color:var(--white);">Stow — 4300 Allen Rd, (330) 945-3100.</strong> Also in Bath and Green.</p><a href="https://my.clevelandclinic.org/locations/akron-general/lifestyles/hours-locations" target="_blank" rel="noopener">LifeStyles Locations &amp; Hours</a></div>
     </div>
   </div>
 </section>
@@ -453,7 +465,7 @@
       <div class="ib">
         <h4>CF Fire Department</h4>
         <p>Cuyahoga Falls Fire Department operates multiple stations across the city. Response times vary by zone — ask your insurance agent about proximity when buying a home.</p>
-        <a href="https://www.cityofcf.com/fire" target="_blank" rel="noopener" style="display:inline-block;margin-top:0.6rem;color:var(--gold);font-size:0.88rem;font-weight:600;">CF Fire Department</a>
+        <a href="https://www.cityofcf.com/government/departments/fire" target="_blank" rel="noopener" style="display:inline-block;margin-top:0.6rem;color:var(--gold);font-size:0.88rem;font-weight:600;">CF Fire Department</a>
       </div>
     </div>
     <div class="sub-label" style="margin-bottom:0.75rem;">Summit County Snow Emergency Levels</div>
@@ -675,6 +687,35 @@
     document.getElementById('progressFill').style.width=Math.round((done/total)*100)+'%';
     document.getElementById('progressCount').textContent=done+' / '+total+' complete';
   }
+
+  async function loadWeather(){
+    try{
+      const pt=await fetch('https://api.weather.gov/points/41.1345,-81.4846');
+      const ptd=await pt.json();
+      const stns=await fetch(ptd.properties.observationStations);
+      const sd=await stns.json();
+      const sid=sd.features[0].properties.stationIdentifier;
+      const obs=await fetch(`https://api.weather.gov/stations/${sid}/observations/latest`);
+      const od=await obs.json();
+      const p=od.properties;
+      if(p.temperature.value===null)return;
+      const f=Math.round(p.temperature.value*9/5+32);
+      const d=(p.textDescription||'').toLowerCase();
+      let ic='🌡';
+      if(d.includes('thunder'))ic='⛈';
+      else if(d.includes('snow')||d.includes('blizzard')||d.includes('flurr'))ic='❄';
+      else if(d.includes('freez')||d.includes('sleet')||d.includes('ice'))ic='🌨';
+      else if(d.includes('rain')||d.includes('shower')||d.includes('drizzle'))ic='🌧';
+      else if(d.includes('fog')||d.includes('mist')||d.includes('haze'))ic='🌫';
+      else if(d.includes('overcast')||d.includes('cloudy'))ic='☁';
+      else if(d.includes('partly cloudy')||d.includes('mostly cloudy')||d.includes('partly sunny'))ic='⛅';
+      else if(d.includes('clear')||d.includes('sunny')||d.includes('fair'))ic='☀';
+      else if(d.includes('wind'))ic='💨';
+      document.getElementById('wxIcon').textContent=ic;
+      document.getElementById('wxTemp').textContent=f+'°F';
+    }catch(e){}
+  }
+  loadWeather();
 </script>
 </body>
 </html>
